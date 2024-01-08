@@ -111,16 +111,51 @@
             }
           }
         ]
+      },
+      "ea7c6142-1e55-446f-af01-4a5c9851bb23": {
+        "id": "ea7c6142-1e55-446f-af01-4a5c9851bb23",
+        "tag": {
+          "name": "plane"
+        },
+        "transform": {
+          "translation": [
+            0,
+            -0.75,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986"
+            }
+          }
+        ]
       }
     },
     "models": {
+      "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986": {
+        "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986",
+        "source": "models/plane/Plane.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      }
     },
     "trimeshes": {},
     "textures": {},
     "particles": {},
     "animations": {},
-    "terrains": {
-    },
+    "terrains": {},
     "dynamic_backgrounds": {
       "33ef9457-4476-48e4-adba-c2ba616fe2e2": {
         "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2"
@@ -129,8 +164,7 @@
     "hdrs": {},
     "audio": {},
     "animation_state": {},
-    "heightfields": {
-    },
+    "heightfields": {},
     "behavior_tree": {}
   }
 }
