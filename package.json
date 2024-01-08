@@ -1,0 +1,12 @@
+{
+  "name": "@ultimate-games/mayhem",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build:client": "python scripts/build.py --client",
+    "build:server": "python scripts/build.py --server",
+    "run:server": "python scripts/build.py --server --run",
+    "frontend:local": "npx cross-env ULTIMATE_ENV=local ultimate-games frontend -u 5005 -p 8030"
+  }
+}

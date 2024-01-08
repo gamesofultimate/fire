@@ -1,0 +1,159 @@
+{
+  "config": {
+    "id": "441b14e5-2027-4835-b3a0-774e85ae64fe",
+    "name": "Characters",
+    "bloom": {
+      "threshold": 1,
+      "knee": 1,
+      "enabled": true,
+      "hdr": true
+    },
+    "dof": {
+      "focus_point": 5,
+      "focus_scale": 0.4,
+      "radius_scale": 1,
+      "enabled": false
+    },
+    "ssao": {
+      "enabled": true,
+      "scale": 4,
+      "radius": 4,
+      "bias": 0.03
+    },
+    "ambient": {
+      "intensity": 0.75,
+      "fog": 0.002
+    },
+    "physics": {
+      "color": [
+        1,
+        0,
+        0
+      ]
+    },
+    "shadows": {
+      "num_cascade_layers": 3,
+      "shadow_multiplier": 10,
+      "debug_paint_cascades": false
+    },
+    "debug": {
+      "empty_shapes": false,
+      "shadow": false,
+      "lighting": false,
+      "physics": false
+    },
+    "camera": {
+      "aspect": 2,
+      "fovy": {
+        "value": 0.7853982
+      },
+      "znear": 0.1,
+      "zfar": 1000
+    }
+  },
+  "scene": {
+    "entities": {
+      "b3abf93c-9e06-4658-b7c5-f1bef69f4157": {
+        "id": {
+          "id": "b3abf93c-9e06-4658-b7c5-f1bef69f4157",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Foxy"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "model": {
+          "id": "66736476-7fb9-4c94-bc86-6d1b45f817ba"
+        }
+      },
+      "9f68f487-c2e1-46a6-8bfb-c03363bbec43": {
+        "id": {
+          "id": "9f68f487-c2e1-46a6-8bfb-c03363bbec43",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Background"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "sky": {
+          "dynamic": {
+            "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
+            "intensity": 0.75,
+            "turbidity": 2,
+            "azimuth": {
+              "value": 0
+            },
+            "inclination": {
+              "value": 1.57
+            }
+          }
+        },
+        "light": {
+          "directional": {
+            "radiance": [
+              1,
+              1,
+              1
+            ],
+            "azimuth": {
+              "value": 0
+            },
+            "inclination": {
+              "value": 1.5707
+            },
+            "intensity": 1,
+            "should_cast_shadows": true,
+            "are_shadows_soft": true
+          }
+        }
+      }
+    },
+    "models": {
+      "66736476-7fb9-4c94-bc86-6d1b45f817ba": {
+        "id": "66736476-7fb9-4c94-bc86-6d1b45f817ba",
+        "maxInstances": 10,
+        "source": "models/test/test.gltf",
+        "submeshes": []
+      }
+    },
+    "terrains": {},
+    "animations": {},
+    "dynamicBackgrounds": {
+      "33ef9457-4476-48e4-adba-c2ba616fe2e2": {
+        "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2"
+      }
+    }
+  }
+}

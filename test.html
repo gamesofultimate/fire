@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Ultimate Game Studio</title>
+
+				<script type="module">
+					import * as lib from "http://localhost:8022/pkg/sports.js";
+
+					const init = async () => {
+              await lib.default();
+              //await lib.initThreadPool(navigator.hardwareConcurrency);
+
+              console.log(lib);
+              const game = new lib.Game();
+              console.log(game);
+              await game.start(
+                "http://localhost:8022/resources/",
+                "",
+                "",
+                "",
+                "",
+                "",
+              );
+            /*
+            if (await threads()) {
+            } else {
+              throw new Error("No support for threads");
+            }
+            */
+          };
+					init();
+				</script>
+			</head>
+			<body>
+			<canvas id="canvas" />
+			</body>
+		</html>

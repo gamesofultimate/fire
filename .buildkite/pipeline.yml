@@ -1,0 +1,12 @@
+steps:
+  - label: 'format: Rust'
+    key: 'lint'
+    command: 'cargo fmt --all -- --check'
+    agents:
+      os: 'linux'
+
+  - label: 'build and distribute'
+    key: 'build'
+    command: 'scripts/builder'
+    agents:
+      os: 'linux'

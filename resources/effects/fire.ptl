@@ -1,0 +1,16 @@
+{
+    "id": "c44d4172-2ff0-447d-a250-4294077cf45c",
+    "name": "Fire",
+    "particle_type": {
+        "type": "quad",
+        "texture_id": "aa493d1f-507a-4ce8-aaa4-72a5ccbee198",
+        "rotation_speed": 1.0
+    },
+    "transparency": "add",
+    "max_particles": 50,
+    "birth_rate": 0.1,
+    "gravity": [0.0, 2.0, 0.0],
+    "angle": [0.0, 6.28318530718, 0.0, 3.14],
+    "speed": [0.1, 1.0],
+    "life": [1.0, 1.5]
+}
