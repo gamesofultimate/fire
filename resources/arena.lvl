@@ -22,7 +22,7 @@
     },
     "ambient": {
       "intensity": 0.55,
-      "fog": 0
+      "fog": 0.01
     },
     "shadows": {
       "num_cascade_layers": 4,
@@ -58,15 +58,15 @@
   },
   "scene": {
     "prefabs": {
-      "88408e34-9799-4acc-97a4-11977ce94f91": {
-        "id": "88408e34-9799-4acc-97a4-11977ce94f91",
+      "63fd8ba5-28e2-4aba-a558-a2910d9bc2c5": {
+        "id": "63fd8ba5-28e2-4aba-a558-a2910d9bc2c5",
         "tag": {
           "name": "light"
         },
         "transform": {
           "translation": [
             0,
-            0,
+            -10,
             0
           ],
           "rotation": [
@@ -75,52 +75,49 @@
             0
           ],
           "scale": [
-            1,
-            1,
-            1
+            0.1,
+            0.1,
+            0.1
           ]
         },
         "components": [
           {
+            "SkyLightComponent": {
+              "Image": {
+                "id": "f64bb183-4106-4953-9332-5eb444f1c844"
+              }
+            }
+          },
+          {
             "LightComponent": {
               "Directional": {
                 "azimuth": {
-                  "value": 0,
-                  "radians": 0.8
+                  "radians": 0
                 },
                 "inclination": {
-                  "value": 1,
-                  "radians": 1.3
+                  "radians": 1
                 },
                 "intensity": 1,
                 "radiance": [
                   1,
-                  1,
+                  0,
                   1
                 ],
                 "should_cast_shadows": false
               }
             }
-          },
-          {
-            "SkyLightComponent": {
-              "Dynamic": {
-                "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
-                "turbidity": 2
-              }
-            }
           }
         ]
       },
-      "ea7c6142-1e55-446f-af01-4a5c9851bb23": {
-        "id": "ea7c6142-1e55-446f-af01-4a5c9851bb23",
+      "056725b5-cd1c-449e-82d3-8beb38c884d8": {
+        "id": "056725b5-cd1c-449e-82d3-8beb38c884d8",
         "tag": {
           "name": "plane"
         },
         "transform": {
           "translation": [
             0,
-            -0.75,
+            -1,
             0
           ],
           "rotation": [
@@ -137,7 +134,37 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986"
+              "id": "dcc391ed-9b31-426c-931a-7b74e88b61a3"
+            }
+          }
+        ]
+      },
+      "19c94c8d-4e24-4cb1-8be4-7e33ae9a0a25": {
+        "id": "19c94c8d-4e24-4cb1-8be4-7e33ae9a0a25",
+        "tag": {
+          "name": "wizard"
+        },
+        "transform": {
+          "translation": [
+            0,
+            -0.46148103,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "e0aacc46-20e2-4b70-9e04-484ecc082ad6"
             }
           }
         ]
@@ -149,6 +176,18 @@
         "source": "models/plane/Plane.gltf",
         "maxInstances": 10,
         "submeshes": []
+      },
+      "dcc391ed-9b31-426c-931a-7b74e88b61a3": {
+        "id": "dcc391ed-9b31-426c-931a-7b74e88b61a3",
+        "source": "models/black-plane/Plane_Black.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "e0aacc46-20e2-4b70-9e04-484ecc082ad6": {
+        "id": "e0aacc46-20e2-4b70-9e04-484ecc082ad6",
+        "source": "models/wizard/Wizard.gltf",
+        "maxInstances": 10,
+        "submeshes": []
       }
     },
     "trimeshes": {},
@@ -157,11 +196,18 @@
     "animations": {},
     "terrains": {},
     "dynamic_backgrounds": {
-      "33ef9457-4476-48e4-adba-c2ba616fe2e2": {
+      "f64bb183-4106-4953-9332-5eb444f1c844": {
         "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2"
       }
     },
-    "hdrs": {},
+    "hdrs": {
+      "f64bb183-4106-4953-9332-5eb444f1c844": {
+        "id": "f64bb183-4106-4953-9332-5eb444f1c844",
+        "intensity": 1,
+        "size": 128,
+        "source": "textures/pure-sky.png"
+      }
+    },
     "audio": {},
     "animation_state": {},
     "heightfields": {},
