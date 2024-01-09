@@ -1,4 +1,7 @@
-use crate::shared::input::PlayerInput;
+use crate::shared::{
+  components::top_down_camera_component::TopDownCameraComponent, input::PlayerInput,
+};
+use engine::application::scene::component_registry::Access;
 use engine::{
   application::{
     components::{CameraComponent, LightComponent, SelfComponent},
@@ -12,10 +15,6 @@ use engine::{
 use nalgebra::{Isometry3, Point3, Unit, UnitQuaternion, Vector3};
 use std::f32::consts::PI;
 
-const ROTATION_SENSITIVITY: f32 = 0.1;
-const CAMERA_HEIGHT: f32 = 10.0; // Height of the camera above the player
-const CAMERA_BACK_OFFSET: f32 = 5.0; // Distance behind the player
-
 pub struct CameraSystem {
   inputs: InputsReader<PlayerInput>,
 }
@@ -28,18 +27,25 @@ impl Initializable for CameraSystem {
 }
 
 impl System for CameraSystem {
+  fn provide(&mut self, inventory: &Inventory) {
+    TopDownCameraComponent::register();
+  }
+
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
-    for (_, (_, transform, camera, _)) in &mut scene.query::<(
+    for (_, (_, transform, camera, _, top_down)) in &mut scene.query::<(
       &IdComponent,
       &TransformComponent,
       &CameraComponent,
       &SelfComponent,
+      &TopDownCameraComponent,
     )>() {
       // Calculate the camera position: Fixed above and slightly behind the player
+      let (camera_height, camera_back_offset) =
+        (top_down.camera_height, top_down.camera_back_offset);
       let camera_position = Vector3::new(
         transform.translation.x,
-        CAMERA_HEIGHT,
-        transform.translation.z - CAMERA_BACK_OFFSET,
+        *camera_height,
+        transform.translation.z - *camera_back_offset,
       );
 
       // Direction from camera to player

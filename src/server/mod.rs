@@ -15,7 +15,7 @@ use crate::shared::components::{
   health_component::HealthComponent, inventory_component::InventoryComponent,
   lifetime_component::LifetimeComponent, magnetic_pickup_component::MagneticPickupComponent,
   movement_component::MovementComponent, shield_component::ShieldComponent,
-  spawn_component::SpawnComponent,
+  spawn_component::SpawnComponent, top_down_camera_component::TopDownCameraComponent,
 };
 use crate::shared::follow::MayhemBehaviors;
 use crate::{server::network_controller::NetworkController, shared::systems::sky::SkySystem};
@@ -38,6 +38,7 @@ impl Plugin for CustomComponentsPlugin {
     EnemyAiComponent::register();
     MagneticPickupComponent::register();
     LifetimeComponent::register();
+    TopDownCameraComponent::register();
   }
 }
 pub async fn main() {

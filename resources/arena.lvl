@@ -234,21 +234,21 @@
           },
           {
             "MovementComponent": {
-              "dash_speed": {
-                "mps": 50
+              "run_speed": {
+                "mps": 10
               },
-              "jump_force": {
-                "newtons": 30
-              },
-              "knockback_intensity": 100,
               "rotation_speed": {
                 "rps": 10
+              }
+            }
+          },
+          {
+            "TopDownCameraComponent": {
+              "camera_back_offset": {
+                "meters": 7
               },
-              "sprint_speed": {
-                "mps": 8
-              },
-              "walk_speed": {
-                "mps": 4
+              "camera_height": {
+                "meters": 15
               }
             }
           }

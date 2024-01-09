@@ -71,7 +71,6 @@ impl PlayerMovementSystem {
       &mut InputComponent,
     )>() {
       let input = self.inputs.read();
-      movement.dash_timer += Seconds::new(dt);
 
       let rotation_quaternion = UnitQuaternion::from_euler_angles(
         transform.rotation.x,
@@ -86,23 +85,14 @@ impl PlayerMovementSystem {
         // Rotate the input direction using the player's current rotation
         let rotated_direction = rotation_quaternion.transform_vector(&input_point);
 
-        let player_speed = if movement.is_dashing {
-          *movement.dash_speed
-        } else if input.sprint {
-          *movement.sprint_speed
-        } else {
-          *movement.walk_speed
-        };
-
         let velocity = Vector3::new(
-          -rotated_direction.x * player_speed,
+          -rotated_direction.x * *movement.run_speed,
           old_velocity.y,
-          -rotated_direction.z * player_speed,
+          -rotated_direction.z * *movement.run_speed,
         );
-
         self.physics.set_linvel(&physics, velocity);
       } else {
-        // self.physics.set_linvel(&physics, Vector3::new(0.0, old_velocity.y, 0.0));
+        self.physics.set_linvel(&physics, Vector3::zeros());
       }
 
       // Handle rotation based on mouse input
@@ -110,30 +100,6 @@ impl PlayerMovementSystem {
       self
         .physics
         .set_angvel(&physics, Vector3::new(0.0, yaw_delta, 0.0));
-
-      // Handle altering gravity during jump.
-      if movement.is_grounded {
-        self.physics.set_gravity_scale(&physics, 1.0)
-      }
-      if !movement.is_grounded && self.physics.linvel(&physics).y < 0.0 {
-        self.physics.set_gravity_scale(&physics, 2.0)
-      }
-
-      // Handle Jump
-      if (input.direction_vector.y > 0.0) && movement.is_grounded {
-        self
-          .physics
-          .apply_impulse(&physics, Vector3::new(0.0, *movement.jump_force, 0.0));
-      }
-
-      // Handle Dash
-      if input.dash && *movement.dash_timer >= 3.0 {
-        movement.start_dash();
-      }
-
-      if movement.is_dashing && *movement.dash_timer > 0.75 {
-        movement.stop_dash();
-      }
     }
   }
 }

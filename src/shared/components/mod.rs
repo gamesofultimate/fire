@@ -7,3 +7,4 @@ pub mod magnetic_pickup_component;
 pub mod movement_component;
 pub mod shield_component;
 pub mod spawn_component;
+pub mod top_down_camera_component;

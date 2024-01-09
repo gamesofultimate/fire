@@ -7,7 +7,6 @@ use crate::shared::{
   input::PlayerInput,
 };
 use engine::application::scene::component_registry::Access;
-
 use engine::{
   application::{
     components::{AnimationComponent, InputComponent, PhysicsComponent, SelfComponent},
@@ -23,7 +22,6 @@ use engine::{
   utils::units::{Kph, Seconds, Time},
   Entity,
 };
-
 use nalgebra::{Rotation2, Rotation3, UnitQuaternion, Vector2, Vector3};
 use std::{
   char::MAX,
@@ -138,16 +136,12 @@ impl CollisionSystem {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(foxy_entity)
       .unwrap();
-
-    movement.land();
   }
 
   fn handle_foxy_terrain_collision_stop(&mut self, scene: &mut Scene, foxy_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(foxy_entity)
       .unwrap();
-
-    movement.jump();
   }
 
   fn handle_foxy_dreamstone_collision_start(
