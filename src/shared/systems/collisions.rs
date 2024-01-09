@@ -136,16 +136,12 @@ impl CollisionSystem {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(foxy_entity)
       .unwrap();
-
-    movement.land();
   }
 
   fn handle_foxy_terrain_collision_stop(&mut self, scene: &mut Scene, foxy_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(foxy_entity)
       .unwrap();
-
-    movement.jump();
   }
 
   fn handle_foxy_dreamstone_collision_start(

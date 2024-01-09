@@ -120,54 +120,6 @@ impl CombatSystem {
 
       let input = self.inputs.read();
 
-      if movement.is_grounded {
-        if input.light_attack == true
-          && attack.heavy_timer >= 0.0
-          && attack.heavy_timer < attack.heavy_timer_max
-          && attack.attacked == false
-        {
-          attack.heavy_timer += dt;
-          attack.attack_type_damage = NO_ATTACK;
-          log::info!("CHARGING {:?}", attack.heavy_timer);
-        } else if input.light_attack == false
-          && attack.heavy_timer < attack.heavy_timer_max
-          && attack.heavy_timer > 0.0
-          && attack.attacked == false
-        {
-          attack.attack_type_damage = LIGHT_ATTACK;
-          attack.heavy_timer = 0.0;
-          attack.attacked = true;
-          attack.cooldown_timer = 0.0;
-          {
-            self.anim_running = true;
-          }
-        } else if attack.heavy_timer >= attack.heavy_timer_max
-          && attack.attacked == false
-          && input.light_attack == false
-        {
-          attack.attack_type_damage = HEAVY_ATTACK;
-          attack.heavy_timer = 0.0;
-          attack.attacked = true;
-          attack.cooldown_timer = 0.0;
-          {
-            self.anim_running = true;
-          }
-        }
-      } else if !movement.is_grounded /* && attack.air_timer > 3.0 */ && input.right_click {
-        movement.air_attack = true;
-        self.anim_running = true;
-        attack.air_timer = 0.0;
-        self
-          .physics
-          .apply_impulse(physics, vector![0.0, -100.0, 0.0]);
-      }
-
-      if movement.is_grounded && movement.air_attack {
-        attack.attack_type_damage = AIR_ATTACK;
-        movement.air_attack = false;
-        attack.attacked = true;
-      }
-
       attack.air_timer += dt;
       if (attack.attack_type_damage == LIGHT_ATTACK
         && self.anim_timer > attack.light_anim_start_time
@@ -230,9 +182,6 @@ impl CombatSystem {
           if !hit_entities.contains(&entity) {
             health.pending_damage += damage;
             hit_entities.insert(entity);
-          }
-          if let Some(movement) = movement {
-            movement.knockback_direction = knockback_direction;
           }
         }
       }
@@ -330,13 +279,6 @@ impl CombatSystem {
       )>()
     {
       if health.pending_damage > 0.0 {
-        if let Some(movement) = maybe_movement {
-          world_physics.apply_impulse(
-            physics,
-            movement.knockback_direction * health.pending_damage * movement.knockback_intensity,
-          );
-        }
-
         let delta_shield = shield.shield - health.pending_damage;
 
         if delta_shield >= 0.0 {

@@ -86,9 +86,9 @@ impl PlayerMovementSystem {
         let rotated_direction = rotation_quaternion.transform_vector(&input_point);
 
         let velocity = Vector3::new(
-          -rotated_direction.x * player_speed,
+          -rotated_direction.x * *movement.run_speed,
           old_velocity.y,
-          -rotated_direction.z * player_speed,
+          -rotated_direction.z * *movement.run_speed,
         );
         self.physics.set_linvel(&physics, velocity);
       } else {

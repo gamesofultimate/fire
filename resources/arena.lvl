@@ -239,12 +239,16 @@
               },
               "rotation_speed": {
                 "rps": 10
+              }
+            }
+          },
+          {
+            "TopDownCameraComponent": {
+              "camera_back_offset": {
+                "meters": 7
               },
-              "sprint_speed": {
-                "mps": 8
-              },
-              "walk_speed": {
-                "mps": 4
+              "camera_height": {
+                "meters": 15
               }
             }
           }
