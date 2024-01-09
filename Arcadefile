@@ -1,17 +1,12 @@
-id: mayhem
-name: Mayhem
+id: lit
+name: Lit
 description: |
-  Explore different world alongside your friends in this
-  open-world musou game.
+  Keep the fire lit at all costs or suffer the consequences!
 developers:
   - name: Felipe Rocha
     email: ["felipe@ultimate.games"]
-  - name: Pedro Pereira
-    email: ["pedro@ultimate.games"]
   - name: Noraa Stoke
     email: ["noraa.july.stoke@gmail.com", "noraa@ultimate.games" ]
-  - name: Ricardo Cruz Silva
-    email: ["ricardocruz91@outlook.com", "ricardo@ultimate.games" ]
 test:
   resources:
     requests:

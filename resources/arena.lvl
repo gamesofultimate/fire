@@ -1,7 +1,7 @@
 {
   "config": {
     "id": "1d5ebb14-8b00-4cd5-b2d0-b8c5229ad5e7",
-    "name": "Arena",
+    "name": "The Forest",
     "bloom": {
       "threshold": 1,
       "knee": 0.1,
@@ -22,7 +22,7 @@
     },
     "ambient": {
       "intensity": 0.55,
-      "fog": 0.01
+      "fog": 0
     },
     "shadows": {
       "num_cascade_layers": 4,
@@ -58,15 +58,15 @@
   },
   "scene": {
     "prefabs": {
-      "63fd8ba5-28e2-4aba-a558-a2910d9bc2c5": {
-        "id": "63fd8ba5-28e2-4aba-a558-a2910d9bc2c5",
+      "88408e34-9799-4acc-97a4-11977ce94f91": {
+        "id": "88408e34-9799-4acc-97a4-11977ce94f91",
         "tag": {
           "name": "light"
         },
         "transform": {
           "translation": [
             0,
-            -10,
+            0,
             0
           ],
           "rotation": [
@@ -75,49 +75,52 @@
             0
           ],
           "scale": [
-            0.1,
-            0.1,
-            0.1
+            1,
+            1,
+            1
           ]
         },
         "components": [
           {
-            "SkyLightComponent": {
-              "Image": {
-                "id": "f64bb183-4106-4953-9332-5eb444f1c844"
-              }
-            }
-          },
-          {
             "LightComponent": {
               "Directional": {
                 "azimuth": {
-                  "radians": 0
+                  "value": 0,
+                  "radians": 0.8
                 },
                 "inclination": {
-                  "radians": 1
+                  "value": 1,
+                  "radians": 1.3
                 },
                 "intensity": 1,
                 "radiance": [
                   1,
-                  0,
+                  1,
                   1
                 ],
                 "should_cast_shadows": false
               }
             }
+          },
+          {
+            "SkyLightComponent": {
+              "Dynamic": {
+                "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
+                "turbidity": 2
+              }
+            }
           }
         ]
       },
-      "056725b5-cd1c-449e-82d3-8beb38c884d8": {
-        "id": "056725b5-cd1c-449e-82d3-8beb38c884d8",
+      "ea7c6142-1e55-446f-af01-4a5c9851bb23": {
+        "id": "ea7c6142-1e55-446f-af01-4a5c9851bb23",
         "tag": {
           "name": "plane"
         },
         "transform": {
           "translation": [
             0,
-            -1,
+            -0.75,
             0
           ],
           "rotation": [
@@ -134,20 +137,20 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "dcc391ed-9b31-426c-931a-7b74e88b61a3"
+              "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986"
             }
           }
         ]
       },
-      "19c94c8d-4e24-4cb1-8be4-7e33ae9a0a25": {
-        "id": "19c94c8d-4e24-4cb1-8be4-7e33ae9a0a25",
+      "6add8d68-3bd1-4649-babb-3d2a03da5a09": {
+        "id": "6add8d68-3bd1-4649-babb-3d2a03da5a09",
         "tag": {
-          "name": "wizard"
+          "name": "Wizard"
         },
         "transform": {
           "translation": [
             0,
-            -0.46148103,
+            0,
             0
           ],
           "rotation": [
@@ -163,38 +166,90 @@
         },
         "components": [
           {
-            "ModelComponent": {
-              "id": "e0aacc46-20e2-4b70-9e04-484ecc082ad6"
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ac1b634b-91e7-4ce7-91a4-28cd09dbdce7",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Sphere": {
+                      "radius": 1
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.9,
+                  "id": "e604694d-67f3-40d0-8276-d146c3c4f503",
+                  "restitution": 0.9
+                },
+                "config": null,
+                "id": "df5f29e7-82fd-4cf9-a28a-ac42bc643dde",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  0,
+                  0
+                ]
+              }
             }
-          }
-        ]
-      },
-      "9627b96e-9e56-47e0-85c8-2740fbb637eb": {
-        "id": "9627b96e-9e56-47e0-85c8-2740fbb637eb",
-        "tag": {
-          "name": "fire-monster"
-        },
-        "transform": {
-          "translation": [
-            5,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": [
+          },
+          {
+            "CameraComponent": {
+              "Perspective": {
+                "fovy": {
+                  "radians": 0.7853982
+                },
+                "primary": true,
+                "zfar": 100,
+                "znear": 0.1
+              }
+            }
+          },
+          {
+            "SelfComponent": {}
+          },
+          {
+            "InputComponent": {
+              "sensitivity": 1,
+              "speed": {
+                "kph": 2
+              }
+            }
+          },
           {
             "ModelComponent": {
-              "id": "ecc9814c-cbb1-4f21-8655-a64060b3b08f"
+              "id": "8603e45f-8e4a-4507-bd22-24aeff10c3a8"
+            }
+          },
+          {
+            "MovementComponent": {
+              "dash_speed": {
+                "mps": 50
+              },
+              "jump_force": {
+                "newtons": 30
+              },
+              "knockback_intensity": 100,
+              "rotation_speed": {
+                "rps": 10
+              },
+              "sprint_speed": {
+                "mps": 8
+              },
+              "walk_speed": {
+                "mps": 4
+              }
             }
           }
         ]
@@ -207,43 +262,54 @@
         "maxInstances": 10,
         "submeshes": []
       },
-      "dcc391ed-9b31-426c-931a-7b74e88b61a3": {
-        "id": "dcc391ed-9b31-426c-931a-7b74e88b61a3",
-        "source": "models/black-plane/Plane_Black.gltf",
+      "977ab0d9-e5cf-4e1c-bb1f-bb023377f068": {
+        "id": "977ab0d9-e5cf-4e1c-bb1f-bb023377f068",
+        "source": "models/sphere/sphere.gltf",
         "maxInstances": 10,
         "submeshes": []
       },
-      "e0aacc46-20e2-4b70-9e04-484ecc082ad6": {
-        "id": "e0aacc46-20e2-4b70-9e04-484ecc082ad6",
-        "source": "models/wizard/Wizard.gltf",
-        "maxInstances": 10,
-        "submeshes": []
-      },
-      "ecc9814c-cbb1-4f21-8655-a64060b3b08f": {
-        "id": "ecc9814c-cbb1-4f21-8655-a64060b3b08f",
-        "source": "models/fire-monster/fire-monster.gltf",
+      "8603e45f-8e4a-4507-bd22-24aeff10c3a8": {
+        "id": "8603e45f-8e4a-4507-bd22-24aeff10c3a8",
+        "source": "models/WizardGLTF/Wizard.gltf",
         "maxInstances": 10,
         "submeshes": []
       }
     },
-    "trimeshes": {},
-    "textures": {},
+    "trimeshes": {
+      "18bb4bfb-91bb-4ac4-91b3-a235797687bd": {
+        "id": "18bb4bfb-91bb-4ac4-91b3-a235797687bd",
+        "source": "models/sphere/sphere.gltf"
+      },
+      "1f160921-c444-4f9a-8120-4f3d611c785e": {
+        "id": "1f160921-c444-4f9a-8120-4f3d611c785e",
+        "source": "models/plane/Plane.gltf"
+      },
+      "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c": {
+        "id": "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c",
+        "source": "models/WizardGLTF/Wizard.gltf"
+      }
+    },
+    "textures": {
+      "d4afc1f2-4c1e-4e4f-877f-f809f07ca778": {
+        "id": "d4afc1f2-4c1e-4e4f-877f-f809f07ca778",
+        "source": "models/plane/M_PlaneChibi_Base_color.png",
+        "isNormalMap": false
+      },
+      "327784ae-649a-43bd-abfa-0934656e9f69": {
+        "id": "327784ae-649a-43bd-abfa-0934656e9f69",
+        "source": "models/plane/M_PlaneChibi_Metallic-M_PlaneChibi_Roughness.png",
+        "isNormalMap": false
+      }
+    },
     "particles": {},
     "animations": {},
     "terrains": {},
     "dynamic_backgrounds": {
-      "f64bb183-4106-4953-9332-5eb444f1c844": {
+      "33ef9457-4476-48e4-adba-c2ba616fe2e2": {
         "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2"
       }
     },
-    "hdrs": {
-      "f64bb183-4106-4953-9332-5eb444f1c844": {
-        "id": "f64bb183-4106-4953-9332-5eb444f1c844",
-        "intensity": 1,
-        "size": 512,
-        "source": "textures/pure-sky.png"
-      }
-    },
+    "hdrs": {},
     "audio": {},
     "animation_state": {},
     "heightfields": {},

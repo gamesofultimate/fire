@@ -1441,6 +1441,31 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "da2479e8c062e40bf0066ffa0bc823de0a9368974af99c9f6df941d2c231e03f"
 
 [[package]]
+name = "lit"
+version = "0.1.1"
+dependencies = [
+ "async-trait",
+ "chrono",
+ "dotenv",
+ "engine",
+ "env_logger",
+ "fix-hidden-lifetime-bug",
+ "instant",
+ "log",
+ "nalgebra 0.32.3",
+ "num_cpus",
+ "rand",
+ "rapier3d",
+ "serde",
+ "tagged",
+ "tokio",
+ "uuid",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "wasm-logger",
+]
+
+[[package]]
 name = "lock_api"
 version = "0.4.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1479,31 +1504,6 @@ checksum = "090126dc04f95dc0d1c1c91f61bdd474b3930ca064c1edc8a849da2c6cbe1e77"
 dependencies = [
  "autocfg",
  "rawpointer",
-]
-
-[[package]]
-name = "mayhem"
-version = "0.1.1"
-dependencies = [
- "async-trait",
- "chrono",
- "dotenv",
- "engine",
- "env_logger",
- "fix-hidden-lifetime-bug",
- "instant",
- "log",
- "nalgebra 0.32.3",
- "num_cpus",
- "rand",
- "rapier3d",
- "serde",
- "tagged",
- "tokio",
- "uuid",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "wasm-logger",
 ]
 
 [[package]]

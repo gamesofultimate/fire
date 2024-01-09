@@ -64,8 +64,8 @@ pub async fn main() {
     HdrPipeline::<NetworkController>::new("resources", rpc_address, session_address);
   let custom_components = CustomComponentsPlugin;
   let mut runner = Scheduler::new(FRAMES_PER_SECOND);
-  runner.attach_middleware::<AttackTransitions>();
-  runner.attach_middleware::<MayhemBehaviors>();
+  // runner.attach_middleware::<AttackTransitions>();
+  // runner.attach_middleware::<MayhemBehaviors>();
   runner.attach_plugin(hdr);
   runner.attach_plugin(custom_components);
   runner.attach_system::<SkySystem>();

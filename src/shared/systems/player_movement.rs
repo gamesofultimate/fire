@@ -1,7 +1,6 @@
 #![cfg(target_arch = "wasm32")]
 use crate::shared::{components::movement_component::MovementComponent, input::PlayerInput};
 use engine::application::scene::component_registry::Access;
-
 use engine::{
   application::{
     components::{AnimationComponent, InputComponent, PhysicsComponent, SelfComponent},

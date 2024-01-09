@@ -185,11 +185,11 @@ impl ChannelEvents for NetworkController {
             .insert(ParticleType::Damage, prefab.clone());
           scene.store_prefab("DamageParticle", prefab);
         }
-        "Swampeter" => {
-          log::info!("creating swampeter prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Swampeter, prefab.clone());
-          scene.store_prefab("Swampeter", prefab);
-        }
+        // "Swampeter" => {
+        //   log::info!("creating swampeter prefab: {:?}", prefab.tag.name);
+        //   self.prefabs.insert(ModelNames::Swampeter, prefab.clone());
+        //   scene.store_prefab("Swampeter", prefab);
+        // }
         "EnemySpawn1" | "EnemySpawn2" | "EnemySpawn3" | "EnemySpawn4" => {
           log::info!("creating spawn points {:?}", prefab.tag.name);
           self.spawn_points.push(prefab.transform);
@@ -199,15 +199,15 @@ impl ChannelEvents for NetworkController {
           log::info!("creating prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Spectator, prefab.clone());
         }
-        "foxy" => {
+        "Wizard" => {
           log::info!("creating foxy prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Foxy, prefab.clone());
+          self.prefabs.insert(ModelNames::Wizard, prefab.clone());
         }
-        "Dreamstone" => {
-          log::info!("creating dreamstone prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Dreamstone, prefab.clone());
-          scene.store_prefab("Dreamstone", prefab);
-        }
+        // "Dreamstone" => {
+        //   log::info!("creating dreamstone prefab: {:?}", prefab.tag.name);
+        //   self.prefabs.insert(ModelNames::Dreamstone, prefab.clone());
+        //   scene.store_prefab("Dreamstone", prefab);
+        // }
         "Bullet" => {
           log::info!("creating bullet prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Bullet, prefab.clone());
@@ -254,7 +254,7 @@ impl ChannelEvents for NetworkController {
     username: String,
     protocol: Protocol,
   ) {
-    let mut prefab: Prefab = self.prefabs.get(&ModelNames::Foxy).unwrap().clone();
+    let mut prefab: Prefab = self.prefabs.get(&ModelNames::Wizard).unwrap().clone();
     log::info!("Player joined! New prefab: {:#?}", &prefab);
 
     if self.spawn_points.len() != 0 {
