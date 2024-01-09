@@ -10,7 +10,6 @@ use engine::application::scene::component_registry::Access;
 use engine::systems::{hdr::HdrPipeline, Scheduler};
 use engine::systems::{Inventory, Plugin};
 
-use crate::shared::follow::MayhemBehaviors;
 use crate::shared::components::{
   attack_component::AttackComponent, enemy_ai_component::EnemyAiComponent,
   health_component::HealthComponent, inventory_component::InventoryComponent,
@@ -18,6 +17,7 @@ use crate::shared::components::{
   movement_component::MovementComponent, shield_component::ShieldComponent,
   spawn_component::SpawnComponent,
 };
+use crate::shared::follow::MayhemBehaviors;
 use crate::{server::network_controller::NetworkController, shared::systems::sky::SkySystem};
 
 const FRAMES_PER_SECOND: u64 = 60;

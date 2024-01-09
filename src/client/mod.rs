@@ -15,8 +15,8 @@ use engine::{
   utils::browser::grow_memory,
 };
 
-use crate::shared::input::PlayerInput;
 use crate::shared::follow::MayhemBehaviors;
+use crate::shared::input::PlayerInput;
 
 use crate::shared::systems::{
   collisions::CollisionSystem, combat::CombatSystem, death::DeathSystem, enemy_ai::EnemyAiSystem,
