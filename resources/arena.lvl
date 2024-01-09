@@ -204,7 +204,7 @@
       "f64bb183-4106-4953-9332-5eb444f1c844": {
         "id": "f64bb183-4106-4953-9332-5eb444f1c844",
         "intensity": 1,
-        "size": 128,
+        "size": 512,
         "source": "textures/pure-sky.png"
       }
     },
