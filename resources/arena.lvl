@@ -168,6 +168,36 @@
             }
           }
         ]
+      },
+      "9627b96e-9e56-47e0-85c8-2740fbb637eb": {
+        "id": "9627b96e-9e56-47e0-85c8-2740fbb637eb",
+        "tag": {
+          "name": "fire-monster"
+        },
+        "transform": {
+          "translation": [
+            5,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "ecc9814c-cbb1-4f21-8655-a64060b3b08f"
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -186,6 +216,12 @@
       "e0aacc46-20e2-4b70-9e04-484ecc082ad6": {
         "id": "e0aacc46-20e2-4b70-9e04-484ecc082ad6",
         "source": "models/wizard/Wizard.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "ecc9814c-cbb1-4f21-8655-a64060b3b08f": {
+        "id": "ecc9814c-cbb1-4f21-8655-a64060b3b08f",
+        "source": "models/fire-monster/fire-monster.gltf",
         "maxInstances": 10,
         "submeshes": []
       }
