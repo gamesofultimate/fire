@@ -71,20 +71,20 @@ impl System for CollisionSystem {
           let (entity1, entity2, entity1_tag, entity2_tag) =
             self.get_entity_and_tag(scene, collider1, collider2);
 
-          if entity1_tag.name == "Dreamstone" && entity2_tag.name == "Foxy" {
+          if entity1_tag.name == "Dreamstone" && entity2_tag.name == "Wizard" {
             self.handle_foxy_dreamstone_collision_start(scene, entity2, entity1);
-          } else if entity2_tag.name == "Dreamstone" && entity1_tag.name == "Foxy" {
+          } else if entity2_tag.name == "Dreamstone" && entity1_tag.name == "Wizard" {
             self.handle_foxy_dreamstone_collision_start(scene, entity1, entity2);
           }
-          if entity1_tag.name == "Terrain" && entity2_tag.name == "Foxy" {
+          if entity1_tag.name == "Terrain" && entity2_tag.name == "Wizard" {
             self.handle_foxy_terrain_collision_start(scene, entity2);
-          } else if (entity2_tag.name == "Terrain" && entity1_tag.name == "Foxy") {
+          } else if (entity2_tag.name == "Terrain" && entity1_tag.name == "Wizard") {
             self.handle_foxy_terrain_collision_start(scene, entity1);
           }
 
-          if entity1_tag.name == "Swampeter" && entity2_tag.name == "Foxy" {
+          if entity1_tag.name == "Swampeter" && entity2_tag.name == "Wizard" {
             self.handle_foxy_swampeter_collision_start(scene, entity2, entity1);
-          } else if entity2_tag.name == "Swampeter" && entity1_tag.name == "Foxy" {
+          } else if entity2_tag.name == "Swampeter" && entity1_tag.name == "Wizard" {
             self.handle_foxy_swampeter_collision_start(scene, entity1, entity2);
           }
         }
@@ -92,9 +92,9 @@ impl System for CollisionSystem {
         CollisionEvent::Stopped(collider1, collider2, _) => {
           let (entity1, entity2, entity1_tag, entity2_tag) =
             self.get_entity_and_tag(scene, collider1, collider2);
-          if entity1_tag.name == "Terrain" && entity2_tag.name == "Foxy" {
+          if entity1_tag.name == "plane" && entity2_tag.name == "Wizard" {
             self.handle_foxy_terrain_collision_stop(scene, entity2);
-          } else if entity2_tag.name == "Terrain" && entity1_tag.name == "Foxy" {
+          } else if entity2_tag.name == "plane" && entity1_tag.name == "Wizard" {
             self.handle_foxy_terrain_collision_stop(scene, entity1);
           }
         }

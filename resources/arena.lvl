@@ -1,7 +1,7 @@
 {
   "config": {
     "id": "1d5ebb14-8b00-4cd5-b2d0-b8c5229ad5e7",
-    "name": "Arena",
+    "name": "The Forest",
     "bloom": {
       "threshold": 1,
       "knee": 0.1,
@@ -141,6 +141,118 @@
             }
           }
         ]
+      },
+      "6add8d68-3bd1-4649-babb-3d2a03da5a09": {
+        "id": "6add8d68-3bd1-4649-babb-3d2a03da5a09",
+        "tag": {
+          "name": "Wizard"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ac1b634b-91e7-4ce7-91a4-28cd09dbdce7",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Sphere": {
+                      "radius": 1
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.9,
+                  "id": "e604694d-67f3-40d0-8276-d146c3c4f503",
+                  "restitution": 0.9
+                },
+                "config": null,
+                "id": "df5f29e7-82fd-4cf9-a28a-ac42bc643dde",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "CameraComponent": {
+              "Perspective": {
+                "fovy": {
+                  "radians": 0.7853982
+                },
+                "primary": true,
+                "zfar": 100,
+                "znear": 0.1
+              }
+            }
+          },
+          {
+            "SelfComponent": {}
+          },
+          {
+            "InputComponent": {
+              "sensitivity": 1,
+              "speed": {
+                "kph": 2
+              }
+            }
+          },
+          {
+            "ModelComponent": {
+              "id": "8603e45f-8e4a-4507-bd22-24aeff10c3a8"
+            }
+          },
+          {
+            "MovementComponent": {
+              "dash_speed": {
+                "mps": 50
+              },
+              "jump_force": {
+                "newtons": 30
+              },
+              "knockback_intensity": 100,
+              "rotation_speed": {
+                "rps": 10
+              },
+              "sprint_speed": {
+                "mps": 8
+              },
+              "walk_speed": {
+                "mps": 4
+              }
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -149,10 +261,46 @@
         "source": "models/plane/Plane.gltf",
         "maxInstances": 10,
         "submeshes": []
+      },
+      "977ab0d9-e5cf-4e1c-bb1f-bb023377f068": {
+        "id": "977ab0d9-e5cf-4e1c-bb1f-bb023377f068",
+        "source": "models/sphere/sphere.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "8603e45f-8e4a-4507-bd22-24aeff10c3a8": {
+        "id": "8603e45f-8e4a-4507-bd22-24aeff10c3a8",
+        "source": "models/WizardGLTF/Wizard.gltf",
+        "maxInstances": 10,
+        "submeshes": []
       }
     },
-    "trimeshes": {},
-    "textures": {},
+    "trimeshes": {
+      "18bb4bfb-91bb-4ac4-91b3-a235797687bd": {
+        "id": "18bb4bfb-91bb-4ac4-91b3-a235797687bd",
+        "source": "models/sphere/sphere.gltf"
+      },
+      "1f160921-c444-4f9a-8120-4f3d611c785e": {
+        "id": "1f160921-c444-4f9a-8120-4f3d611c785e",
+        "source": "models/plane/Plane.gltf"
+      },
+      "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c": {
+        "id": "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c",
+        "source": "models/WizardGLTF/Wizard.gltf"
+      }
+    },
+    "textures": {
+      "d4afc1f2-4c1e-4e4f-877f-f809f07ca778": {
+        "id": "d4afc1f2-4c1e-4e4f-877f-f809f07ca778",
+        "source": "models/plane/M_PlaneChibi_Base_color.png",
+        "isNormalMap": false
+      },
+      "327784ae-649a-43bd-abfa-0934656e9f69": {
+        "id": "327784ae-649a-43bd-abfa-0934656e9f69",
+        "source": "models/plane/M_PlaneChibi_Metallic-M_PlaneChibi_Roughness.png",
+        "isNormalMap": false
+      }
+    },
     "particles": {},
     "animations": {},
     "terrains": {},

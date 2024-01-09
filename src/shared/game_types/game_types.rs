@@ -2,7 +2,7 @@
 
 #[derive(Debug, Eq, PartialEq, Hash)]
 pub enum ModelNames {
-  Foxy,
+  Wizard,
   Spectator,
   Dreamstone,
   Bullet,
@@ -36,7 +36,7 @@ pub enum PrefabType {
 impl From<&str> for PrefabType {
   fn from(s: &str) -> Self {
     match s {
-      "Foxy" | "Batro" => PrefabType::Player,
+      "Wizard" => PrefabType::Player,
       "Swampeter" | "Alian" => PrefabType::Enemy,
       "Dreamstone" => PrefabType::Collectible,
       "Projectile" => PrefabType::Projectile,

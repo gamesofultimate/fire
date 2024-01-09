@@ -1,9 +1,9 @@
 # You must change these to your own details.
 [package]
-name = "mayhem"
-description = "Explore different world alongside your friends in this open-world musou game."
+name = "lit"
+description = "Keep the fire lit at all costs or suffer the consequences."
 version = "0.1.1"
-authors = ["Felipe Rocha <felipe@ultimate.games>, Pedro Pereira <pedro@ultimate.games>, Noraa Stoke <noraa.july.stoke@gmail.com, noraa@ultimate.games>, Ricardo Cruz Silva <ricardocruz91@outlook.com, ricardo@ultimate.games>"]
+authors = ["Felipe Rocha <felipe@ultimate.games>, Noraa Stoke <noraa.july.stoke@gmail.com, noraa@ultimate.games>"]
 categories = ["wasm"]
 readme = "README.md"
 edition = "2018"
@@ -28,7 +28,7 @@ wasm-opt = false
 
 [dependencies]
 engine = { path = "../../engine" }
-#engine = { version = "0.4.19", registry = "ultimate-shared" }
+# engine = { version = "0.4.21", registry = "ultimate-shared" }
 
 
 log = "0.4.6"
