@@ -234,11 +234,8 @@
           },
           {
             "MovementComponent": {
-              "dash_speed": {
-                "mps": 50
-              },
-              "jump_force": {
-                "newtons": 30
+              "run_speed": {
+                "mps": 10
               },
               "knockback_intensity": 100,
               "rotation_speed": {

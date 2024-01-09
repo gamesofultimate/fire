@@ -7,7 +7,6 @@ use crate::shared::{
   input::PlayerInput,
 };
 use engine::application::scene::component_registry::Access;
-
 use engine::{
   application::{
     components::{AnimationComponent, InputComponent, PhysicsComponent, SelfComponent},
@@ -23,7 +22,6 @@ use engine::{
   utils::units::{Kph, Seconds, Time},
   Entity,
 };
-
 use nalgebra::{Rotation2, Rotation3, UnitQuaternion, Vector2, Vector3};
 use std::{
   char::MAX,
