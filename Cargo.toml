@@ -28,7 +28,7 @@ wasm-opt = false
 
 [dependencies]
 engine = { path = "../../engine" }
-# engine = { version = "0.4.24", registry = "ultimate-shared" }
+# engine = { version = "0.4.25", registry = "ultimate-shared" }
 
 parry3d = { version = "0.13.1"}
 log = "0.4.6"

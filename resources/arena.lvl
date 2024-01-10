@@ -265,15 +265,15 @@
               "Point": {
                 "are_shadows_soft": false,
                 "falloff": 0,
-                "intensity": 1,
-                "light_size": 1,
-                "min_radius": 1,
+                "intensity": 2,
+                "light_size": 2,
+                "min_radius": 3,
                 "radiance": [
                   1,
                   1,
                   1
                 ],
-                "radius": 1,
+                "radius": 3,
                 "should_cast_shadows": false
               }
             }
@@ -423,10 +423,10 @@
           }
         ]
       },
-      "f4d28f0d-e287-42a8-b238-ffb9f861d921": {
-        "id": "f4d28f0d-e287-42a8-b238-ffb9f861d921",
+      "7d92b5d4-6c70-4f95-b697-a68bffb3c853": {
+        "id": "7d92b5d4-6c70-4f95-b697-a68bffb3c853",
         "tag": {
-          "name": "Terrain"
+          "name": "light"
         },
         "transform": {
           "translation": [
