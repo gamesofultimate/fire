@@ -36,7 +36,7 @@ impl Initializable for WorldSystem {
 
 impl WorldSystem {
   fn capture_mouse(&mut self, input: &PlayerInput) {
-    self.canvas.capture_mouse(true);
+    // self.canvas.capture_mouse(true);
     // self.canvas.request_fullscreen(true);
   }
 }
@@ -47,7 +47,7 @@ impl System for WorldSystem {
     let input = self.inputs.read();
 
     if input.left_click && !input.mouse_lock {
-      self.capture_mouse(&input);
+      // self.capture_mouse(&input);
     }
 
     for (_, light) in scene.query_mut::<&mut LightComponent>() {
