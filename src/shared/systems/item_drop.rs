@@ -110,15 +110,15 @@ impl System for ItemDropSystem {
           transform.rotation.z,
         ) * Vector3::new(0.0, 0.0, 1.0));
 
-        self.physics.rotate_and_move_towards(
-          physics,
-          transform.rotation,
-          transform.translation,
-          closest_target,
-          pickup_direction,
-          pickup.speed,
-          pickup.rotation_speed,
-        );
+        // self.physics.rotate_and_move_towards(
+        //   physics,
+        //   transform.rotation,
+        //   transform.translation,
+        //   closest_target,
+        //   pickup_direction,
+        //   pickup.speed,
+        //   pickup.rotation_speed,
+        // );
       }
     }
 
@@ -152,15 +152,6 @@ impl System for ItemDropSystem {
           transform.rotation.z,
         ) * Vector3::new(0.0, 0.0, 1.0));
 
-        self.physics.rotate_and_move_towards(
-          physics,
-          transform.rotation,
-          transform.translation,
-          closest_target,
-          pickup_direction,
-          pickup.speed,
-          pickup.rotation_speed,
-        );
       } else {
         self
           .physics

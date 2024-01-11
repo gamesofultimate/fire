@@ -3,10 +3,10 @@
 #[derive(Debug, Eq, PartialEq, Hash)]
 pub enum ModelNames {
   Wizard,
-  Spectator,
-  Dreamstone,
-  Bullet,
-  Swampeter,
+  Wood,
+  Fire,
+  FlameMonster,
+  Spell
 }
 
 #[derive(Debug, Eq, PartialEq, Hash)]
@@ -16,8 +16,7 @@ pub enum ParticleType {
 
 #[derive(Debug, Eq, PartialEq)]
 pub enum Enemy {
-  Swampeter,
-  Alian,
+  FlameMonster,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -70,4 +69,13 @@ impl Default for EnemyState {
   fn default() -> EnemyState {
     EnemyState::Idle
   }
+}
+
+#[derive(Debug, Clone)]
+pub enum TargetType {
+  Terrain,
+  Enemy,
+  Resource,
+  Fire,
+  Collectible,
 }

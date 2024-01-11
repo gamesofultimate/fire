@@ -74,7 +74,7 @@ pub async fn main(
   runner.attach_system::<camera::CameraSystem>();
   // runner.attach_system::<CombatSystem>();
   // runner.attach_system::<LifetimeSystem>();
-  // runner.attach_system::<ItemDropSystem>();
+  runner.attach_system::<ItemDropSystem>();
   // runner.attach_system::<DeathSystem>();
   // runner.attach_system::<SpawnSystem>();
   // runner.attach_system::<EnemyAiSystem>();

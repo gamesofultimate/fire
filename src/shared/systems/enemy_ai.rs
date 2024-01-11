@@ -75,27 +75,27 @@ impl System for EnemyAiSystem {
           ai.state = EnemyState::Attacking;
           let enemy_direction = self.get_enemy_direction(&transform);
           let direction = (closest_target - transform.translation);
-          self.physics.rotate_towards(
-            physics,
-            transform.rotation,
-            enemy_direction,
-            direction,
-            ai.rotation_speed,
-          );
+          // self.physics.rotate_towards(
+          //   physics,
+          //   transform.rotation,
+          //   enemy_direction,
+          //   direction,
+          //   ai.rotation_speed,
+          // );
         } else {
           ai.state = EnemyState::Chasing;
           let enemy_direction = self.get_enemy_direction(&transform);
 
           let adjusted_target = Vector3::new(closest_target.x, 0.0, closest_target.z);
-          self.physics.rotate_and_move_towards(
-            physics,
-            transform.rotation,
-            transform.translation,
-            adjusted_target,
-            enemy_direction,
-            ai.speed,
-            ai.rotation_speed,
-          );
+          // self.physics.rotate_and_move_towards(
+          //   physics,
+          //   transform.rotation,
+          //   transform.translation,
+          //   adjusted_target,
+          //   enemy_direction,
+          //   ai.speed,
+          //   ai.rotation_speed,
+          // );
         }
       } else {
         // No player in detection radius, remain idle or perform other actions
@@ -141,15 +141,15 @@ impl EnemyAiSystem {
 
       // Rotate and move towards the calculated end point
       let enemy_direction = self.get_enemy_direction(transform);
-      self.physics.rotate_and_move_towards(
-        physics,
-        transform.rotation,
-        transform.translation,
-        end_point,
-        enemy_direction,
-        ai.pacing_speed,
-        ai.rotation_speed,
-      );
+      // self.physics.rotate_and_move_towards(
+      //   physics,
+      //   transform.rotation,
+      //   transform.translation,
+      //   end_point,
+      //   enemy_direction,
+      //   ai.pacing_speed,
+      //   ai.rotation_speed,
+      // );
       ai.pacing_time_remaining -= Seconds::new(dt);
     }
   }

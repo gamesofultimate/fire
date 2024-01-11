@@ -132,6 +132,7 @@ impl CollisionSystem {
 
     (entity1, entity2, entity1_tag, entity2_tag)
   }
+
   fn handle_foxy_terrain_collision_start(&mut self, scene: &mut Scene, foxy_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(foxy_entity)

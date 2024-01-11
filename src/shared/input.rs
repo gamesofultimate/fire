@@ -36,7 +36,6 @@ impl Input for PlayerInput {
   fn reset(&mut self) {
     self.direction_vector = Vector3::zeros();
     self.mouse_delta = Vector2::zeros();
-    self.mouse_position = Vector2::zeros();
     self.sprint = false;
     self.debug = false;
     self.dash = false;
@@ -78,6 +77,8 @@ impl Input for PlayerInput {
         MouseEvent::Motion { x, y, dx, dy } => {
           self.mouse_delta.x = dx;
           self.mouse_delta.y = dy;
+          self.mouse_position.x = x;
+          self.mouse_position.y = y;
         }
 
         MouseEvent::Wheel { dx, dy } => {
