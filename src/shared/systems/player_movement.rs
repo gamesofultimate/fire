@@ -77,18 +77,16 @@ impl PlayerMovementSystem {
       let (start, end) = self.mouse_to_ray(camera, &input);
       let debug_controller = backpack.get_mut::<DebugController>().unwrap();
 
-      let start_vector = Vector3::new(start.x, start.y, start.z);
-      let direction = Vector3::new(end.x, end.y, end.z) - start_vector;
-
       // Draw the debug ray
       debug_controller.draw_ray(
-        start_vector,                     // Start point as Vector3
-        (end - start),                    // Direction as Vector3
-        Vector4::new(1.0, 0.0, 0.0, 1.0), // Red color for the ray
-        2.0,                              // Thickness of the ray
+        Vector3::new(start.x, start.y, start.z), // Use the coords field of Point3, which is a Vector3
+        (end - start),                           // Direction as Vector3
+        Vector4::new(1.0, 0.0, 0.0, 1.0),        // Red color for the ray
+        7.0,                                     // Duration in seconds
       );
 
-      let ray = Ray::new(start, (end - start).normalize());
+      let direction = (end - start).normalize();
+      let ray = Ray::new(start, direction);
       let filter = QueryFilter::default();
       let solid = false;
       let max_distance = (end - start).magnitude();
