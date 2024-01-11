@@ -1,7 +1,6 @@
 use std::any::Any;
 use std::sync::Arc;
 use std::collections::HashMap;
-use pathfinding::prelude::astar;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::fmt::Debug;
@@ -208,7 +207,7 @@ impl Planner {
       while let Some((current_node, cost)) = open_set.pop() {
         if MAX_ITERATIONS == 0 || iterations > MAX_ITERATIONS { return }
 
-        log::info!("current: {:?}", &current_node.action);
+        //log::info!("current: {:?}", &current_node.action);
 
         if current_node.blackboard == goal_blackboard {
           //let mut results = vec![];
