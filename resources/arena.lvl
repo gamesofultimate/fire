@@ -138,7 +138,7 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986"
+              "id": "c9716270-9f25-48a7-8e38-dd386b7ccfc4"
             }
           }
         ]
@@ -633,6 +633,12 @@
       "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac": {
         "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac",
         "source": "models/fire-monster/fire-monster.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "c9716270-9f25-48a7-8e38-dd386b7ccfc4": {
+        "id": "c9716270-9f25-48a7-8e38-dd386b7ccfc4",
+        "source": "models/terrain/Terrain.gltf",
         "maxInstances": 10,
         "submeshes": []
       }
