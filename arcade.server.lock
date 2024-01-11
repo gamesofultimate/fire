@@ -2,6 +2,135 @@
   "components": [
     {
       "tag": "Struct",
+      "name": "TextComponent",
+      "label": "Text Component",
+      "default_values": "{ color: [0.0, 0.0, 0.0, 1.0], kerning: 1.2, line_spacing: 1.5, max_width: 10.0, text: 'Hello, World' }",
+      "docs": "Work-in-progress",
+      "fields": [
+        {
+          "name": "text",
+          "label": "Text",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "String"
+            },
+            "default_values": "''"
+          }
+        },
+        {
+          "name": "color",
+          "label": "Color",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Vector4",
+            "default_values": "[0.0, 0.0, 0.0, 0.0]",
+            "ty": "Vector4<f32>"
+          }
+        },
+        {
+          "name": "line_spacing",
+          "label": "Line Spacing",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "kerning",
+          "label": "Kerning",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_width",
+          "label": "Max Width",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "GoalComponent",
+      "label": "Goal Component",
+      "default_values": "{ id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Uuid",
+            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
+            "ty": {
+              "tag": "Uuid"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "MovementComponent",
+      "label": "Movement Component",
+      "default_values": "{ rotation_speed: { rps: 10.0}, run_speed: { mps: 50.0} }",
+      "docs": "Specifies that an entity can move with the given speeds.",
+      "fields": [
+        {
+          "name": "run_speed",
+          "label": "Run Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Mps",
+            "default_values": "{ mps: 1.0 }",
+            "ty": "Mps"
+          }
+        },
+        {
+          "name": "rotation_speed",
+          "label": "Rotation Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Rps",
+            "default_values": "{ rps: 1.0 }",
+            "ty": "Rps"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "InventoryComponent",
+      "label": "Inventory Component",
+      "default_values": "{  }",
+      "docs": null,
+      "fields": []
+    },
+    {
+      "tag": "Struct",
       "name": "AttackComponent",
       "label": "Attack Component",
       "default_values": "{ cooldown: 0.0, damage: 5.0, heavy_anim_end_time: 2200.0, heavy_anim_start_time: 1200.0, heavy_timer_max: 2.0, light_anim_end_time: 1800.0, light_anim_start_time: 600.0, max_distance: 3.0 }",
@@ -94,74 +223,6 @@
         {
           "name": "heavy_anim_end_time",
           "label": "Heavy Anim End Time",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "TextComponent",
-      "label": "Text Component",
-      "default_values": "{ color: [0.0, 0.0, 0.0, 1.0], kerning: 1.2, line_spacing: 1.5, max_width: 10.0, text: 'Hello, World' }",
-      "docs": "Work-in-progress",
-      "fields": [
-        {
-          "name": "text",
-          "label": "Text",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "String"
-            },
-            "default_values": "''"
-          }
-        },
-        {
-          "name": "color",
-          "label": "Color",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Vector4",
-            "default_values": "[0.0, 0.0, 0.0, 0.0]",
-            "ty": "Vector4<f32>"
-          }
-        },
-        {
-          "name": "line_spacing",
-          "label": "Line Spacing",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "kerning",
-          "label": "Kerning",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_width",
-          "label": "Max Width",
           "docs": null,
           "ty": {
             "tag": "Primitive",
@@ -388,37 +449,6 @@
     },
     {
       "tag": "Struct",
-      "name": "MovementComponent",
-      "label": "Movement Component",
-      "default_values": "{ rotation_speed: { rps: 10.0}, run_speed: { mps: 50.0} }",
-      "docs": "Specifies that an entity can move with the given speeds.",
-      "fields": [
-        {
-          "name": "run_speed",
-          "label": "Run Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Mps",
-            "default_values": "{ mps: 1.0 }",
-            "ty": "Mps"
-          }
-        },
-        {
-          "name": "rotation_speed",
-          "label": "Rotation Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Rps",
-            "default_values": "{ rps: 1.0 }",
-            "ty": "Rps"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
       "name": "SpawnComponent",
       "label": "Spawn Component",
       "default_values": "{ interval: 5.0, max_enemies: 25, radius: 10.0 }",
@@ -461,14 +491,6 @@
           }
         }
       ]
-    },
-    {
-      "tag": "Struct",
-      "name": "InventoryComponent",
-      "label": "Inventory Component",
-      "default_values": "{  }",
-      "docs": null,
-      "fields": []
     },
     {
       "tag": "Enum",
@@ -554,6 +576,138 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "MagneticPickupComponent",
+      "label": "Magnetic Pickup Component",
+      "default_values": "{ detection_radius: {meters: 3.0}, rotation_speed: {rps: 1.0}, speed: {mps: 3.0} }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "speed",
+          "label": "Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Mps",
+            "default_values": "{ mps: 1.0 }",
+            "ty": "Mps"
+          }
+        },
+        {
+          "name": "rotation_speed",
+          "label": "Rotation Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Rps",
+            "default_values": "{ rps: 1.0 }",
+            "ty": "Rps"
+          }
+        },
+        {
+          "name": "detection_radius",
+          "label": "Detection Radius",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "HealthComponent",
+      "label": "Health Component",
+      "default_values": "{ health: 0.0, max_health: 0.0 }",
+      "docs": "Manages health values",
+      "fields": [
+        {
+          "name": "health",
+          "label": "Health",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_health",
+          "label": "Max Health",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ShieldComponent",
+      "label": "Shield Component",
+      "default_values": "{ current_undamaged_duration: 0.0, max_shield: 0.0, shield: 0.0, shield_regen_per_second: 0.0 }",
+      "docs": "Manages shield values and timers",
+      "fields": [
+        {
+          "name": "shield",
+          "label": "Shield",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_shield",
+          "label": "Max Shield",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "shield_regen_per_second",
+          "label": "Shield Regen Per Second",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "current_undamaged_duration",
+          "label": "Current Undamaged Duration",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
         }
       ]
     },
@@ -1547,48 +1701,6 @@
     },
     {
       "tag": "Struct",
-      "name": "MagneticPickupComponent",
-      "label": "Magnetic Pickup Component",
-      "default_values": "{ detection_radius: {meters: 3.0}, rotation_speed: {rps: 1.0}, speed: {mps: 3.0} }",
-      "docs": null,
-      "fields": [
-        {
-          "name": "speed",
-          "label": "Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Mps",
-            "default_values": "{ mps: 1.0 }",
-            "ty": "Mps"
-          }
-        },
-        {
-          "name": "rotation_speed",
-          "label": "Rotation Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Rps",
-            "default_values": "{ rps: 1.0 }",
-            "ty": "Rps"
-          }
-        },
-        {
-          "name": "detection_radius",
-          "label": "Detection Radius",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
       "name": "TerrainComponent",
       "label": "Terrain Component",
       "default_values": "{ height: 400.0, id: (() => { \n            return Symbol.for(\"TerrainId\");\n           })(), tile_half_length: 800.0 }",
@@ -1675,94 +1787,6 @@
     },
     {
       "tag": "Struct",
-      "name": "TopDownCameraComponent",
-      "label": "Top Down Camera Component",
-      "default_values": "{ camera_back_offset: {meters: 7.0}, camera_height: {meters: 15.0} }",
-      "docs": "Exposes variables for the top down camera to the scene editor.",
-      "fields": [
-        {
-          "name": "camera_height",
-          "label": "Camera Height",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        },
-        {
-          "name": "camera_back_offset",
-          "label": "Camera Back Offset",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "ShieldComponent",
-      "label": "Shield Component",
-      "default_values": "{ current_undamaged_duration: 0.0, max_shield: 0.0, shield: 0.0, shield_regen_per_second: 0.0 }",
-      "docs": "Manages shield values and timers",
-      "fields": [
-        {
-          "name": "shield",
-          "label": "Shield",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_shield",
-          "label": "Max Shield",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "shield_regen_per_second",
-          "label": "Shield Regen Per Second",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "current_undamaged_duration",
-          "label": "Current Undamaged Duration",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
       "name": "EnemyAiComponent",
       "label": "Enemy Ai Component",
       "default_values": "{ attack_cooldown: {seconds: 4.0}, attack_range: {meters: 5.0}, detection_radius: {meters: 20.0}, rotation_speed: {rps: 1.0}, speed: {mps: 8.0}, timer: {seconds: 0.0} }",
@@ -1838,39 +1862,6 @@
     },
     {
       "tag": "Struct",
-      "name": "HealthComponent",
-      "label": "Health Component",
-      "default_values": "{ health: 0.0, max_health: 0.0 }",
-      "docs": "Manages health values",
-      "fields": [
-        {
-          "name": "health",
-          "label": "Health",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_health",
-          "label": "Max Health",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
       "name": "BehaviorComponent",
       "label": "Behavior Component",
       "default_values": "{ behavior_id: (() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })(), id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
@@ -1899,6 +1890,37 @@
             "reference": "BehaviorTree",
             "default_values": "(() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })()",
             "ty": "BehaviorTreeId"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "TopDownCameraComponent",
+      "label": "Top Down Camera Component",
+      "default_values": "{ camera_back_offset: {meters: 7.0}, camera_height: {meters: 15.0} }",
+      "docs": "Exposes variables for the top down camera to the scene editor.",
+      "fields": [
+        {
+          "name": "camera_height",
+          "label": "Camera Height",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        },
+        {
+          "name": "camera_back_offset",
+          "label": "Camera Back Offset",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
           }
         }
       ]

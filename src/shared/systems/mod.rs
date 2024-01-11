@@ -1,8 +1,7 @@
 pub mod collisions;
 pub mod combat;
 pub mod death;
-pub mod enemy_ai;
-pub mod item_drop;
+pub mod goal;
 pub mod lifetime;
 pub mod player_movement;
 pub mod sky;

@@ -1,4 +1,4 @@
-use engine::utils::units::{Meters};
+use engine::utils::units::Meters;
 use serde::{Deserialize, Serialize};
 use tagged::{Registerable, Schema};
 

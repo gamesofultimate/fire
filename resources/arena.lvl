@@ -283,7 +283,7 @@
       "f5800b29-74d4-49df-b07d-17634846fc1b": {
         "id": "f5800b29-74d4-49df-b07d-17634846fc1b",
         "tag": {
-          "name": "fire-enemy-prefab"
+          "name": "enemy"
         },
         "transform": {
           "translation": [
@@ -305,6 +305,11 @@
         "components": [
           {
             "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           }
