@@ -72,7 +72,7 @@ pub async fn main(
   runner.attach_system::<CollisionSystem>();
   runner.attach_system::<PlayerMovementSystem>();
   runner.attach_system::<camera::CameraSystem>();
-  // runner.attach_system::<CombatSystem>();
+  runner.attach_system::<CombatSystem>();
   // runner.attach_system::<LifetimeSystem>();
   runner.attach_system::<ItemDropSystem>();
   // runner.attach_system::<DeathSystem>();

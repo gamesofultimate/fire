@@ -77,6 +77,9 @@ impl PlayerMovementSystem {
       let (start, end) = self.mouse_to_ray(camera, &input);
       let debug_controller = backpack.get_mut::<DebugController>().unwrap();
 
+      let start_vector = Vector3::new(start.x, start.y, start.z);
+      let direction = Vector3::new(end.x, end.y, end.z) - start_vector;
+
       // Draw the debug ray
       debug_controller.draw_ray(
         start_vector,                     // Start point as Vector3

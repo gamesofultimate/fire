@@ -70,9 +70,9 @@ impl System for CollisionSystem {
             self.get_entity_and_tag(scene, collider1, collider2);
 
           if entity1_tag.name == "Wood" && entity2_tag.name == "Wizard" {
-            self.handle_foxy_dreamstone_collision_start(scene, entity2, entity1);
+            self.handle_wizard_wood_collision_start(scene, entity2, entity1);
           } else if entity2_tag.name == "Wood" && entity1_tag.name == "Wizard" {
-            self.handle_foxy_dreamstone_collision_start(scene, entity1, entity2);
+            self.handle_wizard_wood_collision_start(scene, entity1, entity2);
           }
           if entity1_tag.name == "Terrain" && entity2_tag.name == "Wizard" {
             self.handle_foxy_terrain_collision_start(scene, entity2);
@@ -81,9 +81,9 @@ impl System for CollisionSystem {
           }
 
           if entity1_tag.name == "Swampeter" && entity2_tag.name == "Wizard" {
-            self.handle_foxy_swampeter_collision_start(scene, entity2, entity1);
+            self.handle_wizard_enemy_collision_start(scene, entity2, entity1);
           } else if entity2_tag.name == "Swampeter" && entity1_tag.name == "Wizard" {
-            self.handle_foxy_swampeter_collision_start(scene, entity1, entity2);
+            self.handle_wizard_enemy_collision_start(scene, entity1, entity2);
           }
         }
 
@@ -165,7 +165,7 @@ impl CollisionSystem {
       .unwrap();
 
     self.physics.despawn(&physics);
-    scene.remove_entity(dreamstone_entity);
+    scene.remove_entity(wood_entity);
   }
 
   fn handle_wizard_enemy_collision_start(
