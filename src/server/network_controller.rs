@@ -174,10 +174,6 @@ impl ChannelEvents for NetworkController {
 
     for (id, prefab) in gamefile.scene.prefabs {
       match prefab.tag.name.as_str() {
-        "spectator-spawn-1" | "spectator-spawn-2" | "spectator-spawn-3" | "spectator-spawn-4" => {
-          log::info!("creating spectator points {:?}", prefab.tag.name);
-          self.spectator_points.push(prefab.transform);
-        }
         "DamageParticle" => {
           log::info!("creating particle_system prefab: {:?}", prefab.tag.name);
           self
@@ -185,42 +181,37 @@ impl ChannelEvents for NetworkController {
             .insert(ParticleType::Damage, prefab.clone());
           scene.store_prefab("DamageParticle", prefab);
         }
-        // "Swampeter" => {
-        //   log::info!("creating swampeter prefab: {:?}", prefab.tag.name);
-        //   self.prefabs.insert(ModelNames::Swampeter, prefab.clone());
-        //   scene.store_prefab("Swampeter", prefab);
-        // }
+        "Flame Monster" => {
+          log::info!("creating flame monster prefab: {:?}", prefab.tag.name);
+          self
+            .prefabs
+            .insert(ModelNames::FlameMonster, prefab.clone());
+          scene.store_prefab("Swampeter", prefab);
+        }
         "EnemySpawn1" | "EnemySpawn2" | "EnemySpawn3" | "EnemySpawn4" => {
           log::info!("creating spawn points {:?}", prefab.tag.name);
           self.spawn_points.push(prefab.transform);
           self.assigned_spawns.push(None);
         }
-        "spectator" => {
-          log::info!("creating prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Spectator, prefab.clone());
-        }
         "Wizard" => {
           log::info!("creating foxy prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Wizard, prefab.clone());
         }
-        // "Dreamstone" => {
-        //   log::info!("creating dreamstone prefab: {:?}", prefab.tag.name);
-        //   self.prefabs.insert(ModelNames::Dreamstone, prefab.clone());
-        //   scene.store_prefab("Dreamstone", prefab);
-        // }
-        "Bullet" => {
-          log::info!("creating bullet prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Bullet, prefab.clone());
-          scene.store_prefab("Bullet", prefab);
-        }
-        "arena-collider" => {
-          log::info!("receiving entity {:?}", prefab.tag.name);
-          let entity = scene.create_raw_entity("tmp");
+        "Wood" => {
+          log::info!("creating wood prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::Wood, prefab.clone());
+          // scene.store_prefab("Dreamstone", prefab);
+          let entity = scene.create_raw_entity(prefab.tag.name.as_str());
           scene.create_with_prefab(entity, prefab);
+        }
+        "Spell" => {
+          log::info!("creating bullet prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::Spell, prefab.clone());
+          scene.store_prefab("Spell", prefab);
         }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);
-          let entity = scene.create_raw_entity("tmp");
+          let entity = scene.create_raw_entity("{prefab.tag.name}");
           scene.create_with_prefab(entity, prefab);
         }
       }

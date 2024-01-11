@@ -39,7 +39,7 @@
     "debug": {
       "empty_shapes": false,
       "shadow": false,
-      "physics": false,
+      "physics": true,
       "lighting": false
     },
     "camera": {
@@ -112,36 +112,6 @@
           }
         ]
       },
-      "ea7c6142-1e55-446f-af01-4a5c9851bb23": {
-        "id": "ea7c6142-1e55-446f-af01-4a5c9851bb23",
-        "tag": {
-          "name": "plane"
-        },
-        "transform": {
-          "translation": [
-            0,
-            -0.75,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": [
-          {
-            "ModelComponent": {
-              "id": "3be4ccc4-a0a3-4fe3-954a-01eb36a0a986"
-            }
-          }
-        ]
-      },
       "6add8d68-3bd1-4649-babb-3d2a03da5a09": {
         "id": "6add8d68-3bd1-4649-babb-3d2a03da5a09",
         "tag": {
@@ -183,8 +153,9 @@
                   ],
                   "ccd": false,
                   "collider_type": {
-                    "Sphere": {
-                      "radius": 1
+                    "Cylinder": {
+                      "half_height": 0.7,
+                      "radius": 0.3
                     }
                   },
                   "density": 1,
@@ -198,7 +169,7 @@
                 "name": "Joint",
                 "offset": [
                   0,
-                  0,
+                  0.6,
                   0
                 ]
               }
@@ -253,6 +224,246 @@
             }
           }
         ]
+      },
+      "70616a29-51de-45d2-a6c9-787c13cd180e": {
+        "id": "70616a29-51de-45d2-a6c9-787c13cd180e",
+        "tag": {
+          "name": "Wood"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0.3,
+            7.376443
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "45ce8b59-805b-42cd-a316-5c895d5d277a"
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "7da03bc1-7ca3-4122-b7ad-eb44bab327e0",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "CapsuleX": {
+                      "half_height": 0.4,
+                      "radius": 0.15
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Dynamic",
+                  "friction": 0.1,
+                  "id": "c7668a0a-3716-4758-9090-30d312da2c5e",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "b9886d7f-1189-45b1-b2d7-dffdcaddc8d8",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "MagneticPickupComponent": {
+              "detection_radius": {
+                "meters": 3
+              },
+              "rotation_speed": {
+                "rps": 1
+              },
+              "speed": {
+                "mps": 3
+              }
+            }
+          }
+        ]
+      },
+      "f4d28f0d-e287-42a8-b238-ffb9f861d921": {
+        "id": "f4d28f0d-e287-42a8-b238-ffb9f861d921",
+        "tag": {
+          "name": "Terrain"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "04395c89-9696-4fb1-8530-6146e0d98591"
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "784aae73-e346-4284-b239-23b923b400b3",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "Cube": {
+                      "height": 1,
+                      "length": 50,
+                      "width": 50
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "6c2c0a18-0f15-487b-876d-5f92da65c288",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "1d5b2650-2dee-421b-ae4b-0a560f0769cb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "5bf19582-d00a-4a7c-bc2c-c453cae2e92f": {
+        "id": "5bf19582-d00a-4a7c-bc2c-c453cae2e92f",
+        "tag": {
+          "name": "Tree"
+        },
+        "transform": {
+          "translation": [
+            -24.83445,
+            0,
+            0.20169401
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -273,6 +484,24 @@
         "source": "models/WizardGLTF/Wizard.gltf",
         "maxInstances": 10,
         "submeshes": []
+      },
+      "45ce8b59-805b-42cd-a316-5c895d5d277a": {
+        "id": "45ce8b59-805b-42cd-a316-5c895d5d277a",
+        "source": "models/log/Log.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "04395c89-9696-4fb1-8530-6146e0d98591": {
+        "id": "04395c89-9696-4fb1-8530-6146e0d98591",
+        "source": "models/Terrain01/Terrain01.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f": {
+        "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f",
+        "source": "models/Tree/Tree.gltf",
+        "maxInstances": 10,
+        "submeshes": []
       }
     },
     "trimeshes": {
@@ -287,6 +516,18 @@
       "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c": {
         "id": "1dd2320f-fee0-4d51-a47c-a4dad6cb3d2c",
         "source": "models/WizardGLTF/Wizard.gltf"
+      },
+      "dd333afc-633d-4f80-9983-e7d227a8d9e3": {
+        "id": "dd333afc-633d-4f80-9983-e7d227a8d9e3",
+        "source": "models/log/Log.gltf"
+      },
+      "edc1f797-0bc4-4aff-8ac5-c4a1d644fd4d": {
+        "id": "edc1f797-0bc4-4aff-8ac5-c4a1d644fd4d",
+        "source": "models/Terrain01/Terrain01.gltf"
+      },
+      "197ab935-6aad-49dd-a771-13d44b59580f": {
+        "id": "197ab935-6aad-49dd-a771-13d44b59580f",
+        "source": "models/Tree/Tree.gltf"
       }
     },
     "textures": {
