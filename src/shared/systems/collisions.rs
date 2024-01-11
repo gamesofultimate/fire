@@ -69,9 +69,9 @@ impl System for CollisionSystem {
           let (entity1, entity2, entity1_tag, entity2_tag) =
             self.get_entity_and_tag(scene, collider1, collider2);
 
-          if entity1_tag.name == "Dreamstone" && entity2_tag.name == "Wizard" {
+          if entity1_tag.name == "Wood" && entity2_tag.name == "Wizard" {
             self.handle_foxy_dreamstone_collision_start(scene, entity2, entity1);
-          } else if entity2_tag.name == "Dreamstone" && entity1_tag.name == "Wizard" {
+          } else if entity2_tag.name == "Wood" && entity1_tag.name == "Wizard" {
             self.handle_foxy_dreamstone_collision_start(scene, entity1, entity2);
           }
           if entity1_tag.name == "Terrain" && entity2_tag.name == "Wizard" {
@@ -132,49 +132,51 @@ impl CollisionSystem {
 
     (entity1, entity2, entity1_tag, entity2_tag)
   }
-
-  fn handle_foxy_terrain_collision_start(&mut self, scene: &mut Scene, foxy_entity: Entity) {
+  fn handle_foxy_terrain_collision_start(&mut self, scene: &mut Scene, wizard_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
-      .query_one_mut::<&mut MovementComponent>(foxy_entity)
+      .query_one_mut::<&mut MovementComponent>(wizard_entity)
       .unwrap();
   }
 
-  fn handle_foxy_terrain_collision_stop(&mut self, scene: &mut Scene, foxy_entity: Entity) {
+  fn handle_foxy_terrain_collision_stop(&mut self, scene: &mut Scene, wizard_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
-      .query_one_mut::<&mut MovementComponent>(foxy_entity)
+      .query_one_mut::<&mut MovementComponent>(wizard_entity)
       .unwrap();
   }
 
-  fn handle_foxy_dreamstone_collision_start(
+  fn handle_wizard_wood_collision_start(
     &mut self,
     scene: &mut Scene,
-    foxy_entity: Entity,
-    dreamstone_entity: Entity,
+    wizard_entity: Entity,
+    wood_entity: Entity,
   ) {
+    let player_inventory: &mut InventoryComponent = scene
+      .query_one_mut::<&mut InventoryComponent>(wizard_entity)
+      .unwrap();
+
+    if player_inventory.is_full() {
+      return;
+    }
+
+    player_inventory.add_wood(1);
+
     let physics: &mut PhysicsComponent = scene
-      .query_one_mut::<&mut PhysicsComponent>(dreamstone_entity)
+      .query_one_mut::<&mut PhysicsComponent>(wood_entity)
       .unwrap();
 
     self.physics.despawn(&physics);
     scene.remove_entity(dreamstone_entity);
-
-    let player_inventory: &mut InventoryComponent = scene
-      .query_one_mut::<&mut InventoryComponent>(foxy_entity)
-      .unwrap();
-
-    player_inventory.add_dreamstones(1);
   }
 
-  fn handle_foxy_swampeter_collision_start(
+  fn handle_wizard_enemy_collision_start(
     &mut self,
     scene: &mut Scene,
-    foxy_entity: Entity,
-    swampeter_entity: Entity,
+    wizard_entity: Entity,
+    enemy_entity: Entity,
   ) {
     let mut health = scene
-      .query_one_mut::<&mut HealthComponent>(foxy_entity)
+      .query_one_mut::<&mut HealthComponent>(wizard_entity)
       .unwrap();
-
     health.pending_damage += 5.0;
   }
 }

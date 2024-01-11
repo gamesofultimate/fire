@@ -79,14 +79,13 @@ impl PlayerMovementSystem {
 
       // Draw the debug ray
       debug_controller.draw_ray(
-        Vector3::new(start.x, start.y, start.z), // Use the coords field of Point3, which is a Vector3
-        (end - start),                           // Direction as Vector3
-        Vector4::new(1.0, 0.0, 0.0, 1.0),        // Red color for the ray
-        7.0,                                     // Duration in seconds
+        start_vector,                     // Start point as Vector3
+        (end - start),                    // Direction as Vector3
+        Vector4::new(1.0, 0.0, 0.0, 1.0), // Red color for the ray
+        2.0,                              // Thickness of the ray
       );
 
-      let direction = (end - start).normalize();
-      let ray = Ray::new(start, direction);
+      let ray = Ray::new(start, (end - start).normalize());
       let filter = QueryFilter::default();
       let solid = false;
       let max_distance = (end - start).magnitude();
