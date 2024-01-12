@@ -8,7 +8,7 @@ include generating new IDs for anything that needs it.
 
 use crate::shared::{
   components::{
-    magnetic_pickup_component::MagneticPickupComponent, movement_component::MovementComponent,
+    magnetic_pickup_component::MagneticPickupComponent, movement_component::MovementComponent, resource_component::ResourceComponent, inventory_component::InventoryComponent,
   },
   game_types::game_types::EnemyState,
   input::PlayerInput,
@@ -52,6 +52,8 @@ impl Initializable for ItemDropSystem {
 impl System for ItemDropSystem {
   fn provide(&mut self, inventory: &Inventory) {
     MagneticPickupComponent::register();
+    InventoryComponent::register();
+    ResourceComponent::register();
   }
 
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {

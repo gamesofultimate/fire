@@ -250,14 +250,6 @@
     },
     {
       "tag": "Struct",
-      "name": "InventoryComponent",
-      "label": "Inventory Component",
-      "default_values": "{  }",
-      "docs": null,
-      "fields": []
-    },
-    {
-      "tag": "Struct",
       "name": "AnimationComponent",
       "label": "Animation Component",
       "default_values": "{ animations: [] }",
@@ -458,6 +450,39 @@
             "name": "Kph",
             "default_values": "{ kph: 1.0}",
             "ty": "Kph"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "InventoryComponent",
+      "label": "Inventory Component",
+      "default_values": "{ max_wood: 5, wood: 0 }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "wood",
+          "label": "Wood",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "max_wood",
+          "label": "Max Wood",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
           }
         }
       ]

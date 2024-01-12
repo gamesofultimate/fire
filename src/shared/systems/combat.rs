@@ -353,8 +353,7 @@ impl System for CombatSystem {
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     let input = self.inputs.read();
     let mut physics = self.physics.clone();
-
-    self.handle_input(scene, backpack);
-    self.handle_components(scene, backpack, &mut physics);
+    // self.handle_input(scene, backpack);
+    // self.handle_components(scene, backpack, &mut physics);
   }
 }

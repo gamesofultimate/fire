@@ -3,24 +3,26 @@ use tagged::{Registerable, Schema};
 
 #[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
 pub struct InventoryComponent {
-  #[serde(skip)]
-  pub dreamstones: u32,
+  #[schema(default = "0")]
+  pub wood: u32,
+  #[schema(default = "5")]
+  pub max_wood: u32,
 }
 
 impl InventoryComponent {
-  pub fn new() -> Self {
-    InventoryComponent { dreamstones: 0 }
+  pub fn add_wood(&mut self, amount: u32) {
+    self.wood += amount;
   }
 
-  pub fn add_dreamstones(&mut self, amount: u32) {
-    self.dreamstones += amount;
+  pub fn remove_wood(&mut self, amount: u32) {
+    self.wood -= amount;
   }
 
-  pub fn remove_dreamstones(&mut self, amount: u32) {
-    self.dreamstones -= amount;
+  pub fn get_wood(&self) -> u32 {
+    self.wood
   }
 
-  pub fn get_dreamstones(&self) -> u32 {
-    self.dreamstones
+  pub fn is_full(&self) -> bool {
+    self.wood >= self.max_wood
   }
 }
