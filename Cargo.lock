@@ -653,9 +653,13 @@ checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
 
 [[package]]
 name = "engine"
+<<<<<<< HEAD
 version = "0.4.29"
 source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
 checksum = "ba27ad4adf0ba47fbac37c0c29c12eeaf4a9a6274b4bf7a144edb00899a60177"
+=======
+version = "0.4.27"
+>>>>>>> 8fda4f4 (update)
 dependencies = [
  "async-channel",
  "async-recursion",

@@ -35,6 +35,9 @@ impl Initializable for PlayerMovementSystem {
   fn initialize(inventory: &Inventory) -> Self {
     let inputs = inventory.get::<InputsReader<PlayerInput>>().clone();
     let physics = inventory.get::<PhysicsController>().clone();
+    // if let Some(mut config) = inventory.get::<PhysicsConfig>() {
+    //   config.gravity = Vector3::new(0.0, -9.8, 0.0);
+    // }
 
     Self {
       inputs,
@@ -46,9 +49,10 @@ impl Initializable for PlayerMovementSystem {
 
 impl System for PlayerMovementSystem {
   fn attach(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
+
     for (_, (_, physics)) in scene.query_mut::<(&SelfComponent, &PhysicsComponent)>() {
-      self.physics.set_linear_damping(&physics, 0.6);
-      self.physics.set_angular_damping(&physics, 0.6);
+      // self.physics.set_linear_damping(&physics, 0.6);
+      // self.physics.set_angular_damping(&physics, 0.6);
     }
   }
 
@@ -75,9 +79,9 @@ impl PlayerMovementSystem {
       let camera = backpack.get_mut::<CameraConfig>().unwrap();
       let input = self.inputs.read();
       let (start, end) = self.mouse_to_ray(camera, &input);
-      let debug_controller = backpack.get_mut::<DebugController>().unwrap();
 
       /*
+      let debug_controller = backpack.get_mut::<DebugController>().unwrap();
       // Draw the debug ray
       debug_controller.draw_ray(
         Vector3::new(start.x, start.y, start.z), // Use the coords field of Point3, which is a Vector3

@@ -143,9 +143,9 @@
               "joint": {
                 "body": {
                   "allow_rotation": [
-                    true,
-                    true,
-                    true
+                    false,
+                    false,
+                    false
                   ],
                   "allow_translation": [
                     true,
@@ -246,6 +246,12 @@
                 "radius": 3,
                 "should_cast_shadows": false
               }
+            }
+          },
+          {
+            "InventoryComponent": {
+              "max_wood": 5,
+              "wood": 0
             }
           }
         ]
@@ -557,7 +563,7 @@
                 "name": "Joint",
                 "offset": [
                   0,
-                  2,
+                  0,
                   0
                 ]
               }
@@ -7732,13 +7738,7 @@
             1
           ]
         },
-        "components": [
-          {
-            "ModelComponent": {
-              "id": "b36783dc-ad72-44a8-bc97-100f3f689767"
-            }
-          }
-        ]
+        "components": []
       }
     },
     "models": {
