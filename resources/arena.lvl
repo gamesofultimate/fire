@@ -86,7 +86,7 @@
               "Directional": {
                 "azimuth": {
                   "value": 0,
-                  "radians": 0.8
+                  "radians": 3
                 },
                 "inclination": {
                   "value": 1,
@@ -257,7 +257,7 @@
         },
         "transform": {
           "translation": [
-            9,
+            9.2766695,
             0.5,
             0
           ],
@@ -331,36 +331,6 @@
                   0
                 ]
               }
-            }
-          }
-        ]
-      },
-      "645c5ad8-4a75-41ae-bec7-346d87dc4f7b": {
-        "id": "645c5ad8-4a75-41ae-bec7-346d87dc4f7b",
-        "tag": {
-          "name": "enemy-1"
-        },
-        "transform": {
-          "translation": [
-            -5,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": [
-          {
-            "PrefabComponent": {
-              "id": "f5800b29-74d4-49df-b07d-17634846fc1b"
             }
           }
         ]
