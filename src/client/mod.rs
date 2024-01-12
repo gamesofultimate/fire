@@ -15,13 +15,11 @@ use engine::{
   utils::browser::grow_memory,
 };
 
-use crate::shared::follow::MayhemBehaviors;
-use crate::shared::input::PlayerInput;
+use crate::shared::{follow::MayhemBehaviors, input::PlayerInput};
 
 use crate::shared::systems::{
-  collisions::CollisionSystem, combat::CombatSystem, death::DeathSystem, enemy_ai::EnemyAiSystem,
-  item_drop::ItemDropSystem, lifetime::LifetimeSystem, player_movement::PlayerMovementSystem,
-  spawn::SpawnSystem,
+  collisions::CollisionSystem, item_drop::ItemDropSystem, combat::CombatSystem, goal::GoalSystem, death::DeathSystem, lifetime::LifetimeSystem,
+  player_movement::PlayerMovementSystem, spawn::SpawnSystem,
 };
 
 // 4k
@@ -69,8 +67,10 @@ pub async fn main(
   // runner.attach_middleware::<AttackTransitions>();
   // runner.attach_middleware::<MayhemBehaviors>();
   runner.attach_system::<world::WorldSystem>();
-  runner.attach_system::<CollisionSystem>();
   runner.attach_system::<PlayerMovementSystem>();
+  runner.attach_system::<GoalSystem>();
+  runner.attach_system::<CollisionSystem>();
+
   runner.attach_system::<camera::CameraSystem>();
   runner.attach_system::<CombatSystem>();
   // runner.attach_system::<LifetimeSystem>();

@@ -1,5 +1,7 @@
 #![feature(async_closure, let_chains)]
 
+mod utils;
+
 #[cfg(target_arch = "wasm32")]
 #[allow(dead_code)]
 mod client;

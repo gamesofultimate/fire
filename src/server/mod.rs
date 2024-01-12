@@ -19,6 +19,7 @@ use crate::shared::components::{
   resource_component::ResourceComponent,
 };
 use crate::shared::follow::MayhemBehaviors;
+use crate::shared::systems::goal::GoalSystem;
 use crate::{server::network_controller::NetworkController, shared::systems::sky::SkySystem};
 
 const FRAMES_PER_SECOND: u64 = 60;
@@ -72,6 +73,7 @@ pub async fn main() {
   runner.attach_plugin(hdr);
   runner.attach_plugin(custom_components);
   runner.attach_system::<SkySystem>();
+  runner.attach_system::<GoalSystem>();
 
   runner.run().await;
 
