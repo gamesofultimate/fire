@@ -286,10 +286,10 @@
           {
             "MovementComponent": {
               "rotation_speed": {
-                "rps": 10
+                "rps": 0.5
               },
               "run_speed": {
-                "mps": 9
+                "mps": 0.5
               }
             }
           },

@@ -6,7 +6,7 @@ use std::collections::BTreeMap;
 use std::fmt::Debug;
 use std::hash::{Hash, Hasher};
 use std::collections::HashSet;
-use priority_queue::PriorityQueue;
+use priority_queue::{DoublePriorityQueue, PriorityQueue};
 use std::cmp::PartialEq;
 
 use engine::{application::scene::Scene, systems::Backpack, Entity};
@@ -213,7 +213,7 @@ impl Planner {
   ) {
     //let mut goals = vec![];
     //let mut plan = vec![];
-    let mut plan = PriorityQueue::new();
+    let mut plan = DoublePriorityQueue::new();
 
     'goal_loop: for goal in &self.goals {
       let goal_blackboard = goal.get_goal(entity, scene, local);
@@ -239,8 +239,9 @@ impl Planner {
           let mut curr = current_node.action;
 
           while let Some(node_index) = curr {
-            curr = parents[&node_index];
+            let (next, cost) = parents[&node_index];
             plan.push(node_index, cost);
+            curr = next;
           }
 
           continue 'goal_loop;
@@ -259,7 +260,7 @@ impl Planner {
 
               if !closed_set.contains(&next_blackboard) {
 
-                parents.insert(index, current_node.action);
+                parents.insert(index, (current_node.action, next_cost));
                 open_set.push(PlanningNode {
                   name: action.name(),
                   blackboard: next_blackboard,
@@ -274,8 +275,15 @@ impl Planner {
       }
     }
 
-    log::info!("plan {:?}", &plan);
-    if let Some((action_index, _)) = plan.pop() {
+    let mut names = vec![];
+
+    for ((index, priority)) in &plan {
+      let mut action = &mut self.actions[*index];
+      names.push((priority, action.name()));
+    }
+    log::info!("plan {:?}", &names);
+
+    if let Some((action_index, _)) = plan.pop_min() {
       let mut action = &mut self.actions[action_index];
       log::info!("executing {:}", &action.name());
       action.execute(entity, scene, backpack, local);

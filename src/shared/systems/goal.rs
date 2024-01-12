@@ -13,7 +13,7 @@ use crate::shared::components::movement_component::MovementComponent;
 use engine::application::components::PhysicsComponent;
 use engine::systems::physics::PhysicsController;
 
-use nalgebra::{Point3, Vector3};
+use nalgebra::{Point3, Vector3, UnitQuaternion, Unit};
 use tagged::{Registerable, Schema};
 
 #[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
@@ -86,7 +86,7 @@ impl Action for Chill {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    2
+    10
   }
 
   fn check_readyness(
@@ -161,7 +161,7 @@ impl Action for GoTowardsFire {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    (2.0 * self.distance) as i32
+    3
   }
 
   fn check_readyness(
@@ -240,7 +240,7 @@ impl Action for SearchForFire {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    2
+    1
   }
 
   fn check_readyness(
@@ -311,7 +311,6 @@ impl Action for SearchForFire {
     backpack: &mut Backpack,
     local: &mut Backpack,
   ) {
-    log::info!("am i here?");
     if let Some(physics_controller) = backpack.get_mut::<PhysicsController>()
       && let Some(fire_location) = self.fire_location
       && let Some((transform, physics, movement)) = scene.get_components::<(
@@ -320,7 +319,13 @@ impl Action for SearchForFire {
         &MovementComponent,
       )>(entity) {
 
-    log::info!("what about here?");
+      let rotation_quaternion = UnitQuaternion::from_euler_angles(
+        transform.rotation.x,
+        transform.rotation.y,
+        transform.rotation.z,
+      ) * Vector3::new(0.0, 0.0, 1.0);
+
+      let direction_vector = Unit::new_normalize(transform.rotation - fire_location);
 
       physics_controller.move_towards(
         &physics,
@@ -329,14 +334,12 @@ impl Action for SearchForFire {
         movement.run_speed,
       );
 
-      /*
       physics_controller.rotate_towards(
         &physics,
         rotation_quaternion,
-        direction_vector,
+        direction_vector.into_inner(),
         movement.rotation_speed,
-      )
-      */
+      );
     }
   }
 }
