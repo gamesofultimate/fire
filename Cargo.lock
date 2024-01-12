@@ -653,7 +653,9 @@ checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
 
 [[package]]
 name = "engine"
-version = "0.4.28"
+version = "0.4.29"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "ba27ad4adf0ba47fbac37c0c29c12eeaf4a9a6274b4bf7a144edb00899a60177"
 dependencies = [
  "async-channel",
  "async-recursion",
@@ -705,6 +707,8 @@ dependencies = [
 [[package]]
 name = "engine_derive"
 version = "0.1.2"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "100f0df14c272dcfca27d38ac4789907d5a4af46c073ee39358e7f8d730e5c4a"
 dependencies = [
  "proc-macro2",
  "quote 1.0.33",
@@ -1721,6 +1725,8 @@ checksum = "e1bcdd74c20ad5d95aacd60ef9ba40fdf77f767051040541df557b7a9b2a2121"
 [[package]]
 name = "networking"
 version = "0.6.3"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "6c0d07243319354ecd1ab8b223fe5c38dc192af600fee7eeaf3567682ce5879e"
 dependencies = [
  "bincode",
  "bytes",
@@ -2457,6 +2463,8 @@ checksum = "e5864e7ef1a6b7bcf1d6ca3f655e65e724ed3b52546a0d0a663c991522f552ea"
 [[package]]
 name = "rsl"
 version = "0.2.4"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "f7a9d13f7e7d05744e17fa3a0d02a91bbfa53f1dc7a9bc5588e187e9cd6847bb"
 dependencies = [
  "convert_case 0.5.0",
  "gltf 0.15.2",

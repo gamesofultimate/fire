@@ -257,13 +257,13 @@
         },
         "transform": {
           "translation": [
-            9.2766695,
+            31.573616,
             0.5,
-            0
+            -0.8823905
           ],
           "rotation": [
             0,
-            0,
+            -1.5766907,
             0
           ],
           "scale": [
@@ -5044,6 +5044,2701 @@
             }
           }
         ]
+      },
+      "54c80186-88c7-43ca-b728-c0ca480dcc70": {
+        "id": "54c80186-88c7-43ca-b728-c0ca480dcc70",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            31.573616,
+            0.5,
+            -11.348906
+          ],
+          "rotation": [
+            0,
+            -1.4148198,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "a7985050-beb1-4168-99ee-ce95501e4a49": {
+        "id": "a7985050-beb1-4168-99ee-ce95501e4a49",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            27.069946,
+            0.5,
+            -15.473737
+          ],
+          "rotation": [
+            0,
+            -1.4148198,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "053a2813-614c-4d02-aa9f-587d96ade953": {
+        "id": "053a2813-614c-4d02-aa9f-587d96ade953",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            14.129021,
+            0.5,
+            -26.47671
+          ],
+          "rotation": [
+            0,
+            -0.51122504,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "48547de5-e99d-4b08-a442-f3cbe4449acd": {
+        "id": "48547de5-e99d-4b08-a442-f3cbe4449acd",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            21.731277,
+            0.5,
+            -23.582409
+          ],
+          "rotation": [
+            0,
+            -0.73375034,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "d6f8396f-d13e-468b-b2fa-59166203f429": {
+        "id": "d6f8396f-d13e-468b-b2fa-59166203f429",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            7.8678074,
+            0.5,
+            -30.195044
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "bf30b14b-b5eb-4e38-a681-7be51c4d3f31": {
+        "id": "bf30b14b-b5eb-4e38-a681-7be51c4d3f31",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            2.8270226,
+            0.5,
+            -31.059683
+          ],
+          "rotation": [
+            0,
+            0.09426057,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "51009a81-320f-4b9b-bc8f-777978fb9d10": {
+        "id": "51009a81-320f-4b9b-bc8f-777978fb9d10",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -15.047173,
+            0.5,
+            -31.059683
+          ],
+          "rotation": [
+            0,
+            0.5629882,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "98f5e164-939a-4bab-a400-4996bd05c44c": {
+        "id": "98f5e164-939a-4bab-a400-4996bd05c44c",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -4.7503967,
+            0.5,
+            -31.059683
+          ],
+          "rotation": [
+            0,
+            0.09426057,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "afb47503-0faf-4bad-bb6c-58af04c7e6dc": {
+        "id": "afb47503-0faf-4bad-bb6c-58af04c7e6dc",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -18.862219,
+            0.5,
+            -26.114428
+          ],
+          "rotation": [
+            0,
+            0.6823236,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "2aa4cadb-3ad3-4009-8f20-05d2868fdca7": {
+        "id": "2aa4cadb-3ad3-4009-8f20-05d2868fdca7",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -23.335562,
+            0.5,
+            -20.148985
+          ],
+          "rotation": [
+            0,
+            0.89763343,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ed3b60ab-b7bc-473f-bf28-45951432c2d5": {
+        "id": "ed3b60ab-b7bc-473f-bf28-45951432c2d5",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -27.628637,
+            0.5,
+            -15.154047
+          ],
+          "rotation": [
+            0,
+            1.1576414,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "66891f17-2739-4efa-9c03-e30e9e87763f": {
+        "id": "66891f17-2739-4efa-9c03-e30e9e87763f",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -25.10948,
+            0.5,
+            -10.258802
+          ],
+          "rotation": [
+            0,
+            1.2249975,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "6c1c6ea1-e0d2-49b8-9eaf-ecbe75148074": {
+        "id": "6c1c6ea1-e0d2-49b8-9eaf-ecbe75148074",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -30.455198,
+            0.5,
+            -6.168413
+          ],
+          "rotation": [
+            0,
+            1.3237042,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "f97bb859-2b65-459f-832f-1eb0e7979a36": {
+        "id": "f97bb859-2b65-459f-832f-1eb0e7979a36",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -27.882292,
+            0.5,
+            0.35312366
+          ],
+          "rotation": [
+            0,
+            1.5032793,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "d6ab276c-3848-4edc-8fd3-de903375f872": {
+        "id": "d6ab276c-3848-4edc-8fd3-de903375f872",
+        "tag": {
+          "name": "enemy "
+        },
+        "transform": {
+          "translation": [
+            -27.882292,
+            0.5,
+            6.8441114
+          ],
+          "rotation": [
+            0,
+            1.6612939,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "16fcf5ad-bc13-4482-848d-d2e51bcbed3b": {
+        "id": "16fcf5ad-bc13-4482-848d-d2e51bcbed3b",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -25.3658,
+            0.5,
+            12.540915
+          ],
+          "rotation": [
+            0,
+            1.8680813,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "8fe5ea20-1c27-4cfb-adfc-3c4b20ee9c7d": {
+        "id": "8fe5ea20-1c27-4cfb-adfc-3c4b20ee9c7d",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -22.719736,
+            0.5,
+            17.035297
+          ],
+          "rotation": [
+            0,
+            -4.218418,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "e4fded34-863f-4d8d-aa7f-730762c51f5d": {
+        "id": "e4fded34-863f-4d8d-aa7f-730762c51f5d",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -18.736853,
+            0.5,
+            22.892168
+          ],
+          "rotation": [
+            0,
+            -3.8144789,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "8bd147f3-3ad6-4156-a1b3-dc8fd8f2e47b": {
+        "id": "8bd147f3-3ad6-4156-a1b3-dc8fd8f2e47b",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -15.183638,
+            0.5,
+            23.81696
+          ],
+          "rotation": [
+            0,
+            -3.628685,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "09dcd490-9dbe-441e-a910-936972d10d2a": {
+        "id": "09dcd490-9dbe-441e-a910-936972d10d2a",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -11.066908,
+            0.5,
+            24.723589
+          ],
+          "rotation": [
+            0,
+            -3.5108812,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "1fa1641f-66cc-45d7-a852-c8a94a556500": {
+        "id": "1fa1641f-66cc-45d7-a852-c8a94a556500",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -7.7255096,
+            0.5,
+            26.368296
+          ],
+          "rotation": [
+            0,
+            -3.3885295,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "92be7e7c-55f9-4ccc-9ebe-8aa3c158d21c": {
+        "id": "92be7e7c-55f9-4ccc-9ebe-8aa3c158d21c",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            -4.9845524,
+            0.5,
+            28.890661
+          ],
+          "rotation": [
+            0,
+            -3.2304676,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "07151fd2-2693-4c61-9f9b-3f492724f09e": {
+        "id": "07151fd2-2693-4c61-9f9b-3f492724f09e",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            0.68211365,
+            0.5,
+            28.890661
+          ],
+          "rotation": [
+            0,
+            -3.0998206,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "84441aad-2d21-41b8-8ec6-0aaf710909e1": {
+        "id": "84441aad-2d21-41b8-8ec6-0aaf710909e1",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            4.774849,
+            0.5,
+            28.890661
+          ],
+          "rotation": [
+            0,
+            -3.0998206,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "9de62aa1-8526-48b7-988d-ac1aa849871f": {
+        "id": "9de62aa1-8526-48b7-988d-ac1aa849871f",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            11.050922,
+            -0.21388435,
+            27.694275
+          ],
+          "rotation": [
+            0,
+            -2.8383813,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "a6e2144a-75cc-4f2b-b23e-95632c748193": {
+        "id": "a6e2144a-75cc-4f2b-b23e-95632c748193",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            14.592918,
+            -0.21388435,
+            23.837673
+          ],
+          "rotation": [
+            0,
+            -2.664185,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "b4639930-4603-4373-a3f3-30f1a32df546": {
+        "id": "b4639930-4603-4373-a3f3-30f1a32df546",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            17.947067,
+            -0.21388435,
+            23.837673
+          ],
+          "rotation": [
+            0,
+            -2.4682393,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "1b1a282c-a6df-408e-9e34-ed80eeeb7983": {
+        "id": "1b1a282c-a6df-408e-9e34-ed80eeeb7983",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            21.24022,
+            -0.21388435,
+            20.888046
+          ],
+          "rotation": [
+            0,
+            -2.4682393,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "e84694d9-7ff0-48bd-b576-4b9f87547c9e": {
+        "id": "e84694d9-7ff0-48bd-b576-4b9f87547c9e",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            25.534698,
+            -0.21388435,
+            17.478397
+          ],
+          "rotation": [
+            0,
+            -2.3045127,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "a352632c-324e-475a-af7a-63c3dd98fee7": {
+        "id": "a352632c-324e-475a-af7a-63c3dd98fee7",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            28.921532,
+            -0.21388435,
+            13.402117
+          ],
+          "rotation": [
+            0,
+            -2.3045127,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "322b054a-d232-4516-bad4-2cd246436e71": {
+        "id": "322b054a-d232-4516-bad4-2cd246436e71",
+        "tag": {
+          "name": "enemy"
+        },
+        "transform": {
+          "translation": [
+            31.904747,
+            -0.21388435,
+            6.9471526
+          ],
+          "rotation": [
+            0,
+            -1.8553969,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "8bf5e019-167d-4910-a6a2-022ddaa55aa2": {
+        "id": "8bf5e019-167d-4910-a6a2-022ddaa55aa2",
+        "tag": {
+          "name": "Foliage"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "d3339156-8f00-45f1-b969-8b0c8bc6df6b"
+            }
+          }
+        ]
+      },
+      "b765f418-dccb-4035-85f7-fa8e361b784e": {
+        "id": "b765f418-dccb-4035-85f7-fa8e361b784e",
+        "tag": {
+          "name": "Terrain02"
+        },
+        "transform": {
+          "translation": [
+            0.4,
+            0,
+            0.4
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "b36783dc-ad72-44a8-bc97-100f3f689767"
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -5110,6 +7805,18 @@
       "7b39918d-fcfa-4447-9ed9-0b5d151951c6": {
         "id": "7b39918d-fcfa-4447-9ed9-0b5d151951c6",
         "source": "models/fire/Fire.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "d3339156-8f00-45f1-b969-8b0c8bc6df6b": {
+        "id": "d3339156-8f00-45f1-b969-8b0c8bc6df6b",
+        "source": "models/Foliage/Foliage.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "b36783dc-ad72-44a8-bc97-100f3f689767": {
+        "id": "b36783dc-ad72-44a8-bc97-100f3f689767",
+        "source": "models/Terrain02/Terrain02.gltf",
         "maxInstances": 10,
         "submeshes": []
       }
