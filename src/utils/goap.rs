@@ -20,9 +20,25 @@ enum Value {
   Str(String),
 }
 
-#[derive(Debug, Eq, PartialEq, Clone)]
+#[derive(Debug, Eq, Clone)]
 pub struct Blackboard {
   map: HashMap<String, Value>,
+}
+
+impl PartialEq for Blackboard {
+  fn eq(&self, other: &Self) -> bool {
+    for (key, value) in &self.map {
+      if let Some(other_value) = other.map.get(&*key) {
+        if value != other_value {
+          return false
+        }
+      } else {
+        return false
+      }
+    }
+
+    return true
+  }
 }
 
 impl Hash for Blackboard {
@@ -93,16 +109,24 @@ pub trait Action: Debug + Sync + Send {
   ) -> i32;
 
   fn check_readyness(
-    &self,
+    &mut self,
     entity: Entity,
-    scene: &Scene,
+    scene: &mut Scene,
     backpack: &Backpack,
     blackboard: &Blackboard,
   ) -> bool;
 
   fn apply_effect(
     &mut self,
+    backpack: &mut Backpack,
     blackboard: &mut Blackboard,
+  );
+
+  fn execute(
+    &mut self,
+    entity: Entity,
+    scene: &mut Scene,
+    backpack: &mut Backpack,
   );
 }
 
@@ -116,7 +140,7 @@ impl PartialEq for dyn Action {
 
 impl Hash for dyn Action {
   fn hash<H: Hasher>(&self, state: &mut H) {
-    self.name().clone().hash(state);
+    self.name().hash(state);
   }
 }
 
@@ -187,8 +211,9 @@ impl Planner {
   ) {
     //let mut goals = vec![];
     //let mut plan = vec![];
+    let mut plan = PriorityQueue::new();
 
-    for goal in &self.goals {
+    'goal_loop: for goal in &self.goals {
       let goal_blackboard = goal.get_goal(entity, scene, backpack);
 
       let mut open_set = PriorityQueue::new();
@@ -205,22 +230,18 @@ impl Planner {
       let mut iterations = 0;
 
       while let Some((current_node, cost)) = open_set.pop() {
-        if MAX_ITERATIONS == 0 || iterations > MAX_ITERATIONS { return }
+        if MAX_ITERATIONS == 0 || iterations > MAX_ITERATIONS { continue 'goal_loop; }
 
-        //log::info!("current: {:?}", &current_node.action);
-
-        if current_node.blackboard == goal_blackboard {
-          //let mut results = vec![];
+        // NOTE: Order matters here. goal_blackboard must come first
+        if goal_blackboard == current_node.blackboard {
           let mut curr = current_node.action;
 
           while let Some(node_index) = curr {
-            //results.push(self.actions[&node_index]);
-            log::info!("action {:?}", &self.actions[node_index]);
             curr = parents[&node_index];
+            plan.push(node_index, cost);
           }
 
-          log::info!("Found answer!");
-          return
+          continue 'goal_loop;
         }
 
         if !closed_set.contains(&current_node.blackboard) {
@@ -232,9 +253,10 @@ impl Planner {
             if action.check_readyness(entity, scene, backpack, &current_node.blackboard) {
               let mut next_blackboard = current_node.blackboard.clone();
               let next_cost = cost + action.cost(&next_blackboard);
-              action.apply_effect(&mut next_blackboard);
+              action.apply_effect(backpack, &mut next_blackboard);
 
               if !closed_set.contains(&next_blackboard) {
+
                 parents.insert(index, current_node.action);
                 open_set.push(PlanningNode {
                   name: action.name(),
@@ -248,27 +270,12 @@ impl Planner {
         }
         iterations += 1;
       }
-      /*
-      for (a_i, action) in self.actions.iter().enumerate() {
-        if action.check_readyness(entity, scene, backpack, &planning_blackboard) {
-          plan.push(a_i);
-        }
-      }
-      if action.check_goal(entity, scene, backpack, &mut planning_blackboard) {
-        goals.push(g_i);
-      }
-      */
     }
 
-    //log::info!("goals: {:?}", goals);
-
-    //if plan.is_empty() {
-    //  return;
-    //}
-
-    //let next = plan.pop().unwrap();
-    //let mut action = &mut self.actions[next];
-    //action.apply_effect(entity, scene, backpack, blackboard);
+    if let Some((action_index, _)) = plan.pop() {
+      let mut action = &mut self.actions[action_index];
+      action.execute(entity, scene, backpack);
+    }
   }
 
   pub fn execute(

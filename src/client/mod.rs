@@ -15,10 +15,10 @@ use engine::{
   utils::browser::grow_memory,
 };
 
-use crate::shared::{follow::MayhemBehaviors, goal::GoalSystem, input::PlayerInput};
+use crate::shared::{follow::MayhemBehaviors, input::PlayerInput};
 
 use crate::shared::systems::{
-  collisions::CollisionSystem, combat::CombatSystem, death::DeathSystem, lifetime::LifetimeSystem,
+  collisions::CollisionSystem, item_drop::ItemDropSystem, combat::CombatSystem, goal::GoalSystem, death::DeathSystem, lifetime::LifetimeSystem,
   player_movement::PlayerMovementSystem, spawn::SpawnSystem,
 };
 

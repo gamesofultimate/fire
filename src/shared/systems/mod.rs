@@ -6,3 +6,4 @@ pub mod lifetime;
 pub mod player_movement;
 pub mod sky;
 pub mod spawn;
+pub mod item_drop;

@@ -77,6 +77,7 @@ impl PlayerMovementSystem {
       let (start, end) = self.mouse_to_ray(camera, &input);
       let debug_controller = backpack.get_mut::<DebugController>().unwrap();
 
+      /*
       // Draw the debug ray
       debug_controller.draw_ray(
         Vector3::new(start.x, start.y, start.z), // Use the coords field of Point3, which is a Vector3
@@ -84,6 +85,7 @@ impl PlayerMovementSystem {
         Vector4::new(1.0, 0.0, 0.0, 1.0),        // Red color for the ray
         7.0,                                     // Duration in seconds
       );
+      */
 
       let direction = (end - start).normalize();
       let ray = Ray::new(start, direction);
@@ -124,6 +126,7 @@ impl PlayerMovementSystem {
         movement.target_point = intersection;
       }
 
+      /*
       match movement.target_point {
         Some(point_in_plane) => {
           log::info!("target_point: {:?}", point_in_plane);
@@ -132,6 +135,7 @@ impl PlayerMovementSystem {
           log::info!("target_point: None");
         }
       }
+      */
 
       if let Some(point_in_plane) = movement.target_point {
         let direction = point_in_plane - transform.translation;
