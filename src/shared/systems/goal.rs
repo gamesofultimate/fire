@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
+use std::collections::{HashMap, hash_map::Entry};
 
 use crate::utils::goap::{Action, Goal, Planner, Blackboard};
 use engine::{
@@ -8,6 +9,9 @@ use engine::{
   utils::units::{Radians, Time, Meters},
   Entity,
 };
+use crate::shared::components::movement_component::MovementComponent;
+use engine::application::components::PhysicsComponent;
+use engine::systems::physics::PhysicsController;
 
 use nalgebra::{Point3, Vector3};
 use tagged::{Registerable, Schema};
@@ -129,6 +133,7 @@ impl Action for Chill {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
   }
 }
@@ -166,10 +171,9 @@ impl Action for GoTowardsFire {
     backpack: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {
-    log::debug!("test {:?}", blackboard.get_bool("KnowFireLocation"));
     match blackboard.get_bool("KnowFireLocation") {
       Some(true) => {
-        log::debug!("found fire");
+        //log::debug!("found fire");
         /*
         let entity_transform = match scene.get_components::<&TransformComponent>(entity) {
           Some(transform) => transform,
@@ -206,6 +210,7 @@ impl Action for GoTowardsFire {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
   }
 }
@@ -304,7 +309,35 @@ impl Action for SearchForFire {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
+    log::info!("am i here?");
+    if let Some(physics_controller) = backpack.get_mut::<PhysicsController>()
+      && let Some(fire_location) = self.fire_location
+      && let Some((transform, physics, movement)) = scene.get_components::<(
+        &TransformComponent,
+        &PhysicsComponent,
+        &MovementComponent,
+      )>(entity) {
+
+    log::info!("what about here?");
+
+      physics_controller.move_towards(
+        &physics,
+        transform.translation,
+        fire_location,
+        movement.run_speed,
+      );
+
+      /*
+      physics_controller.rotate_towards(
+        &physics,
+        rotation_quaternion,
+        direction_vector,
+        movement.rotation_speed,
+      )
+      */
+    }
   }
 }
 
@@ -366,6 +399,7 @@ impl Action for GetAxe {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
   }
 }
@@ -408,6 +442,7 @@ impl Action for ChopLog {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
   }
 }
@@ -451,34 +486,19 @@ impl Action for CollectBranches {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   ) {
   }
 }
 
 pub struct GoalSystem {
-  planner: (Planner, Backpack, Blackboard),
+  planners: HashMap<(Entity, Uuid), (Planner, Backpack, Blackboard)>,
 }
 
 impl Initializable for GoalSystem {
   fn initialize(inventory: &Inventory) -> Self {
-    /*
-    let firewood = CollectFirewood {};
-    let get_axe = GetAxe {};
-    let chop_log = ChopLog {};
-    let collect_branches = CollectBranches {};
-    */
-
-    let mut planner = Planner::new();
-    planner.insert_goal(StayWarm::new());
-    planner.insert_action(SearchForFire::new(Meters::new(100.0)));
-    planner.insert_action(GoTowardsFire::new());
-    planner.insert_action(Chill::new(Meters::new(2.0)));
-
-    let mut backpack = Backpack::new();
-    let mut blackboard = Blackboard::new();
-
     Self {
-      planner: (planner, backpack, blackboard),
+      planners: HashMap::new(),
     }
   }
 }
@@ -492,20 +512,37 @@ impl System for GoalSystem {
   }
 
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
-    let delta = backpack.get::<Time>().unwrap();
+    #[cfg(target_arch = "wasm32")]
+    {
+      let delta = backpack.get::<Time>().unwrap();
 
-    let mut entities = vec![];
+      let mut planners = vec![];
 
-    for (entity, (_, transform)) in scene.query_mut::<(&GoalComponent, &TransformComponent)>() {
-      entities.push((entity.clone(), transform.clone()));
-    }
+      for (entity, goal) in scene.query_mut::<&GoalComponent>() {
+        planners.push((entity.clone(), goal.id))
+      }
 
-    for (entity, transform) in entities.drain(..) {
-      self
-        .planner
-        .0
-        .plan(entity, scene, &mut self.planner.1, &mut self.planner.2);
-    }
-    //log::info!("planner: {:?}", &self.planner.0);
+      for (entity, goal_id) in planners.drain(..) {
+        match self.planners.entry((entity, goal_id)) {
+          Entry::Occupied(mut entry) => {
+            let planner = entry.into_mut();
+            planner.0.plan(entity, scene, backpack, &mut planner.1, &mut planner.2);
+          }
+          Entry::Vacant(vacant) => {
+            let mut planner = Planner::new();
+            planner.insert_goal(StayWarm::new());
+            planner.insert_action(SearchForFire::new(Meters::new(100.0)));
+            planner.insert_action(GoTowardsFire::new());
+            planner.insert_action(Chill::new(Meters::new(2.0)));
+
+            let mut local = Backpack::new();
+            let mut blackboard = Blackboard::new();
+
+            planner.plan(entity, scene, backpack, &mut local, &mut blackboard);
+            vacant.insert((planner, local, blackboard));
+          },
+        };
+      }
+      }
   }
 }

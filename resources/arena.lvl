@@ -257,7 +257,7 @@
         },
         "transform": {
           "translation": [
-            3,
+            9,
             0.5,
             0
           ],
@@ -281,6 +281,56 @@
           {
             "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
+            }
+          },
+          {
+            "MovementComponent": {
+              "rotation_speed": {
+                "rps": 10
+              },
+              "run_speed": {
+                "mps": 9
+              }
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "ed720ac7-3505-4b12-a1a2-0e11677d3586",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true,
+                  "collider_type": {
+                    "CapsuleY": {
+                      "half_height": 0.5,
+                      "radius": 0.75
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Kinematic",
+                  "friction": 0.1,
+                  "id": "94d30702-6a1a-44e5-98b1-c560310a9888",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "eeb9796c-4436-45cb-af55-ec9e72984e67",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
             }
           }
         ]

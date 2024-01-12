@@ -127,6 +127,7 @@ pub trait Action: Debug + Sync + Send {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
   );
 }
 
@@ -207,6 +208,7 @@ impl Planner {
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
+    local: &mut Backpack,
     blackboard: &mut Blackboard,
   ) {
     //let mut goals = vec![];
@@ -214,7 +216,7 @@ impl Planner {
     let mut plan = PriorityQueue::new();
 
     'goal_loop: for goal in &self.goals {
-      let goal_blackboard = goal.get_goal(entity, scene, backpack);
+      let goal_blackboard = goal.get_goal(entity, scene, local);
 
       let mut open_set = PriorityQueue::new();
       let mut closed_set = HashSet::new();
@@ -250,10 +252,10 @@ impl Planner {
           closed_set.insert(current_node.blackboard.clone());
 
           for (index, action) in self.actions.iter_mut().enumerate() {
-            if action.check_readyness(entity, scene, backpack, &current_node.blackboard) {
+            if action.check_readyness(entity, scene, local, &current_node.blackboard) {
               let mut next_blackboard = current_node.blackboard.clone();
               let next_cost = cost + action.cost(&next_blackboard);
-              action.apply_effect(backpack, &mut next_blackboard);
+              action.apply_effect(local, &mut next_blackboard);
 
               if !closed_set.contains(&next_blackboard) {
 
@@ -272,125 +274,11 @@ impl Planner {
       }
     }
 
+    log::info!("plan {:?}", &plan);
     if let Some((action_index, _)) = plan.pop() {
       let mut action = &mut self.actions[action_index];
-      action.execute(entity, scene, backpack);
-    }
-  }
-
-  pub fn execute(
-    &mut self,
-    entity: Entity,
-    scene: &mut Scene,
-    backpack: &mut Backpack,
-    blackboard: &mut Blackboard,
-  ) {
-  }
-}
-
-/*
-/// A node in the planner graph.
-#[derive(PartialEq, Eq, Clone)]
-struct PlanNode<'a> {
-  current_state: State,
-  action: Option<&'a Action>,
-}
-
-impl<'a> Hash for PlanNode<'a> {
-  fn hash<H>(&self, state: &mut H)
-  where
-    H: Hasher,
-  {
-    if let Some(action) = self.action {
-      action.name.hash(state);
-    }
-
-    for (key, value) in &self.current_state {
-      key.hash(state);
-      value.hash(state);
+      log::info!("executing {:}", &action.name());
+      action.execute(entity, scene, backpack, local);
     }
   }
 }
-
-impl<'a> PlanNode<'a> {
-  /// Makes an initial plan node without a parent.
-  fn initial(initial_state: &'a State) -> PlanNode<'a> {
-    PlanNode {
-      current_state: initial_state.clone(),
-      action: None,
-    }
-  }
-
-  /// Makes a plan node from a parent state and an action applied to that state.
-  fn child(parent_state: State, action: &'a Action) -> PlanNode<'a> {
-    let mut child = PlanNode {
-      current_state: parent_state.clone(),
-      action: Some(action),
-    };
-
-    // Applies the post-condition of the action applied on our parent state.
-    for (name, value) in &action.post_conditions {
-      child.current_state.insert(name.clone(), value.clone());
-    }
-
-    child
-  }
-
-  /// Returns all possible nodes from this current state, along with the cost to get there.
-  fn possible_next_nodes(&self, actions: &'a [Action]) -> Vec<(PlanNode<'a>, usize)> {
-    let mut nodes: Vec<(PlanNode<'a>, usize)> = vec![];
-    for action in actions {
-      if self.matches(&action.pre_conditions) {
-        nodes.push((
-          PlanNode::child(self.current_state.clone(), action),
-          action.cost,
-        ));
-      }
-    }
-
-    nodes
-  }
-
-  /// Count the number of states in this node that aren't matching the given target.
-  fn mismatch_count(&self, target: &State) -> usize {
-    let mut count: usize = 0;
-    for (name, target_value) in target {
-      if let Some(current_value) = self.current_state.get(name) {
-        if current_value != target_value {
-          count += 1;
-        }
-      } else {
-        count += 1;
-      }
-    }
-
-    count
-  }
-
-  /// Returns `true` if the current node is a full match for the given target.
-  fn matches(&self, target: &State) -> bool {
-    self.mismatch_count(target) == 0
-  }
-}
-*/
-
-/*
-/// Formulates a plan to get from an initial state to a goal state using a set of allowed actions.
-pub fn plan<'a>(initial_state: &'a State,
-                goal_state: &State,
-                allowed_actions: &'a [Action])
-                -> Option<Vec<&'a Action>> {
-    // Builds our initial plan node.
-    let start = PlanNode::initial(initial_state);
-
-    // Runs our search over the states graph.
-    if let Some((plan, _)) = astar(&start,
-                                   |ref node| node.possible_next_nodes(allowed_actions),
-                                   |ref node| node.mismatch_count(goal_state),
-                                   |ref node| node.matches(goal_state)) {
-        Some(plan.into_iter().skip(1).map(|ref node| node.action.unwrap()).collect())
-    } else {
-        None
-    }
-}
-*/
