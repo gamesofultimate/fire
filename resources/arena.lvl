@@ -40,7 +40,7 @@
       "empty_shapes": false,
       "shadow": false,
       "physics": true,
-      "lighting": false
+      "lighting": true
     },
     "camera": {
       "fovy": {
@@ -92,7 +92,7 @@
                   "value": 1,
                   "radians": 1.3
                 },
-                "intensity": 0,
+                "intensity": 0.5,
                 "radiance": [
                   1,
                   1,
@@ -107,38 +107,8 @@
               "Dynamic": {
                 "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
                 "turbidity": 2,
-                "intensity": 0
+                "intensity": 0.5
               }
-            }
-          }
-        ]
-      },
-      "ea7c6142-1e55-446f-af01-4a5c9851bb23": {
-        "id": "ea7c6142-1e55-446f-af01-4a5c9851bb23",
-        "tag": {
-          "name": "plane"
-        },
-        "transform": {
-          "translation": [
-            0,
-            -0.75,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1000,
-            1000,
-            1000
-          ]
-        },
-        "components": [
-          {
-            "ModelComponent": {
-              "id": "c9716270-9f25-48a7-8e38-dd386b7ccfc4"
             }
           }
         ]
@@ -146,12 +116,12 @@
       "6add8d68-3bd1-4649-babb-3d2a03da5a09": {
         "id": "6add8d68-3bd1-4649-babb-3d2a03da5a09",
         "tag": {
-          "name": "wizard"
+          "name": "Wizard"
         },
         "transform": {
           "translation": [
-            0,
-            0.2418716,
+            -3.5,
+            0.5,
             0
           ],
           "rotation": [
@@ -265,7 +235,7 @@
               "Point": {
                 "are_shadows_soft": false,
                 "falloff": 0,
-                "intensity": 2,
+                "intensity": 5,
                 "light_size": 2,
                 "min_radius": 3,
                 "radiance": [
@@ -288,7 +258,7 @@
         "transform": {
           "translation": [
             3,
-            0,
+            0.5,
             0
           ],
           "rotation": [
@@ -431,7 +401,7 @@
       "7d92b5d4-6c70-4f95-b697-a68bffb3c853": {
         "id": "7d92b5d4-6c70-4f95-b697-a68bffb3c853",
         "tag": {
-          "name": "light"
+          "name": "level"
         },
         "transform": {
           "translation": [
@@ -491,7 +461,7 @@
                 "name": "Joint",
                 "offset": [
                   0,
-                  -1,
+                  0,
                   0
                 ]
               }
@@ -584,6 +554,90 @@
             }
           }
         ]
+      },
+      "27715215-1c53-48c7-a20f-f7b9f5603942": {
+        "id": "27715215-1c53-48c7-a20f-f7b9f5603942",
+        "tag": {
+          "name": "fire"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0.10028243,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "7b39918d-fcfa-4447-9ed9-0b5d151951c6"
+            }
+          },
+          {
+            "StateMachineComponent": {
+              "id": "f6d34fe7-0f8b-4554-b71c-72704cd724cf",
+              "machine_id": "140ee8aa-7507-4d87-8323-c53405cb3bc4"
+            }
+          },
+          {
+            "FireComponent": {
+              "id": "14d8da4d-b671-47be-ae1d-44d27b81acbe"
+            }
+          }
+        ]
+      },
+      "19774d94-ccdb-4675-a100-21c51c07ef97": {
+        "id": "19774d94-ccdb-4675-a100-21c51c07ef97",
+        "tag": {
+          "name": "fire light"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0.9670857,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "LightComponent": {
+              "Point": {
+                "are_shadows_soft": false,
+                "falloff": 0,
+                "intensity": 10,
+                "light_size": 5,
+                "min_radius": 1,
+                "radiance": [
+                  1,
+                  1,
+                  1
+                ],
+                "radius": 10,
+                "should_cast_shadows": false
+              }
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -644,6 +698,12 @@
       "c9716270-9f25-48a7-8e38-dd386b7ccfc4": {
         "id": "c9716270-9f25-48a7-8e38-dd386b7ccfc4",
         "source": "models/terrain/Terrain.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "7b39918d-fcfa-4447-9ed9-0b5d151951c6": {
+        "id": "7b39918d-fcfa-4447-9ed9-0b5d151951c6",
+        "source": "models/fire/Fire.gltf",
         "maxInstances": 10,
         "submeshes": []
       }
@@ -711,6 +771,24 @@
         "source": "animations/run/Run.gltf",
         "name": "Armature|1920373722784_TempMotion",
         "index": 1
+      },
+      "5c803414-bdc2-458b-b8b1-43433bf423a1": {
+        "id": "5c803414-bdc2-458b-b8b1-43433bf423a1",
+        "source": "models/fire/Fire.gltf",
+        "name": "Armature|Take 001|BaseLayer",
+        "index": 0
+      },
+      "5fcd8b58-182b-42a8-9a86-a2842758c0a1": {
+        "id": "5fcd8b58-182b-42a8-9a86-a2842758c0a1",
+        "source": "models/fire/Fire.gltf",
+        "name": "Armature|Take 001|BaseLayer.001",
+        "index": 1
+      },
+      "ef6d9063-93e5-4cf6-bd86-0bb0ea694795": {
+        "id": "ef6d9063-93e5-4cf6-bd86-0bb0ea694795",
+        "source": "animations/idle/Idle.gltf",
+        "name": "Armature|2788809868784_TempMotion",
+        "index": 0
       }
     },
     "terrains": {},
@@ -724,7 +802,7 @@
     "animation_state": {
       "b4f2d38e-0179-4984-aef6-fa7f4149410b": {
         "id": "b4f2d38e-0179-4984-aef6-fa7f4149410b",
-        "name": "Unknown",
+        "name": "Wizard",
         "rate": 1,
         "starting_node": "818d56ed-5157-4a9b-8c65-50f23bd8fba9",
         "target_skeleton": "a619f61c-97cc-4831-9824-22cc23f98209",
@@ -732,10 +810,69 @@
           {
             "id": "818d56ed-5157-4a9b-8c65-50f23bd8fba9",
             "position": {
-              "x": 0,
+              "x": 300,
               "y": 0
             },
             "animation_id": "ccb6a84d-2443-473b-9302-28bbbabdc9ca",
+            "transitions": [
+              "c131afbe-1de8-41ac-90e8-2be47cd156b0"
+            ]
+          },
+          {
+            "id": "e4d8a3cb-57ea-48a8-b8b1-be05f0d9436e",
+            "position": {
+              "x": -330,
+              "y": -15
+            },
+            "animation_id": "ef6d9063-93e5-4cf6-bd86-0bb0ea694795",
+            "transitions": [
+              "a1b4b901-2c25-4f6b-be68-20cc2cc3dd1a"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "a1b4b901-2c25-4f6b-be68-20cc2cc3dd1a",
+            "to": "818d56ed-5157-4a9b-8c65-50f23bd8fba9",
+            "from": "e4d8a3cb-57ea-48a8-b8b1-be05f0d9436e",
+            "transition": {
+              "AccelerationThreshold": {
+                "speed": {
+                  "kph": 2
+                }
+              }
+            },
+            "time": 2
+          },
+          {
+            "id": "c131afbe-1de8-41ac-90e8-2be47cd156b0",
+            "to": "e4d8a3cb-57ea-48a8-b8b1-be05f0d9436e",
+            "from": "818d56ed-5157-4a9b-8c65-50f23bd8fba9",
+            "transition": {
+              "DecelerationThreshold": {
+                "speed": {
+                  "kph": 2
+                }
+              }
+            },
+            "time": 2
+          }
+        ]
+      },
+      "140ee8aa-7507-4d87-8323-c53405cb3bc4": {
+        "id": "140ee8aa-7507-4d87-8323-c53405cb3bc4",
+        "name": "Fire",
+        "rate": 1,
+        "starting_node": "740d5ea1-3849-4065-b4cd-3e4141efe118",
+        "target_skeleton": "7b39918d-fcfa-4447-9ed9-0b5d151951c6",
+        "nodes": [
+          {
+            "id": "740d5ea1-3849-4065-b4cd-3e4141efe118",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "animation_id": "5c803414-bdc2-458b-b8b1-43433bf423a1",
             "transitions": []
           }
         ],
