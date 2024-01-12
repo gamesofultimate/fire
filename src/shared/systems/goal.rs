@@ -36,6 +36,7 @@ pub struct FirewoodComponent {
   id: Uuid,
 }
 
+#[derive(Debug)]
 struct FireLocation(pub Option<Vector3<f32>>);
 
 #[derive(Debug)]
@@ -86,7 +87,7 @@ impl Action for Chill {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    10
+    2
   }
 
   fn check_readyness(
@@ -96,28 +97,36 @@ impl Action for Chill {
     backpack: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {
-    match blackboard.get_bool("HeadingTowardsFire") {
-      Some(true) => true,
-      _ => false,
-    }
-    /*
-    let fire_translation = match backpack.get::<&FireLocation>() {
-      Some(FireLocation(Some(transform))) => transform.clone(),
-      _ => return false,
-    };
-
     let entity_transform = match scene.get_components::<&TransformComponent>(entity) {
       Some(transform) => transform.clone(),
       None => return false,
     };
 
-    let distance = nalgebra::distance(
-      &Point3::from(entity_transform.translation),
-      &Point3::from(fire_translation),
-    );
+    let mut fire_distance = None;
 
-    distance > *self.max_distance
-    */
+    for (entity, (transform, _)) in scene.query_mut::<(
+      &TransformComponent,
+      &FireComponent,
+    )>() {
+      let distance = nalgebra::distance(
+        &Point3::from(entity_transform.translation),
+        &Point3::from(transform.translation),
+      );
+
+      match fire_distance {
+        Some(current_distance) if distance < current_distance => fire_distance = Some(distance), 
+        None => fire_distance = Some(distance),
+        _ => {}
+      }
+
+      //log::info!("{:} fire_location? {:?} -- {:?}", distance, &transform, fire_distance);
+    }
+
+    match (fire_distance, blackboard.get_bool("HeadingTowardsFire")) {
+      (Some(distance), _) if distance < *self.max_distance => true,
+      (_, Some(true)) => true,
+      _ => false,
+    }
   }
 
   fn apply_effect(
@@ -135,6 +144,10 @@ impl Action for Chill {
     backpack: &mut Backpack,
     local: &mut Backpack,
   ) {
+    if let Some(physics_controller) = backpack.get_mut::<PhysicsController>()
+      && let Some(physics) = scene.get_components::<&PhysicsComponent>(entity) {
+      physics_controller.set_linvel(&physics, Vector3::zeros());
+    }
   }
 }
 
@@ -161,7 +174,7 @@ impl Action for GoTowardsFire {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    3
+    2
   }
 
   fn check_readyness(
@@ -240,7 +253,7 @@ impl Action for SearchForFire {
     &self,
     blackboard: &Blackboard,
   ) -> i32 {
-    1
+    3
   }
 
   fn check_readyness(
@@ -332,13 +345,6 @@ impl Action for SearchForFire {
         transform.translation,
         fire_location,
         movement.run_speed,
-      );
-
-      physics_controller.rotate_towards(
-        &physics,
-        rotation_quaternion,
-        direction_vector.into_inner(),
-        movement.rotation_speed,
       );
     }
   }
@@ -529,7 +535,8 @@ impl System for GoalSystem {
         match self.planners.entry((entity, goal_id)) {
           Entry::Occupied(mut entry) => {
             let planner = entry.into_mut();
-            planner.0.plan(entity, scene, backpack, &mut planner.1, &mut planner.2);
+            let mut blackboard = Blackboard::new();
+            planner.0.plan(entity, scene, backpack, &mut planner.1, &mut blackboard);
           }
           Entry::Vacant(vacant) => {
             let mut planner = Planner::new();

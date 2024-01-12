@@ -218,7 +218,7 @@ impl Planner {
     'goal_loop: for goal in &self.goals {
       let goal_blackboard = goal.get_goal(entity, scene, local);
 
-      let mut open_set = PriorityQueue::new();
+      let mut open_set = DoublePriorityQueue::new();
       let mut closed_set = HashSet::new();
       let mut parents = HashMap::new();
 
@@ -231,7 +231,7 @@ impl Planner {
 
       let mut iterations = 0;
 
-      while let Some((current_node, cost)) = open_set.pop() {
+      while let Some((current_node, cost)) = open_set.pop_min() {
         if MAX_ITERATIONS == 0 || iterations > MAX_ITERATIONS { continue 'goal_loop; }
 
         // NOTE: Order matters here. goal_blackboard must come first
@@ -259,7 +259,6 @@ impl Planner {
               action.apply_effect(local, &mut next_blackboard);
 
               if !closed_set.contains(&next_blackboard) {
-
                 parents.insert(index, (current_node.action, next_cost));
                 open_set.push(PlanningNode {
                   name: action.name(),
