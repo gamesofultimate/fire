@@ -40,7 +40,7 @@
       "empty_shapes": false,
       "shadow": false,
       "physics": true,
-      "lighting": true
+      "lighting": false
     },
     "camera": {
       "fovy": {
@@ -86,13 +86,13 @@
               "Directional": {
                 "azimuth": {
                   "value": 0,
-                  "radians": 0.8
+                  "radians": 3
                 },
                 "inclination": {
                   "value": 1,
-                  "radians": 1.3
+                  "radians": 0
                 },
-                "intensity": 0.5,
+                "intensity": 0.1,
                 "radiance": [
                   1,
                   1,
@@ -107,7 +107,7 @@
               "Dynamic": {
                 "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
                 "turbidity": 2,
-                "intensity": 0.5
+                "intensity": 0.1
               }
             }
           }
@@ -257,7 +257,7 @@
         },
         "transform": {
           "translation": [
-            9,
+            9.2766695,
             0.5,
             0
           ],
@@ -331,36 +331,6 @@
                   0
                 ]
               }
-            }
-          }
-        ]
-      },
-      "645c5ad8-4a75-41ae-bec7-346d87dc4f7b": {
-        "id": "645c5ad8-4a75-41ae-bec7-346d87dc4f7b",
-        "tag": {
-          "name": "enemy-1"
-        },
-        "transform": {
-          "translation": [
-            -5,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": [
-          {
-            "PrefabComponent": {
-              "id": "f5800b29-74d4-49df-b07d-17634846fc1b"
             }
           }
         ]
@@ -455,9 +425,9 @@
         },
         "transform": {
           "translation": [
+            0.45612144,
             0,
-            0,
-            0
+            0.31805933
           ],
           "rotation": [
             0,
@@ -526,18 +496,18 @@
         },
         "transform": {
           "translation": [
-            -24.83445,
-            0,
-            0.20169401
+            -15.41684,
+            -0.24531841,
+            -3.3033075
           ],
           "rotation": [
-            0,
+            0.017453292,
             0,
             0
           ],
           "scale": [
-            1,
-            1,
+            0.8,
+            1.1,
             1
           ]
         },
@@ -684,6 +654,4392 @@
                 ],
                 "radius": 10,
                 "should_cast_shadows": false
+              }
+            }
+          }
+        ]
+      },
+      "84a6976e-6a27-483d-9afe-73f277ca3cf6": {
+        "id": "84a6976e-6a27-483d-9afe-73f277ca3cf6",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            16.557388,
+            -0.1453184,
+            5.479107
+          ],
+          "rotation": [
+            0.017453292,
+            0,
+            0
+          ],
+          "scale": [
+            1.1,
+            1.2,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "4618325f-bbf8-42e1-b760-1ceaed994083": {
+        "id": "4618325f-bbf8-42e1-b760-1ceaed994083",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            4.814045,
+            -0.24531841,
+            -14.898548
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "c843eee8-1517-4dcd-8640-30fa2ebc115b": {
+        "id": "c843eee8-1517-4dcd-8640-30fa2ebc115b",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -8.878475,
+            -0.24531841,
+            -17.099327
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "b8b0a5ec-9ae6-4997-9fff-1debea0ecefb": {
+        "id": "b8b0a5ec-9ae6-4997-9fff-1debea0ecefb",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -19.02664,
+            -0.3453184,
+            11.516477
+          ],
+          "rotation": [
+            0.017453292,
+            0,
+            0
+          ],
+          "scale": [
+            1.4,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "18ff70b6-0e76-4705-9f87-b3b87368067a": {
+        "id": "18ff70b6-0e76-4705-9f87-b3b87368067a",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -9.477751,
+            -0.24531841,
+            18.38517
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.9,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "b335c388-3482-439a-926f-83f878ad2d16": {
+        "id": "b335c388-3482-439a-926f-83f878ad2d16",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            10.566395,
+            -0.24531841,
+            18.788181
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "c61034e6-ce8f-4128-b820-3a983a9c3983": {
+        "id": "c61034e6-ce8f-4128-b820-3a983a9c3983",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -13.980507,
+            -0.24531841,
+            7.9901896
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.1,
+            0.9,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "3b259725-5df3-475d-8175-b62da9bd46c2": {
+        "id": "3b259725-5df3-475d-8175-b62da9bd46c2",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -5.8024673,
+            -0.24531841,
+            22.103813
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "c2eadb4c-cf06-43ff-bcc9-b0dd9609e694": {
+        "id": "c2eadb4c-cf06-43ff-bcc9-b0dd9609e694",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            14.6247425,
+            -0.04531841,
+            -3.9008412
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "c4aeb9f1-5dc3-44f7-ac5a-95d43f1f39b4": {
+        "id": "c4aeb9f1-5dc3-44f7-ac5a-95d43f1f39b4",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -17.246195,
+            -0.1453184,
+            -21.096159
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "7c9bdf62-5c1b-4e80-b8d2-01c24e2aa310": {
+        "id": "7c9bdf62-5c1b-4e80-b8d2-01c24e2aa310",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            11.837969,
+            -0.24531841,
+            -22.058136
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.6,
+            0.9,
+            1.3
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "791daacc-c5cd-43bb-8f9c-46a91d2aaeeb": {
+        "id": "791daacc-c5cd-43bb-8f9c-46a91d2aaeeb",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -12.350004,
+            -0.24531841,
+            -22.229395
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "8d368ef8-b37d-48e5-bba0-33a68a97aa74": {
+        "id": "8d368ef8-b37d-48e5-bba0-33a68a97aa74",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -19.856205,
+            -0.24531841,
+            -9.9179945
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            0.9,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "ccaa5691-c3f9-4679-91d6-120c96a2c2ba": {
+        "id": "ccaa5691-c3f9-4679-91d6-120c96a2c2ba",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            25.091234,
+            -0.24531841,
+            -7.7817054
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.8,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "d1a7a32b-c6d4-4772-8cf3-b2d1e716272f": {
+        "id": "d1a7a32b-c6d4-4772-8cf3-b2d1e716272f",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -23.68213,
+            -0.24531841,
+            -3.7119322
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1.1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "ad060134-08e8-4f13-b93b-1ec1cf96fb6e": {
+        "id": "ad060134-08e8-4f13-b93b-1ec1cf96fb6e",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            19.500671,
+            -0.04531841,
+            9.010675
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.2,
+            1.2,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "b69d264e-97c9-4a3f-8c79-ab53ac37809d": {
+        "id": "b69d264e-97c9-4a3f-8c79-ab53ac37809d",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            4.2785263,
+            -0.24531841,
+            15.157148
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "05bcb9a3-ca16-492c-a4b6-866f5ad764fa": {
+        "id": "05bcb9a3-ca16-492c-a4b6-866f5ad764fa",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            22.902739,
+            -0.24531841,
+            -15.567722
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.8,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "69074ca8-154d-4c64-a1d4-a8f6e929cfcc": {
+        "id": "69074ca8-154d-4c64-a1d4-a8f6e929cfcc",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            2.5738392,
+            -0.24531841,
+            -26.61015
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "4b87a4c0-3680-4337-8c92-efe4838da8f2": {
+        "id": "4b87a4c0-3680-4337-8c92-efe4838da8f2",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -12.992744,
+            -0.1453184,
+            22.207352
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "371ca704-d2d4-481f-8ee4-64ba6fe8f5f4": {
+        "id": "371ca704-d2d4-481f-8ee4-64ba6fe8f5f4",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            21.603127,
+            -0.3453184,
+            14.591117
+          ],
+          "rotation": [
+            0.017453292,
+            0,
+            0
+          ],
+          "scale": [
+            1.4,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "ca4121d8-44f6-42de-8465-e9c5c9c2a836": {
+        "id": "ca4121d8-44f6-42de-8465-e9c5c9c2a836",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            17.000412,
+            -0.1453184,
+            20.174074
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "deb65505-a79f-4dd3-9bc6-2e01f9dc12f0": {
+        "id": "deb65505-a79f-4dd3-9bc6-2e01f9dc12f0",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            3.255125,
+            -0.24531841,
+            25.914032
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.8,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "9019526c-c4c1-4546-8694-b1c13aeb9e46": {
+        "id": "9019526c-c4c1-4546-8694-b1c13aeb9e46",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            4.814045,
+            -0.24531841,
+            20.735903
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "e5e02b8c-36b2-4da4-8bf2-a6902d849b3d": {
+        "id": "e5e02b8c-36b2-4da4-8bf2-a6902d849b3d",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            9.948137,
+            -0.24531841,
+            -17.748672
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            0.9,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "644926ff-0448-41b6-a913-e8b3a02e5146": {
+        "id": "644926ff-0448-41b6-a913-e8b3a02e5146",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            25.667347,
+            -0.24531841,
+            5.7122
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "dd0ac807-9a22-4b5b-ac25-cf509f6fddf5": {
+        "id": "dd0ac807-9a22-4b5b-ac25-cf509f6fddf5",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            19.95251,
+            -0.24531841,
+            -13.302662
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.6,
+            0.9,
+            1.3
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "44ae0a0f-8866-464d-8260-bc0d75663b86": {
+        "id": "44ae0a0f-8866-464d-8260-bc0d75663b86",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            23.794216,
+            -0.24531841,
+            20.735903
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "c4005d70-054f-4db8-9f50-6c4b5742116c": {
+        "id": "c4005d70-054f-4db8-9f50-6c4b5742116c",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -21.676155,
+            -0.24531841,
+            19.985382
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            0.9,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "956263e4-f1de-4cfe-b18e-9a6c6e570a5f": {
+        "id": "956263e4-f1de-4cfe-b18e-9a6c6e570a5f",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -25.399565,
+            -0.24531841,
+            -7.7817054
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.8,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "df894d31-2234-46b5-a26e-5a8da481f059": {
+        "id": "df894d31-2234-46b5-a26e-5a8da481f059",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -25.399565,
+            -0.24531841,
+            4.4266567
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.8,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "2c364236-0c5f-4652-ab1c-47ec5d3fb785": {
+        "id": "2c364236-0c5f-4652-ab1c-47ec5d3fb785",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -23.353191,
+            -0.24531841,
+            -13.866573
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.6,
+            0.9,
+            1.3
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "6309d333-448c-40b0-b5e5-17abda88da24": {
+        "id": "6309d333-448c-40b0-b5e5-17abda88da24",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            13.764978,
+            -0.24531841,
+            -9.835733
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "e7a13baf-bc89-4f7a-8bac-896734d8ae10": {
+        "id": "e7a13baf-bc89-4f7a-8bac-896734d8ae10",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -3.0586586,
+            -0.24531841,
+            -19.308273
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "fea23e3a-a418-4e80-8046-b2d03c78e020": {
+        "id": "fea23e3a-a418-4e80-8046-b2d03c78e020",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -6.811842,
+            -0.24531841,
+            -24.054193
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.3,
+            0.8,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "123e8d97-b121-4086-bf5c-e08822cc4e21": {
+        "id": "123e8d97-b121-4086-bf5c-e08822cc4e21",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -14.329906,
+            -0.24531841,
+            3.4840832
+          ],
+          "rotation": [
+            0.034906585,
+            0,
+            0
+          ],
+          "scale": [
+            0.9,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "fb4462f9-9990-4020-8132-f025d2a75bcd": {
+        "id": "fb4462f9-9990-4020-8132-f025d2a75bcd",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            8.77639,
+            -0.24531841,
+            3.673996
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "0de8dbd7-4447-4185-a3dc-bbb4d406fb4b": {
+        "id": "0de8dbd7-4447-4185-a3dc-bbb4d406fb4b",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -7.8676414,
+            -0.24531841,
+            -5.3652077
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "05ce52d2-9d99-420d-b8fe-6d36d8c23403": {
+        "id": "05ce52d2-9d99-420d-b8fe-6d36d8c23403",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            6.286523,
+            -0.24531841,
+            -22.498417
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.6,
+            0.9,
+            1.3
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "3f2a1e5c-67ab-47dd-8153-825b11b6f9f3": {
+        "id": "3f2a1e5c-67ab-47dd-8153-825b11b6f9f3",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            19.824877,
+            -0.24531841,
+            -7.062501
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "5e3fd019-b874-4d58-b040-c11f79a8cae6": {
+        "id": "5e3fd019-b874-4d58-b040-c11f79a8cae6",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            32.007923,
+            -0.24531841,
+            -7.062501
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "d15c8f2b-5a36-4f22-bcef-754ae13c0dd2": {
+        "id": "d15c8f2b-5a36-4f22-bcef-754ae13c0dd2",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            17.983894,
+            -0.24531841,
+            -22.46512
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "20421013-d38c-4a32-8f6f-8fd7793dda50": {
+        "id": "20421013-d38c-4a32-8f6f-8fd7793dda50",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            25.09332,
+            -0.24531841,
+            10.92984
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "84c5a5fb-e428-44c6-92d2-587e4a1973d3": {
+        "id": "84c5a5fb-e428-44c6-92d2-587e4a1973d3",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -2.7195282,
+            -0.24531841,
+            25.886242
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "84499020-fb1f-436f-b1ea-66159fd7c026": {
+        "id": "84499020-fb1f-436f-b1ea-66159fd7c026",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -23.785477,
+            -0.24531841,
+            8.248892
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "98e83376-0537-4ce8-abe3-5bd96faacbd9": {
+        "id": "98e83376-0537-4ce8-abe3-5bd96faacbd9",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            22.39971,
+            -0.24531841,
+            -3.9581537
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "61578f13-57f6-4236-83c4-710920800d3a": {
+        "id": "61578f13-57f6-4236-83c4-710920800d3a",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -10.325186,
+            -0.24531841,
+            -28.102396
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "99e615d4-31e4-429a-b936-1d68c4affdad": {
+        "id": "99e615d4-31e4-429a-b936-1d68c4affdad",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -17.835608,
+            -0.24531841,
+            -16.38464
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "10d410e6-d2cd-4c78-a339-85fdd0b80753": {
+        "id": "10d410e6-d2cd-4c78-a339-85fdd0b80753",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -4.8204584,
+            -0.24531841,
+            16.673561
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "cbcaf76d-0a23-4bf5-8ef0-016df4940efd": {
+        "id": "cbcaf76d-0a23-4bf5-8ef0-016df4940efd",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            -4.242303,
+            -0.24531841,
+            8.996183
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
+              }
+            }
+          }
+        ]
+      },
+      "5bc70e63-9667-438d-affd-6eed7aa8dbdc": {
+        "id": "5bc70e63-9667-438d-affd-6eed7aa8dbdc",
+        "tag": {
+          "name": "Tree Group 1"
+        },
+        "transform": {
+          "translation": [
+            8.77639,
+            -0.24531841,
+            12.875877
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "05cd5ea8-2ddd-44f2-ba2c-ef43b3fe183f"
+            }
+          },
+          {
+            "HealthComponent": {
+              "health": 0,
+              "max_health": 0
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "debug": false,
+              "id": "73b66abc-3b0d-43c4-9729-bcef3de0e37b",
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false,
+                  "collider_type": {
+                    "Cylinder": {
+                      "half_height": 2,
+                      "radius": 0.4
+                    }
+                  },
+                  "density": 1,
+                  "dynamic_type": "Static",
+                  "friction": 0.1,
+                  "id": "97a1b296-0390-4585-ab7a-d282fa02401a",
+                  "restitution": 0.1
+                },
+                "config": null,
+                "id": "f8a1bab1-4d88-486c-8c18-addb68e47afb",
+                "name": "Joint",
+                "offset": [
+                  0,
+                  2,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "ResourceComponent": {
+              "available": 10,
+              "max": 10,
+              "regen_amount": 1,
+              "regen_interval": {
+                "seconds": 60
               }
             }
           }
