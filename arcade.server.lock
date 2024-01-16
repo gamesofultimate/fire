@@ -2,137 +2,10 @@
   "components": [
     {
       "tag": "Struct",
-      "name": "ResourceComponent",
-      "label": "Resource Component",
-      "default_values": "{ available: 10, max: 10, regen_amount: 10, regen_interval: {seconds: 30} }",
+      "name": "FireComponent",
+      "label": "Fire Component",
+      "default_values": "{ id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
       "docs": null,
-      "fields": [
-        {
-          "name": "available",
-          "label": "Available",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "U32"
-            },
-            "default_values": "0"
-          }
-        },
-        {
-          "name": "max",
-          "label": "Max",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "U32"
-            },
-            "default_values": "0"
-          }
-        },
-        {
-          "name": "regen_amount",
-          "label": "Regen Amount",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "U32"
-            },
-            "default_values": "0"
-          }
-        },
-        {
-          "name": "regen_interval",
-          "label": "Regen Interval",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Seconds",
-            "default_values": "{ seconds: 0.0 }",
-            "ty": "Seconds"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "InputComponent",
-      "label": "Input Component",
-      "default_values": "{ sensitivity: 1.0, speed: { kilometers: 2.0, hours: 1.0 } }",
-      "docs": "Allows the user to GhostCam around the world",
-      "fields": [
-        {
-          "name": "sensitivity",
-          "label": "Sensitivity",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "speed",
-          "label": "Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Kph",
-            "default_values": "{ kph: 1.0}",
-            "ty": "Kph"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "SelfComponent",
-      "label": "Self Component",
-      "default_values": "{  }",
-      "docs": "Allows you to parent your component against another one, so that positioning of this component\ngets created the local space of the parent component",
-      "fields": []
-    },
-    {
-      "tag": "Struct",
-      "name": "MovementComponent",
-      "label": "Movement Component",
-      "default_values": "{ rotation_speed: { rps: 10.0}, run_speed: { mps: 10.0} }",
-      "docs": "Specifies that an entity can move with the given speeds.",
-      "fields": [
-        {
-          "name": "run_speed",
-          "label": "Run Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Mps",
-            "default_values": "{ mps: 1.0 }",
-            "ty": "Mps"
-          }
-        },
-        {
-          "name": "rotation_speed",
-          "label": "Rotation Speed",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Rps",
-            "default_values": "{ rps: 1.0 }",
-            "ty": "Rps"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "BehaviorComponent",
-      "label": "Behavior Component",
-      "default_values": "{ behavior_id: (() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })(), id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
-      "docs": "Utilize a state machine to more easily animate a mesh",
       "fields": [
         {
           "name": "id",
@@ -146,26 +19,14 @@
               "tag": "Uuid"
             }
           }
-        },
-        {
-          "name": "behavior_id",
-          "label": "Behavior Id",
-          "docs": null,
-          "ty": {
-            "tag": "Reference",
-            "name": "Identifiable",
-            "reference": "BehaviorTree",
-            "default_values": "(() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })()",
-            "ty": "BehaviorTreeId"
-          }
         }
       ]
     },
     {
       "tag": "Struct",
-      "name": "EnemyAiComponent",
-      "label": "Enemy Ai Component",
-      "default_values": "{ attack_cooldown: {seconds: 4.0}, attack_range: {meters: 5.0}, detection_radius: {meters: 20.0}, rotation_speed: {rps: 1.0}, speed: {mps: 8.0}, timer: {seconds: 0.0} }",
+      "name": "MagneticPickupComponent",
+      "label": "Magnetic Pickup Component",
+      "default_values": "{ detection_radius: {meters: 3.0}, rotation_speed: {rps: 1.0}, speed: {mps: 3.0} }",
       "docs": null,
       "fields": [
         {
@@ -200,292 +61,26 @@
             "default_values": "{ meters: 0.0 }",
             "ty": "Meters"
           }
-        },
-        {
-          "name": "attack_range",
-          "label": "Attack Range",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        },
-        {
-          "name": "timer",
-          "label": "Timer",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Seconds",
-            "default_values": "{ seconds: 0.0 }",
-            "ty": "Seconds"
-          }
-        },
-        {
-          "name": "attack_cooldown",
-          "label": "Attack Cooldown",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Seconds",
-            "default_values": "{ seconds: 0.0 }",
-            "ty": "Seconds"
-          }
         }
       ]
     },
     {
       "tag": "Struct",
-      "name": "LifetimeComponent",
-      "label": "Lifetime Component",
-      "default_values": "{ duration: {Seconds: 3.0} }",
-      "docs": "Manages health values",
-      "fields": [
-        {
-          "name": "duration",
-          "label": "Duration",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Seconds",
-            "default_values": "{ seconds: 0.0 }",
-            "ty": "Seconds"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "AttackComponent",
-      "label": "Attack Component",
-      "default_values": "{ cooldown: 0.0, damage: 5.0, heavy_anim_end_time: 2200.0, heavy_anim_start_time: 1200.0, heavy_timer_max: 2.0, light_anim_end_time: 1800.0, light_anim_start_time: 600.0, max_distance: 3.0 }",
-      "docs": "Manages attack values for combat system",
-      "fields": [
-        {
-          "name": "cooldown",
-          "label": "Cooldown",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "heavy_timer_max",
-          "label": "Heavy Timer Max",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "damage",
-          "label": "Damage",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_distance",
-          "label": "Max Distance",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "light_anim_start_time",
-          "label": "Light Anim Start Time",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "light_anim_end_time",
-          "label": "Light Anim End Time",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "heavy_anim_start_time",
-          "label": "Heavy Anim Start Time",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "heavy_anim_end_time",
-          "label": "Heavy Anim End Time",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "ParentComponent",
-      "label": "Parent Component",
+      "name": "PrefabComponent",
+      "label": "Prefab Component",
       "default_values": "{ id: (() => { \n            return Symbol.for(\"PrefabId\");\n           })() }",
-      "docs": null,
+      "docs": "Allows you to refer to another prefab, and, automatically instantiate those prefabs at the\nlocation of your choosing. Useful for creating large spaces, or crowds of characters",
       "fields": [
         {
           "name": "id",
           "label": "Id",
-          "docs": null,
+          "docs": "ID of the prefab you are trying to refer to",
           "ty": {
             "tag": "Reference",
             "name": "Identifiable",
             "reference": "Prefab",
             "default_values": "(() => { \n            return Symbol.for(\"PrefabId\");\n           })()",
             "ty": "PrefabId"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "GoalComponent",
-      "label": "Goal Component",
-      "default_values": "{ id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
-      "docs": null,
-      "fields": [
-        {
-          "name": "id",
-          "label": "Id",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Uuid",
-            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
-            "ty": {
-              "tag": "Uuid"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "ModelComponent",
-      "label": "Model Component",
-      "default_values": "{ id: (() => { \n            return Symbol.for(\"ModelId\");\n           })() }",
-      "docs": "Attach a Model to a given entity",
-      "fields": [
-        {
-          "name": "id",
-          "label": "Id",
-          "docs": null,
-          "ty": {
-            "tag": "Reference",
-            "name": "Identifiable",
-            "reference": "Model",
-            "default_values": "(() => { \n            return Symbol.for(\"ModelId\");\n           })()",
-            "ty": "ModelId"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "TopDownCameraComponent",
-      "label": "Top Down Camera Component",
-      "default_values": "{ camera_back_offset: {meters: 7.0}, camera_height: {meters: 15.0} }",
-      "docs": "Exposes variables for the top down camera to the scene editor.",
-      "fields": [
-        {
-          "name": "camera_height",
-          "label": "Camera Height",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        },
-        {
-          "name": "camera_back_offset",
-          "label": "Camera Back Offset",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "ParticleComponent",
-      "label": "Particle Component",
-      "default_values": "{ asset_id: (() => { \n            return Symbol.for(\"ParticleId\");\n           })(), id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
-      "docs": "Attach a particle system to a given entity",
-      "fields": [
-        {
-          "name": "id",
-          "label": "Id",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Uuid",
-            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
-            "ty": {
-              "tag": "Uuid"
-            }
-          }
-        },
-        {
-          "name": "asset_id",
-          "label": "Asset Id",
-          "docs": null,
-          "ty": {
-            "tag": "Reference",
-            "name": "Identifiable",
-            "reference": "Particle",
-            "default_values": "(() => { \n            return Symbol.for(\"ParticleId\");\n           })()",
-            "ty": "ParticleId"
           }
         }
       ]
@@ -553,759 +148,6 @@
                 ]
               }
             }
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "PrefabComponent",
-      "label": "Prefab Component",
-      "default_values": "{ id: (() => { \n            return Symbol.for(\"PrefabId\");\n           })() }",
-      "docs": "Allows you to refer to another prefab, and, automatically instantiate those prefabs at the\nlocation of your choosing. Useful for creating large spaces, or crowds of characters",
-      "fields": [
-        {
-          "name": "id",
-          "label": "Id",
-          "docs": "ID of the prefab you are trying to refer to",
-          "ty": {
-            "tag": "Reference",
-            "name": "Identifiable",
-            "reference": "Prefab",
-            "default_values": "(() => { \n            return Symbol.for(\"PrefabId\");\n           })()",
-            "ty": "PrefabId"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "FireComponent",
-      "label": "Fire Component",
-      "default_values": "{ id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
-      "docs": null,
-      "fields": [
-        {
-          "name": "id",
-          "label": "Id",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Uuid",
-            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
-            "ty": {
-              "tag": "Uuid"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "AudioListenerComponent",
-      "label": "Audio Listener Component",
-      "default_values": "{ active: false, cone_inner_angle: { radians: 0.0 }, cone_outer_angle: { radians: 0.0 }, cone_outer_gain: 0.0 }",
-      "docs": "WIP",
-      "fields": [
-        {
-          "name": "active",
-          "label": "Active",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "Boolean"
-            },
-            "default_values": "false"
-          }
-        },
-        {
-          "name": "cone_inner_angle",
-          "label": "Cone Inner Angle",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Radians",
-            "default_values": "{ radians: 0.0 }",
-            "ty": "Radians"
-          }
-        },
-        {
-          "name": "cone_outer_angle",
-          "label": "Cone Outer Angle",
-          "docs": null,
-          "ty": {
-            "tag": "Custom",
-            "name": "Radians",
-            "default_values": "{ radians: 0.0 }",
-            "ty": "Radians"
-          }
-        },
-        {
-          "name": "cone_outer_gain",
-          "label": "Cone Outer Gain",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "ShieldComponent",
-      "label": "Shield Component",
-      "default_values": "{ current_undamaged_duration: 0.0, max_shield: 0.0, shield: 0.0, shield_regen_per_second: 0.0 }",
-      "docs": "Manages shield values and timers",
-      "fields": [
-        {
-          "name": "shield",
-          "label": "Shield",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_shield",
-          "label": "Max Shield",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "shield_regen_per_second",
-          "label": "Shield Regen Per Second",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "current_undamaged_duration",
-          "label": "Current Undamaged Duration",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Enum",
-      "name": "LightComponent",
-      "label": "Light Component",
-      "default_values": "\"Unknown\"",
-      "docs": "Attach a light source to a given entity. That can be a directional light,\npoint light, or spot light",
-      "variants": [
-        {
-          "tag": "Unit",
-          "name": "Unknown",
-          "docs": null,
-          "default_values": "\"Unknown\""
-        },
-        {
-          "tag": "Struct",
-          "name": "Directional",
-          "label": "Directional",
-          "default_values": "{ azimuth: { value: 0.0 }, inclination: { value: 1.0 }, intensity: 1.0, radiance: [1.0, 1.0, 1.0], should_cast_shadows: false }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "radiance",
-              "label": "Radiance",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Vector3",
-                "default_values": "[0.0, 0.0, 0.0]",
-                "ty": "Vector3<f32>"
-              }
-            },
-            {
-              "name": "intensity",
-              "label": "Intensity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "azimuth",
-              "label": "Azimuth",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Radians",
-                "default_values": "{ radians: 0.0 }",
-                "ty": "Radians"
-              }
-            },
-            {
-              "name": "inclination",
-              "label": "Inclination",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Radians",
-                "default_values": "{ radians: 0.0 }",
-                "ty": "Radians"
-              }
-            },
-            {
-              "name": "should_cast_shadows",
-              "label": "Should Cast Shadows",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            }
-          ]
-        },
-        {
-          "tag": "Struct",
-          "name": "Point",
-          "label": "Point",
-          "default_values": "{ are_shadows_soft: false, falloff: 0.0, intensity: 1.0, light_size: 0.5, min_radius: 1.0, radiance: [1.0, 1.0, 1.0], radius: 1.0, should_cast_shadows: false }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "radiance",
-              "label": "Radiance",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Vector3",
-                "default_values": "[0.0, 0.0, 0.0]",
-                "ty": "Vector3<f32>"
-              }
-            },
-            {
-              "name": "intensity",
-              "label": "Intensity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "light_size",
-              "label": "Light Size",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "min_radius",
-              "label": "Min Radius",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "falloff",
-              "label": "Falloff",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "radius",
-              "label": "Radius",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "should_cast_shadows",
-              "label": "Should Cast Shadows",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            },
-            {
-              "name": "are_shadows_soft",
-              "label": "Are Shadows Soft",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            }
-          ]
-        },
-        {
-          "tag": "Struct",
-          "name": "Spot",
-          "label": "Spot",
-          "default_values": "{ are_shadows_soft: false, cone_length: 1.0, inner_angle: { value: 0.1 }, intensity: 1.0, outer_angle: { value: 0.2 }, radiance: [1.0, 1.0, 1.0], should_cast_shadows: false }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "radiance",
-              "label": "Radiance",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Vector3",
-                "default_values": "[0.0, 0.0, 0.0]",
-                "ty": "Vector3<f32>"
-              }
-            },
-            {
-              "name": "intensity",
-              "label": "Intensity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "cone_length",
-              "label": "Cone Length",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "should_cast_shadows",
-              "label": "Should Cast Shadows",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            },
-            {
-              "name": "are_shadows_soft",
-              "label": "Are Shadows Soft",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            },
-            {
-              "name": "inner_angle",
-              "label": "Inner Angle",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Radians",
-                "default_values": "{ radians: 0.0 }",
-                "ty": "Radians"
-              }
-            },
-            {
-              "name": "outer_angle",
-              "label": "Outer Angle",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Radians",
-                "default_values": "{ radians: 0.0 }",
-                "ty": "Radians"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "HealthComponent",
-      "label": "Health Component",
-      "default_values": "{ health: 0.0, max_health: 0.0 }",
-      "docs": "Manages health values",
-      "fields": [
-        {
-          "name": "health",
-          "label": "Health",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_health",
-          "label": "Max Health",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Enum",
-      "name": "SkyLightComponent",
-      "label": "Sky Light Component",
-      "default_values": "\"Image\"",
-      "docs": "Add a skylight to the scene. You can choose between an Image-based lighting\nsystem (IBL), or fully dynamic (dynamically generated skies).",
-      "variants": [
-        {
-          "tag": "Struct",
-          "name": "Image",
-          "label": "Image",
-          "default_values": "{ id: (() => { \n            return Symbol.for(\"HdrId\");\n           })(), intensity: 0.0 }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "id",
-              "label": "Id",
-              "docs": null,
-              "ty": {
-                "tag": "Reference",
-                "name": "Identifiable",
-                "reference": "Hdr",
-                "default_values": "(() => { \n            return Symbol.for(\"HdrId\");\n           })()",
-                "ty": "HdrId"
-              }
-            },
-            {
-              "name": "intensity",
-              "label": "Intensity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            }
-          ]
-        },
-        {
-          "tag": "Struct",
-          "name": "Dynamic",
-          "label": "Dynamic",
-          "default_values": "{ id: (() => { \n            return Symbol.for(\"BackgroundId\");\n           })(), intensity: 1.0, turbidity: 2.0 }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "id",
-              "label": "Id",
-              "docs": null,
-              "ty": {
-                "tag": "Reference",
-                "name": "Identifiable",
-                "reference": "Background",
-                "default_values": "(() => { \n            return Symbol.for(\"BackgroundId\");\n           })()",
-                "ty": "BackgroundId"
-              }
-            },
-            {
-              "name": "turbidity",
-              "label": "Turbidity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "intensity",
-              "label": "Intensity",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tag": "Enum",
-      "name": "CameraComponent",
-      "label": "Camera Component",
-      "default_values": "\"Orthographic\"",
-      "docs": "What type of camera do you want to use for rendering the world",
-      "variants": [
-        {
-          "tag": "Struct",
-          "name": "Orthographic",
-          "label": "Orthographic",
-          "default_values": "{ bottom: 0.0, left: 0.0, primary: true, right: 1000.0, top: 1000.0, zfar: 100.0, znear: 0.1 }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "left",
-              "label": "Left",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "right",
-              "label": "Right",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "bottom",
-              "label": "Bottom",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "top",
-              "label": "Top",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "znear",
-              "label": "Znear",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "zfar",
-              "label": "Zfar",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "primary",
-              "label": "Primary",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            }
-          ]
-        },
-        {
-          "tag": "Struct",
-          "name": "Perspective",
-          "label": "Perspective",
-          "default_values": "{ fovy: {value: 0.7853982}, primary: true, zfar: 100.0, znear: 0.1 }",
-          "docs": null,
-          "fields": [
-            {
-              "name": "fovy",
-              "label": "Fovy",
-              "docs": null,
-              "ty": {
-                "tag": "Custom",
-                "name": "Radians",
-                "default_values": "{ radians: 0.0 }",
-                "ty": "Radians"
-              }
-            },
-            {
-              "name": "znear",
-              "label": "Znear",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "zfar",
-              "label": "Zfar",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "F32"
-                },
-                "default_values": "0.0"
-              }
-            },
-            {
-              "name": "primary",
-              "label": "Primary",
-              "docs": null,
-              "ty": {
-                "tag": "Primitive",
-                "ty": {
-                  "tag": "Boolean"
-                },
-                "default_values": "false"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "SpawnComponent",
-      "label": "Spawn Component",
-      "default_values": "{ interval: 5.0, max_enemies: 25, radius: 10.0 }",
-      "docs": null,
-      "fields": [
-        {
-          "name": "radius",
-          "label": "Radius",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "interval",
-          "label": "Interval",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "F32"
-            },
-            "default_values": "0.0"
-          }
-        },
-        {
-          "name": "max_enemies",
-          "label": "Max Enemies",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "USize"
-            },
-            "default_values": "0"
           }
         }
       ]
@@ -1923,15 +765,260 @@
       ]
     },
     {
+      "tag": "Enum",
+      "name": "CameraComponent",
+      "label": "Camera Component",
+      "default_values": "\"Orthographic\"",
+      "docs": "What type of camera do you want to use for rendering the world",
+      "variants": [
+        {
+          "tag": "Struct",
+          "name": "Orthographic",
+          "label": "Orthographic",
+          "default_values": "{ bottom: 0.0, left: 0.0, primary: true, right: 1000.0, top: 1000.0, zfar: 100.0, znear: 0.1 }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "left",
+              "label": "Left",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "right",
+              "label": "Right",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "bottom",
+              "label": "Bottom",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "top",
+              "label": "Top",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "znear",
+              "label": "Znear",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "zfar",
+              "label": "Zfar",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "primary",
+              "label": "Primary",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "Struct",
+          "name": "Perspective",
+          "label": "Perspective",
+          "default_values": "{ fovy: {value: 0.7853982}, primary: true, zfar: 100.0, znear: 0.1 }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "fovy",
+              "label": "Fovy",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Radians",
+                "default_values": "{ radians: 0.0 }",
+                "ty": "Radians"
+              }
+            },
+            {
+              "name": "znear",
+              "label": "Znear",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "zfar",
+              "label": "Zfar",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "primary",
+              "label": "Primary",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "tag": "Struct",
-      "name": "MagneticPickupComponent",
-      "label": "Magnetic Pickup Component",
-      "default_values": "{ detection_radius: {meters: 3.0}, rotation_speed: {rps: 1.0}, speed: {mps: 3.0} }",
+      "name": "TopDownCameraComponent",
+      "label": "Top Down Camera Component",
+      "default_values": "{ camera_back_offset: {meters: 7.0}, camera_height: {meters: 15.0} }",
+      "docs": "Exposes variables for the top down camera to the scene editor.",
+      "fields": [
+        {
+          "name": "camera_height",
+          "label": "Camera Height",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        },
+        {
+          "name": "camera_back_offset",
+          "label": "Camera Back Offset",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ResourceComponent",
+      "label": "Resource Component",
+      "default_values": "{ available: 10, max: 10, regen_amount: 10, regen_interval: {seconds: 30} }",
       "docs": null,
       "fields": [
         {
-          "name": "speed",
-          "label": "Speed",
+          "name": "available",
+          "label": "Available",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "max",
+          "label": "Max",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "regen_amount",
+          "label": "Regen Amount",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "regen_interval",
+          "label": "Regen Interval",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Seconds",
+            "default_values": "{ seconds: 0.0 }",
+            "ty": "Seconds"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "MovementComponent",
+      "label": "Movement Component",
+      "default_values": "{ rotation_speed: { rps: 10.0}, run_speed: { mps: 10.0} }",
+      "docs": "Specifies that an entity can move with the given speeds.",
+      "fields": [
+        {
+          "name": "run_speed",
+          "label": "Run Speed",
           "docs": null,
           "ty": {
             "tag": "Custom",
@@ -1950,19 +1037,61 @@
             "default_values": "{ rps: 1.0 }",
             "ty": "Rps"
           }
-        },
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "SpawnComponent",
+      "label": "Spawn Component",
+      "default_values": "{ interval: 5.0, max_enemies: 25, radius: 10.0 }",
+      "docs": null,
+      "fields": [
         {
-          "name": "detection_radius",
-          "label": "Detection Radius",
+          "name": "radius",
+          "label": "Radius",
           "docs": null,
           "ty": {
-            "tag": "Custom",
-            "name": "Meters",
-            "default_values": "{ meters: 0.0 }",
-            "ty": "Meters"
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "interval",
+          "label": "Interval",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_enemies",
+          "label": "Max Enemies",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "USize"
+            },
+            "default_values": "0"
           }
         }
       ]
+    },
+    {
+      "tag": "Struct",
+      "name": "SelfComponent",
+      "label": "Self Component",
+      "default_values": "{  }",
+      "docs": "Allows you to parent your component against another one, so that positioning of this component\ngets created the local space of the parent component",
+      "fields": []
     },
     {
       "tag": "Struct",
@@ -2034,9 +1163,150 @@
     },
     {
       "tag": "Struct",
+      "name": "EnemyAiComponent",
+      "label": "Enemy Ai Component",
+      "default_values": "{ attack_cooldown: {seconds: 4.0}, attack_range: {meters: 5.0}, detection_radius: {meters: 20.0}, rotation_speed: {rps: 1.0}, speed: {mps: 8.0}, timer: {seconds: 0.0} }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "speed",
+          "label": "Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Mps",
+            "default_values": "{ mps: 1.0 }",
+            "ty": "Mps"
+          }
+        },
+        {
+          "name": "rotation_speed",
+          "label": "Rotation Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Rps",
+            "default_values": "{ rps: 1.0 }",
+            "ty": "Rps"
+          }
+        },
+        {
+          "name": "detection_radius",
+          "label": "Detection Radius",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        },
+        {
+          "name": "attack_range",
+          "label": "Attack Range",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Meters",
+            "default_values": "{ meters: 0.0 }",
+            "ty": "Meters"
+          }
+        },
+        {
+          "name": "timer",
+          "label": "Timer",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Seconds",
+            "default_values": "{ seconds: 0.0 }",
+            "ty": "Seconds"
+          }
+        },
+        {
+          "name": "attack_cooldown",
+          "label": "Attack Cooldown",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Seconds",
+            "default_values": "{ seconds: 0.0 }",
+            "ty": "Seconds"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "InputComponent",
+      "label": "Input Component",
+      "default_values": "{ sensitivity: 1.0, speed: { kilometers: 2.0, hours: 1.0 } }",
+      "docs": "Allows the user to GhostCam around the world",
+      "fields": [
+        {
+          "name": "sensitivity",
+          "label": "Sensitivity",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "speed",
+          "label": "Speed",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Kph",
+            "default_values": "{ kph: 1.0}",
+            "ty": "Kph"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "BehaviorComponent",
+      "label": "Behavior Component",
+      "default_values": "{ behavior_id: (() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })(), id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
+      "docs": "Utilize a state machine to more easily animate a mesh",
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Uuid",
+            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
+            "ty": {
+              "tag": "Uuid"
+            }
+          }
+        },
+        {
+          "name": "behavior_id",
+          "label": "Behavior Id",
+          "docs": null,
+          "ty": {
+            "tag": "Reference",
+            "name": "Identifiable",
+            "reference": "BehaviorTree",
+            "default_values": "(() => { \n            return Symbol.for(\"BehaviorTreeId\");\n           })()",
+            "ty": "BehaviorTreeId"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
       "name": "TerrainComponent",
       "label": "Terrain Component",
-      "default_values": "{ height: 400.0, id: (() => { \n            return Symbol.for(\"TerrainId\");\n           })(), tile_half_length: 800.0 }",
+      "default_values": "{ grass: { blade_color: [0.0, 1.0, 0.0], blade_width: { meters: 0.1 }, density: 256, enabled: true, max_height: { meters: 0.3 }, max_lean: { radians: 0.785 }, max_rotation: { radians: 0.785 }, min_height: { meters: 0.1 }, min_lean: { radians: 0.0 }, min_rotation: { radians: 0.0 } }, id: (() => { \n            return Symbol.for(\"TerrainId\");\n           })(), terrain: { height: { meters: 200.0 }, number_of_cascades: 5, tile_half_length: { meters: 400.0 } } }",
       "docs": "Attach a terrain to a given component\nThe terrain itself needs to be built with the Software\ncalled Gaea: (Link: https://quadspinner.com/), and exported\n\nusing multiple tiles (at least 2x2).\n\nOnce exported, follow the following naming convention:\nterrain.{name}.{albedo|normal|height}.x{x}.y{y}\n\nExport the albedo node as rgb16\nExport the normal node as rgb16\nExport the height node as r32",
       "fields": [
         {
@@ -2052,8 +1322,191 @@
           }
         },
         {
-          "name": "height",
-          "label": "Height",
+          "name": "terrain",
+          "label": "Terrain",
+          "docs": null,
+          "ty": {
+            "tag": "Struct",
+            "name": "TerrainConfiguration",
+            "label": "Terrain Configuration",
+            "default_values": "{ height: { meters: 200.0 }, number_of_cascades: 5, tile_half_length: { meters: 400.0 } }",
+            "docs": null,
+            "fields": [
+              {
+                "name": "height",
+                "label": "Height",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Meters",
+                  "default_values": "{ meters: 0.0 }",
+                  "ty": "Meters"
+                }
+              },
+              {
+                "name": "tile_half_length",
+                "label": "Tile Half Length",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Meters",
+                  "default_values": "{ meters: 0.0 }",
+                  "ty": "Meters"
+                }
+              },
+              {
+                "name": "number_of_cascades",
+                "label": "Number Of Cascades",
+                "docs": null,
+                "ty": {
+                  "tag": "Primitive",
+                  "ty": {
+                    "tag": "U32"
+                  },
+                  "default_values": "0"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "grass",
+          "label": "Grass",
+          "docs": null,
+          "ty": {
+            "tag": "Struct",
+            "name": "GrassConfiguration",
+            "label": "Grass Configuration",
+            "default_values": "{ blade_color: [0.0, 1.0, 0.0], blade_width: { meters: 0.1 }, density: 256, enabled: true, max_height: { meters: 0.3 }, max_lean: { radians: 0.785 }, max_rotation: { radians: 0.785 }, min_height: { meters: 0.1 }, min_lean: { radians: 0.0 }, min_rotation: { radians: 0.0 } }",
+            "docs": null,
+            "fields": [
+              {
+                "name": "enabled",
+                "label": "Enabled",
+                "docs": null,
+                "ty": {
+                  "tag": "Primitive",
+                  "ty": {
+                    "tag": "Boolean"
+                  },
+                  "default_values": "false"
+                }
+              },
+              {
+                "name": "density",
+                "label": "Density",
+                "docs": null,
+                "ty": {
+                  "tag": "Primitive",
+                  "ty": {
+                    "tag": "U32"
+                  },
+                  "default_values": "0"
+                }
+              },
+              {
+                "name": "min_height",
+                "label": "Min Height",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Meters",
+                  "default_values": "{ meters: 0.0 }",
+                  "ty": "Meters"
+                }
+              },
+              {
+                "name": "max_height",
+                "label": "Max Height",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Meters",
+                  "default_values": "{ meters: 0.0 }",
+                  "ty": "Meters"
+                }
+              },
+              {
+                "name": "min_rotation",
+                "label": "Min Rotation",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Radians",
+                  "default_values": "{ radians: 0.0 }",
+                  "ty": "Radians"
+                }
+              },
+              {
+                "name": "max_rotation",
+                "label": "Max Rotation",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Radians",
+                  "default_values": "{ radians: 0.0 }",
+                  "ty": "Radians"
+                }
+              },
+              {
+                "name": "min_lean",
+                "label": "Min Lean",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Radians",
+                  "default_values": "{ radians: 0.0 }",
+                  "ty": "Radians"
+                }
+              },
+              {
+                "name": "max_lean",
+                "label": "Max Lean",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Radians",
+                  "default_values": "{ radians: 0.0 }",
+                  "ty": "Radians"
+                }
+              },
+              {
+                "name": "blade_width",
+                "label": "Blade Width",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Meters",
+                  "default_values": "{ meters: 0.0 }",
+                  "ty": "Meters"
+                }
+              },
+              {
+                "name": "blade_color",
+                "label": "Blade Color",
+                "docs": null,
+                "ty": {
+                  "tag": "Custom",
+                  "name": "Vector3",
+                  "default_values": "[0.0, 0.0, 0.0]",
+                  "ty": "Vector3<f32>"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ShieldComponent",
+      "label": "Shield Component",
+      "default_values": "{ current_undamaged_duration: 0.0, max_shield: 0.0, shield: 0.0, shield_regen_per_second: 0.0 }",
+      "docs": "Manages shield values and timers",
+      "fields": [
+        {
+          "name": "shield",
+          "label": "Shield",
           "docs": null,
           "ty": {
             "tag": "Primitive",
@@ -2064,8 +1517,32 @@
           }
         },
         {
-          "name": "tile_half_length",
-          "label": "Tile Half Length",
+          "name": "max_shield",
+          "label": "Max Shield",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "shield_regen_per_second",
+          "label": "Shield Regen Per Second",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "current_undamaged_duration",
+          "label": "Current Undamaged Duration",
           "docs": null,
           "ty": {
             "tag": "Primitive",
@@ -2079,33 +1556,386 @@
     },
     {
       "tag": "Struct",
-      "name": "InventoryComponent",
-      "label": "Inventory Component",
-      "default_values": "{ max_wood: 5, wood: 0 }",
-      "docs": null,
+      "name": "AudioListenerComponent",
+      "label": "Audio Listener Component",
+      "default_values": "{ active: false, cone_inner_angle: { radians: 0.0 }, cone_outer_angle: { radians: 0.0 }, cone_outer_gain: 0.0 }",
+      "docs": "WIP",
       "fields": [
         {
-          "name": "wood",
-          "label": "Wood",
+          "name": "active",
+          "label": "Active",
           "docs": null,
           "ty": {
             "tag": "Primitive",
             "ty": {
-              "tag": "U32"
+              "tag": "Boolean"
             },
-            "default_values": "0"
+            "default_values": "false"
           }
         },
         {
-          "name": "max_wood",
-          "label": "Max Wood",
+          "name": "cone_inner_angle",
+          "label": "Cone Inner Angle",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Radians",
+            "default_values": "{ radians: 0.0 }",
+            "ty": "Radians"
+          }
+        },
+        {
+          "name": "cone_outer_angle",
+          "label": "Cone Outer Angle",
+          "docs": null,
+          "ty": {
+            "tag": "Custom",
+            "name": "Radians",
+            "default_values": "{ radians: 0.0 }",
+            "ty": "Radians"
+          }
+        },
+        {
+          "name": "cone_outer_gain",
+          "label": "Cone Outer Gain",
           "docs": null,
           "ty": {
             "tag": "Primitive",
             "ty": {
-              "tag": "U32"
+              "tag": "F32"
             },
-            "default_values": "0"
+            "default_values": "0.0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Enum",
+      "name": "LightComponent",
+      "label": "Light Component",
+      "default_values": "\"Unknown\"",
+      "docs": "Attach a light source to a given entity. That can be a directional light,\npoint light, or spot light",
+      "variants": [
+        {
+          "tag": "Unit",
+          "name": "Unknown",
+          "docs": null,
+          "default_values": "\"Unknown\""
+        },
+        {
+          "tag": "Struct",
+          "name": "Directional",
+          "label": "Directional",
+          "default_values": "{ azimuth: { value: 0.0 }, inclination: { value: 1.0 }, intensity: 1.0, radiance: [1.0, 1.0, 1.0], should_cast_shadows: false }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "radiance",
+              "label": "Radiance",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Vector3",
+                "default_values": "[0.0, 0.0, 0.0]",
+                "ty": "Vector3<f32>"
+              }
+            },
+            {
+              "name": "intensity",
+              "label": "Intensity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "azimuth",
+              "label": "Azimuth",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Radians",
+                "default_values": "{ radians: 0.0 }",
+                "ty": "Radians"
+              }
+            },
+            {
+              "name": "inclination",
+              "label": "Inclination",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Radians",
+                "default_values": "{ radians: 0.0 }",
+                "ty": "Radians"
+              }
+            },
+            {
+              "name": "should_cast_shadows",
+              "label": "Should Cast Shadows",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "Struct",
+          "name": "Point",
+          "label": "Point",
+          "default_values": "{ are_shadows_soft: false, falloff: 0.0, intensity: 1.0, light_size: 0.5, min_radius: 1.0, radiance: [1.0, 1.0, 1.0], radius: 1.0, should_cast_shadows: false }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "radiance",
+              "label": "Radiance",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Vector3",
+                "default_values": "[0.0, 0.0, 0.0]",
+                "ty": "Vector3<f32>"
+              }
+            },
+            {
+              "name": "intensity",
+              "label": "Intensity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "light_size",
+              "label": "Light Size",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "min_radius",
+              "label": "Min Radius",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "falloff",
+              "label": "Falloff",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "radius",
+              "label": "Radius",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "should_cast_shadows",
+              "label": "Should Cast Shadows",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            },
+            {
+              "name": "are_shadows_soft",
+              "label": "Are Shadows Soft",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "Struct",
+          "name": "Spot",
+          "label": "Spot",
+          "default_values": "{ are_shadows_soft: false, cone_length: 1.0, inner_angle: { value: 0.1 }, intensity: 1.0, outer_angle: { value: 0.2 }, radiance: [1.0, 1.0, 1.0], should_cast_shadows: false }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "radiance",
+              "label": "Radiance",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Vector3",
+                "default_values": "[0.0, 0.0, 0.0]",
+                "ty": "Vector3<f32>"
+              }
+            },
+            {
+              "name": "intensity",
+              "label": "Intensity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "cone_length",
+              "label": "Cone Length",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "should_cast_shadows",
+              "label": "Should Cast Shadows",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            },
+            {
+              "name": "are_shadows_soft",
+              "label": "Are Shadows Soft",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "Boolean"
+                },
+                "default_values": "false"
+              }
+            },
+            {
+              "name": "inner_angle",
+              "label": "Inner Angle",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Radians",
+                "default_values": "{ radians: 0.0 }",
+                "ty": "Radians"
+              }
+            },
+            {
+              "name": "outer_angle",
+              "label": "Outer Angle",
+              "docs": null,
+              "ty": {
+                "tag": "Custom",
+                "name": "Radians",
+                "default_values": "{ radians: 0.0 }",
+                "ty": "Radians"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "GoalComponent",
+      "label": "Goal Component",
+      "default_values": "{ id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Uuid",
+            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
+            "ty": {
+              "tag": "Uuid"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ParticleComponent",
+      "label": "Particle Component",
+      "default_values": "{ asset_id: (() => { \n            return Symbol.for(\"ParticleId\");\n           })(), id: (() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })() }",
+      "docs": "Attach a particle system to a given entity",
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Uuid",
+            "default_values": "(() => { \n      function uuidv4() {\n        return \"10000000-1000-4000-8000-100000000000\".replace(/[018]/g, c =>\n          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)\n        );\n      };\n      return uuidv4()\n     })()",
+            "ty": {
+              "tag": "Uuid"
+            }
+          }
+        },
+        {
+          "name": "asset_id",
+          "label": "Asset Id",
+          "docs": null,
+          "ty": {
+            "tag": "Reference",
+            "name": "Identifiable",
+            "reference": "Particle",
+            "default_values": "(() => { \n            return Symbol.for(\"ParticleId\");\n           })()",
+            "ty": "ParticleId"
           }
         }
       ]
@@ -2143,29 +1973,329 @@
           }
         }
       ]
-    }
-  ],
-  "animations": [
+    },
     {
       "tag": "Struct",
-      "name": "AccelerationThreshold",
-      "label": "Acceleration Threshold",
-      "default_values": "{ speed: { kph: 5.0 } }",
-      "docs": "Reacts to an entity that accelerates beyond a threshold",
+      "name": "LifetimeComponent",
+      "label": "Lifetime Component",
+      "default_values": "{ duration: {Seconds: 3.0} }",
+      "docs": "Manages health values",
       "fields": [
         {
-          "name": "speed",
-          "label": "Speed",
-          "docs": "Begin transition after reaching this speed",
+          "name": "duration",
+          "label": "Duration",
+          "docs": null,
           "ty": {
             "tag": "Custom",
-            "name": "Kph",
-            "default_values": "{ kph: 1.0}",
-            "ty": "Kph"
+            "name": "Seconds",
+            "default_values": "{ seconds: 0.0 }",
+            "ty": "Seconds"
           }
         }
       ]
     },
+    {
+      "tag": "Struct",
+      "name": "HealthComponent",
+      "label": "Health Component",
+      "default_values": "{ health: 0.0, max_health: 0.0 }",
+      "docs": "Manages health values",
+      "fields": [
+        {
+          "name": "health",
+          "label": "Health",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_health",
+          "label": "Max Health",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ParentComponent",
+      "label": "Parent Component",
+      "default_values": "{ id: (() => { \n            return Symbol.for(\"PrefabId\");\n           })() }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Reference",
+            "name": "Identifiable",
+            "reference": "Prefab",
+            "default_values": "(() => { \n            return Symbol.for(\"PrefabId\");\n           })()",
+            "ty": "PrefabId"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Enum",
+      "name": "SkyLightComponent",
+      "label": "Sky Light Component",
+      "default_values": "\"Image\"",
+      "docs": "Add a skylight to the scene. You can choose between an Image-based lighting\nsystem (IBL), or fully dynamic (dynamically generated skies).",
+      "variants": [
+        {
+          "tag": "Struct",
+          "name": "Image",
+          "label": "Image",
+          "default_values": "{ id: (() => { \n            return Symbol.for(\"HdrId\");\n           })(), intensity: 0.0 }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "id",
+              "label": "Id",
+              "docs": null,
+              "ty": {
+                "tag": "Reference",
+                "name": "Identifiable",
+                "reference": "Hdr",
+                "default_values": "(() => { \n            return Symbol.for(\"HdrId\");\n           })()",
+                "ty": "HdrId"
+              }
+            },
+            {
+              "name": "intensity",
+              "label": "Intensity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "Struct",
+          "name": "Dynamic",
+          "label": "Dynamic",
+          "default_values": "{ id: (() => { \n            return Symbol.for(\"BackgroundId\");\n           })(), intensity: 1.0, turbidity: 2.0 }",
+          "docs": null,
+          "fields": [
+            {
+              "name": "id",
+              "label": "Id",
+              "docs": null,
+              "ty": {
+                "tag": "Reference",
+                "name": "Identifiable",
+                "reference": "Background",
+                "default_values": "(() => { \n            return Symbol.for(\"BackgroundId\");\n           })()",
+                "ty": "BackgroundId"
+              }
+            },
+            {
+              "name": "turbidity",
+              "label": "Turbidity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            },
+            {
+              "name": "intensity",
+              "label": "Intensity",
+              "docs": null,
+              "ty": {
+                "tag": "Primitive",
+                "ty": {
+                  "tag": "F32"
+                },
+                "default_values": "0.0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "AttackComponent",
+      "label": "Attack Component",
+      "default_values": "{ cooldown: 0.0, damage: 5.0, heavy_anim_end_time: 2200.0, heavy_anim_start_time: 1200.0, heavy_timer_max: 2.0, light_anim_end_time: 1800.0, light_anim_start_time: 600.0, max_distance: 3.0 }",
+      "docs": "Manages attack values for combat system",
+      "fields": [
+        {
+          "name": "cooldown",
+          "label": "Cooldown",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "heavy_timer_max",
+          "label": "Heavy Timer Max",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "damage",
+          "label": "Damage",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "max_distance",
+          "label": "Max Distance",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "light_anim_start_time",
+          "label": "Light Anim Start Time",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "light_anim_end_time",
+          "label": "Light Anim End Time",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "heavy_anim_start_time",
+          "label": "Heavy Anim Start Time",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        },
+        {
+          "name": "heavy_anim_end_time",
+          "label": "Heavy Anim End Time",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "F32"
+            },
+            "default_values": "0.0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "ModelComponent",
+      "label": "Model Component",
+      "default_values": "{ id: (() => { \n            return Symbol.for(\"ModelId\");\n           })() }",
+      "docs": "Attach a Model to a given entity",
+      "fields": [
+        {
+          "name": "id",
+          "label": "Id",
+          "docs": null,
+          "ty": {
+            "tag": "Reference",
+            "name": "Identifiable",
+            "reference": "Model",
+            "default_values": "(() => { \n            return Symbol.for(\"ModelId\");\n           })()",
+            "ty": "ModelId"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "InventoryComponent",
+      "label": "Inventory Component",
+      "default_values": "{ max_wood: 5, wood: 0 }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "wood",
+          "label": "Wood",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "max_wood",
+          "label": "Max Wood",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U32"
+            },
+            "default_values": "0"
+          }
+        }
+      ]
+    }
+  ],
+  "animations": [
     {
       "tag": "Struct",
       "name": "DecelerationThreshold",
@@ -2185,209 +2315,29 @@
           }
         }
       ]
+    },
+    {
+      "tag": "Struct",
+      "name": "AccelerationThreshold",
+      "label": "Acceleration Threshold",
+      "default_values": "{ speed: { kph: 5.0 } }",
+      "docs": "Reacts to an entity that accelerates beyond a threshold",
+      "fields": [
+        {
+          "name": "speed",
+          "label": "Speed",
+          "docs": "Begin transition after reaching this speed",
+          "ty": {
+            "tag": "Custom",
+            "name": "Kph",
+            "default_values": "{ kph: 1.0}",
+            "ty": "Kph"
+          }
+        }
+      ]
     }
   ],
   "behaviors": [
-    {
-      "tag": "Struct",
-      "name": "Throttle",
-      "label": "Throttle",
-      "default_values": "{ child: null, interval: 0 }",
-      "docs": "Throttles the execution of its child",
-      "fields": [
-        {
-          "name": "interval",
-          "label": "Interval",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "U64"
-            },
-            "default_values": "0"
-          }
-        },
-        {
-          "name": "child",
-          "label": "Child",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Option",
-            "default_values": "null",
-            "ty": {
-              "tag": "Option",
-              "data": {
-                "tag": "Struct",
-                "name": "BehaviorNode",
-                "label": "Behavior Node",
-                "default_values": "{ id: (() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })(), node_type: (() => { return Symbol.for(\"BehaviorNodeId\"); })(), position: { x: 0.0, y: 0.0 } }",
-                "docs": null,
-                "fields": [
-                  {
-                    "name": "id",
-                    "label": "Id",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Reference",
-                      "name": "Identifiable",
-                      "reference": "BehaviorNode",
-                      "default_values": "(() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })()",
-                      "ty": "BehaviorNodeId"
-                    }
-                  },
-                  {
-                    "name": "node_type",
-                    "label": "Node Type",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Type",
-                      "name": "Behavior",
-                      "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
-                      "ty": {
-                        "tag": "Dynamic"
-                      }
-                    }
-                  },
-                  {
-                    "name": "position",
-                    "label": "Position",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Struct",
-                      "name": "Position",
-                      "label": "Position",
-                      "default_values": "{ x: 0.0, y: 0.0 }",
-                      "docs": null,
-                      "fields": [
-                        {
-                          "name": "x",
-                          "label": "X",
-                          "docs": null,
-                          "ty": {
-                            "tag": "Primitive",
-                            "ty": {
-                              "tag": "F32"
-                            },
-                            "default_values": "0.0"
-                          }
-                        },
-                        {
-                          "name": "y",
-                          "label": "Y",
-                          "docs": null,
-                          "ty": {
-                            "tag": "Primitive",
-                            "ty": {
-                              "tag": "F32"
-                            },
-                            "default_values": "0.0"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "Inverter",
-      "label": "Inverter",
-      "default_values": "{ child: null }",
-      "docs": "Inverts the results of its child.\nIf the child reports Status::Success it will report Status::Failure.\nIf the child reports Status::Failure it will report Status::Success.\nIf the child reports Status::Running it will do nothing.",
-      "fields": [
-        {
-          "name": "child",
-          "label": "Child",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Option",
-            "default_values": "null",
-            "ty": {
-              "tag": "Option",
-              "data": {
-                "tag": "Struct",
-                "name": "BehaviorNode",
-                "label": "Behavior Node",
-                "default_values": "{ id: (() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })(), node_type: (() => { return Symbol.for(\"BehaviorNodeId\"); })(), position: { x: 0.0, y: 0.0 } }",
-                "docs": null,
-                "fields": [
-                  {
-                    "name": "id",
-                    "label": "Id",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Reference",
-                      "name": "Identifiable",
-                      "reference": "BehaviorNode",
-                      "default_values": "(() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })()",
-                      "ty": "BehaviorNodeId"
-                    }
-                  },
-                  {
-                    "name": "node_type",
-                    "label": "Node Type",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Type",
-                      "name": "Behavior",
-                      "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
-                      "ty": {
-                        "tag": "Dynamic"
-                      }
-                    }
-                  },
-                  {
-                    "name": "position",
-                    "label": "Position",
-                    "docs": null,
-                    "ty": {
-                      "tag": "Struct",
-                      "name": "Position",
-                      "label": "Position",
-                      "default_values": "{ x: 0.0, y: 0.0 }",
-                      "docs": null,
-                      "fields": [
-                        {
-                          "name": "x",
-                          "label": "X",
-                          "docs": null,
-                          "ty": {
-                            "tag": "Primitive",
-                            "ty": {
-                              "tag": "F32"
-                            },
-                            "default_values": "0.0"
-                          }
-                        },
-                        {
-                          "name": "y",
-                          "label": "Y",
-                          "docs": null,
-                          "ty": {
-                            "tag": "Primitive",
-                            "ty": {
-                              "tag": "F32"
-                            },
-                            "default_values": "0.0"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      ]
-    },
     {
       "tag": "Struct",
       "name": "Fallback",
@@ -2440,21 +2390,21 @@
     },
     {
       "tag": "Struct",
-      "name": "Sequence",
-      "label": "Sequence",
-      "default_values": "{ children: [] }",
-      "docs": "Acts as a root node for the whole tree, and cannot be deleted.\nIt only passes through its results, if it contains a child node.",
+      "name": "Root",
+      "label": "Root",
+      "default_values": "{ child: null }",
+      "docs": "Private Behavior. Acts as a root node for the whole tree, and cannot be deleted.\nIt only passes through its results, if it contains a child node.",
       "fields": [
         {
-          "name": "children",
-          "label": "Children",
+          "name": "child",
+          "label": "Child",
           "docs": null,
           "ty": {
             "tag": "Type",
-            "name": "Vec",
-            "default_values": "[]",
+            "name": "Option",
+            "default_values": "null",
             "ty": {
-              "tag": "Vector",
+              "tag": "Option",
               "data": {
                 "tag": "Struct",
                 "name": "BehaviorNode",
@@ -2640,23 +2590,32 @@
     },
     {
       "tag": "Struct",
-      "name": "Timeout",
-      "label": "Timeout",
-      "default_values": "{ child: null, timeout: 0 }",
-      "docs": "Ensures its child only runs for a period of time.",
+      "name": "LogMessage",
+      "label": "Log Message",
+      "default_values": "{ message: '' }",
+      "docs": "Logs a message to the console. Useful for debugging.",
       "fields": [
         {
-          "name": "timeout",
-          "label": "Timeout",
+          "name": "message",
+          "label": "Message",
           "docs": null,
           "ty": {
             "tag": "Primitive",
             "ty": {
-              "tag": "U64"
+              "tag": "String"
             },
-            "default_values": "0"
+            "default_values": "''"
           }
-        },
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "Inverter",
+      "label": "Inverter",
+      "default_values": "{ child: null }",
+      "docs": "Inverts the results of its child.\nIf the child reports Status::Success it will report Status::Failure.\nIf the child reports Status::Failure it will report Status::Success.\nIf the child reports Status::Running it will do nothing.",
+      "fields": [
         {
           "name": "child",
           "label": "Child",
@@ -2746,31 +2705,10 @@
     },
     {
       "tag": "Struct",
-      "name": "LogMessage",
-      "label": "Log Message",
-      "default_values": "{ message: '' }",
-      "docs": "Logs a message to the console. Useful for debugging.",
-      "fields": [
-        {
-          "name": "message",
-          "label": "Message",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "String"
-            },
-            "default_values": "''"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "Priority",
-      "label": "Priority",
+      "name": "Select",
+      "label": "Select",
       "default_values": "{ children: [] }",
-      "docs": null,
+      "docs": "Acts as a root node for the whole tree, and cannot be deleted.\nIt only passes through its results, if it contains a child node.",
       "fields": [
         {
           "name": "children",
@@ -2782,36 +2720,6 @@
             "default_values": "[]",
             "ty": {
               "tag": "Vector",
-              "data": {
-                "tag": "Type",
-                "name": "Behavior",
-                "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
-                "ty": {
-                  "tag": "Dynamic"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "tag": "Struct",
-      "name": "Root",
-      "label": "Root",
-      "default_values": "{ child: null }",
-      "docs": "Private Behavior. Acts as a root node for the whole tree, and cannot be deleted.\nIt only passes through its results, if it contains a child node.",
-      "fields": [
-        {
-          "name": "child",
-          "label": "Child",
-          "docs": null,
-          "ty": {
-            "tag": "Type",
-            "name": "Option",
-            "default_values": "null",
-            "ty": {
-              "tag": "Option",
               "data": {
                 "tag": "Struct",
                 "name": "BehaviorNode",
@@ -2921,8 +2829,198 @@
     },
     {
       "tag": "Struct",
-      "name": "Select",
-      "label": "Select",
+      "name": "Priority",
+      "label": "Priority",
+      "default_values": "{ children: [] }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "children",
+          "label": "Children",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Vec",
+            "default_values": "[]",
+            "ty": {
+              "tag": "Vector",
+              "data": {
+                "tag": "Type",
+                "name": "Behavior",
+                "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
+                "ty": {
+                  "tag": "Dynamic"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "Parallel",
+      "label": "Parallel",
+      "default_values": "{ children: [], failure_threshold: 0, success_threshold: 0 }",
+      "docs": null,
+      "fields": [
+        {
+          "name": "children",
+          "label": "Children",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Vec",
+            "default_values": "[]",
+            "ty": {
+              "tag": "Vector",
+              "data": {
+                "tag": "Type",
+                "name": "Behavior",
+                "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
+                "ty": {
+                  "tag": "Dynamic"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "success_threshold",
+          "label": "Success Threshold",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "USize"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "failure_threshold",
+          "label": "Failure Threshold",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "USize"
+            },
+            "default_values": "0"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "Throttle",
+      "label": "Throttle",
+      "default_values": "{ child: null, interval: 0 }",
+      "docs": "Throttles the execution of its child",
+      "fields": [
+        {
+          "name": "interval",
+          "label": "Interval",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U64"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "child",
+          "label": "Child",
+          "docs": null,
+          "ty": {
+            "tag": "Type",
+            "name": "Option",
+            "default_values": "null",
+            "ty": {
+              "tag": "Option",
+              "data": {
+                "tag": "Struct",
+                "name": "BehaviorNode",
+                "label": "Behavior Node",
+                "default_values": "{ id: (() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })(), node_type: (() => { return Symbol.for(\"BehaviorNodeId\"); })(), position: { x: 0.0, y: 0.0 } }",
+                "docs": null,
+                "fields": [
+                  {
+                    "name": "id",
+                    "label": "Id",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Reference",
+                      "name": "Identifiable",
+                      "reference": "BehaviorNode",
+                      "default_values": "(() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })()",
+                      "ty": "BehaviorNodeId"
+                    }
+                  },
+                  {
+                    "name": "node_type",
+                    "label": "Node Type",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Type",
+                      "name": "Behavior",
+                      "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
+                      "ty": {
+                        "tag": "Dynamic"
+                      }
+                    }
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Struct",
+                      "name": "Position",
+                      "label": "Position",
+                      "default_values": "{ x: 0.0, y: 0.0 }",
+                      "docs": null,
+                      "fields": [
+                        {
+                          "name": "x",
+                          "label": "X",
+                          "docs": null,
+                          "ty": {
+                            "tag": "Primitive",
+                            "ty": {
+                              "tag": "F32"
+                            },
+                            "default_values": "0.0"
+                          }
+                        },
+                        {
+                          "name": "y",
+                          "label": "Y",
+                          "docs": null,
+                          "ty": {
+                            "tag": "Primitive",
+                            "ty": {
+                              "tag": "F32"
+                            },
+                            "default_values": "0.0"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": "Struct",
+      "name": "Sequence",
+      "label": "Sequence",
       "default_values": "{ children: [] }",
       "docs": "Acts as a root node for the whole tree, and cannot be deleted.\nIt only passes through its results, if it contains a child node.",
       "fields": [
@@ -3015,54 +3113,106 @@
     },
     {
       "tag": "Struct",
-      "name": "Parallel",
-      "label": "Parallel",
-      "default_values": "{ children: [], failure_threshold: 0, success_threshold: 0 }",
-      "docs": null,
+      "name": "Timeout",
+      "label": "Timeout",
+      "default_values": "{ child: null, timeout: 0 }",
+      "docs": "Ensures its child only runs for a period of time.",
       "fields": [
         {
-          "name": "children",
-          "label": "Children",
+          "name": "timeout",
+          "label": "Timeout",
+          "docs": null,
+          "ty": {
+            "tag": "Primitive",
+            "ty": {
+              "tag": "U64"
+            },
+            "default_values": "0"
+          }
+        },
+        {
+          "name": "child",
+          "label": "Child",
           "docs": null,
           "ty": {
             "tag": "Type",
-            "name": "Vec",
-            "default_values": "[]",
+            "name": "Option",
+            "default_values": "null",
             "ty": {
-              "tag": "Vector",
+              "tag": "Option",
               "data": {
-                "tag": "Type",
-                "name": "Behavior",
-                "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
-                "ty": {
-                  "tag": "Dynamic"
-                }
+                "tag": "Struct",
+                "name": "BehaviorNode",
+                "label": "Behavior Node",
+                "default_values": "{ id: (() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })(), node_type: (() => { return Symbol.for(\"BehaviorNodeId\"); })(), position: { x: 0.0, y: 0.0 } }",
+                "docs": null,
+                "fields": [
+                  {
+                    "name": "id",
+                    "label": "Id",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Reference",
+                      "name": "Identifiable",
+                      "reference": "BehaviorNode",
+                      "default_values": "(() => { \n            return Symbol.for(\"BehaviorNodeId\");\n           })()",
+                      "ty": "BehaviorNodeId"
+                    }
+                  },
+                  {
+                    "name": "node_type",
+                    "label": "Node Type",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Type",
+                      "name": "Behavior",
+                      "default_values": "(() => { return Symbol.for(\"BehaviorNodeId\"); })()",
+                      "ty": {
+                        "tag": "Dynamic"
+                      }
+                    }
+                  },
+                  {
+                    "name": "position",
+                    "label": "Position",
+                    "docs": null,
+                    "ty": {
+                      "tag": "Struct",
+                      "name": "Position",
+                      "label": "Position",
+                      "default_values": "{ x: 0.0, y: 0.0 }",
+                      "docs": null,
+                      "fields": [
+                        {
+                          "name": "x",
+                          "label": "X",
+                          "docs": null,
+                          "ty": {
+                            "tag": "Primitive",
+                            "ty": {
+                              "tag": "F32"
+                            },
+                            "default_values": "0.0"
+                          }
+                        },
+                        {
+                          "name": "y",
+                          "label": "Y",
+                          "docs": null,
+                          "ty": {
+                            "tag": "Primitive",
+                            "ty": {
+                              "tag": "F32"
+                            },
+                            "default_values": "0.0"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
-          }
-        },
-        {
-          "name": "success_threshold",
-          "label": "Success Threshold",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "USize"
-            },
-            "default_values": "0"
-          }
-        },
-        {
-          "name": "failure_threshold",
-          "label": "Failure Threshold",
-          "docs": null,
-          "ty": {
-            "tag": "Primitive",
-            "ty": {
-              "tag": "USize"
-            },
-            "default_values": "0"
           }
         }
       ]

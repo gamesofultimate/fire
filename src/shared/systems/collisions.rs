@@ -150,22 +150,20 @@ impl CollisionSystem {
     wizard_entity: Entity,
     wood_entity: Entity,
   ) {
-    let player_inventory: &mut InventoryComponent = scene
-      .query_one_mut::<&mut InventoryComponent>(wizard_entity)
-      .unwrap();
+    if let Ok(player_inventory) = scene.query_one_mut::<&mut InventoryComponent>(wizard_entity) {
+      if player_inventory.is_full() {
+        return;
+      }
 
-    if player_inventory.is_full() {
-      return;
+      player_inventory.add_wood(1);
+
+      let physics: &mut PhysicsComponent = scene
+        .query_one_mut::<&mut PhysicsComponent>(wood_entity)
+        .unwrap();
+
+      self.physics.despawn(&physics);
+      scene.remove_entity(wood_entity);
     }
-
-    player_inventory.add_wood(1);
-
-    let physics: &mut PhysicsComponent = scene
-      .query_one_mut::<&mut PhysicsComponent>(wood_entity)
-      .unwrap();
-
-    self.physics.despawn(&physics);
-    scene.remove_entity(wood_entity);
   }
 
   fn handle_wizard_enemy_collision_start(

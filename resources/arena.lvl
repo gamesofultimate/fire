@@ -235,7 +235,7 @@
               "Point": {
                 "are_shadows_soft": false,
                 "falloff": 0,
-                "intensity": 5,
+                "intensity": 10,
                 "light_size": 2,
                 "min_radius": 3,
                 "radiance": [
@@ -7739,6 +7739,36 @@
             }
           }
         ]
+      },
+      "ceee17a0-a214-41aa-9e0f-fb122c68b54c": {
+        "id": "ceee17a0-a214-41aa-9e0f-fb122c68b54c",
+        "tag": {
+          "name": "Temp"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "dc5d989d-de90-492e-8bf8-41d62883eb38"
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -7817,6 +7847,12 @@
       "b36783dc-ad72-44a8-bc97-100f3f689767": {
         "id": "b36783dc-ad72-44a8-bc97-100f3f689767",
         "source": "models/Terrain02/Terrain02.gltf",
+        "maxInstances": 10,
+        "submeshes": []
+      },
+      "dc5d989d-de90-492e-8bf8-41d62883eb38": {
+        "id": "dc5d989d-de90-492e-8bf8-41d62883eb38",
+        "source": "models/TreesGroup/TreeGroup.gltf",
         "maxInstances": 10,
         "submeshes": []
       }

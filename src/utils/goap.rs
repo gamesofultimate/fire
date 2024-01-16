@@ -100,6 +100,25 @@ impl Blackboard {
   }
 }
 
+/// Sense the world, and creates an initial set of effects to put
+/// inside of the blackboard. This helps make the creation of actions
+/// that are a bit easier to maintain.
+/// They always run, and they must modify the blackboard, if their sensor
+/// is triggered.
+/// They must not modify the world
+pub trait Sensor: Debug + Sync + Send {
+  fn name(&self) -> &'static str;
+
+  fn sense(
+    &mut self,
+    entity: Entity,
+    scene: &mut Scene,
+    backpack: &mut Backpack,
+    local: &mut Backpack,
+    blackboard: &mut Blackboard,
+  );
+}
+
 pub trait Action: Debug + Sync + Send {
   fn name(&self) -> &'static str;
 
@@ -112,7 +131,7 @@ pub trait Action: Debug + Sync + Send {
     &mut self,
     entity: Entity,
     scene: &mut Scene,
-    backpack: &Backpack,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> bool;
 
@@ -160,6 +179,7 @@ pub trait Goal: Debug + Sync + Send {
 struct PlanningNode {
   name: &'static str,
   blackboard: Blackboard,
+  cost: i32,
   action: Option<usize>,
   parent: Option<usize>,
 }
@@ -180,11 +200,18 @@ impl PartialEq for PlanningNode {
   }
 }
 
+fn put<T>(v: &mut Vec<T>, item: T) -> usize {
+  let idx = v.len();
+  v.push(item);
+  idx
+}
+
 
 #[derive(Debug)]
 pub struct Planner {
   actions: Vec<Box<dyn Action>>,
   goals: Vec<Box<dyn Goal>>,
+  sensors: Vec<Box<dyn Sensor>>,
 }
 
 impl Planner {
@@ -192,6 +219,7 @@ impl Planner {
     Self {
       actions: vec![],
       goals: vec![],
+      sensors: vec![],
     }
   }
 
@@ -203,69 +231,94 @@ impl Planner {
     self.goals.push(Box::new(goal));
   }
 
+  pub fn insert_sensor(&mut self, sensor: impl Sensor + 'static) {
+    self.sensors.push(Box::new(sensor));
+  }
+
   pub fn plan(
     &mut self,
     entity: Entity,
     scene: &mut Scene,
     backpack: &mut Backpack,
     local: &mut Backpack,
-    blackboard: &mut Blackboard,
   ) {
     //let mut goals = vec![];
     //let mut plan = vec![];
-    let mut plan = DoublePriorityQueue::new();
+    let mut plan = PriorityQueue::new();
+
+    let mut blackboard = Blackboard::new();
+
+    for sensor in &mut self.sensors {
+      sensor.sense(entity, scene, backpack, local, &mut blackboard);
+    }
 
     'goal_loop: for goal in &self.goals {
       let goal_blackboard = goal.get_goal(entity, scene, local);
 
-      let mut open_set = DoublePriorityQueue::new();
+      let mut blackboard = blackboard.clone();
+      let mut open_set = PriorityQueue::new();
       let mut closed_set = HashSet::new();
-      let mut parents = HashMap::new();
+      let mut parents = vec![];
 
-      open_set.push(PlanningNode {
+      let root = PlanningNode {
         name: "root",
         blackboard: blackboard.clone(),
+        cost: 0,
         action: None,
         parent: None,
-      }, 0);
+      };
+      let root_index = put(&mut parents, root);
+      open_set.push(root_index, 0);
 
       let mut iterations = 0;
 
-      while let Some((current_node, cost)) = open_set.pop_min() {
+      while let Some((current_index, cost)) = open_set.pop() {
+        //let current_node = &parents[current_index];
         if MAX_ITERATIONS == 0 || iterations > MAX_ITERATIONS { continue 'goal_loop; }
 
+        //log::debug!("{:?}: blackboard: {:?} -> goal: {:?}", &parents[current_index].action, &parents[current_index].blackboard, &goal_blackboard);
         // NOTE: Order matters here. goal_blackboard must come first
-        if goal_blackboard == current_node.blackboard {
-          let mut curr = current_node.action;
+        if goal_blackboard == parents[current_index].blackboard {
+          let mut curr = current_index;
+          let mut inner_plan = vec![];
 
-          while let Some(node_index) = curr {
-            let (next, cost) = parents[&node_index];
-            plan.push(node_index, cost);
-            curr = next;
+          loop {
+            //while let Some(node_index) = curr {
+            if let PlanningNode { action: Some(node_index), parent: Some(parent), cost, .. } = parents[curr] {
+              inner_plan.push((node_index, cost));
+              curr = parent;
+            } else {
+              if let Some((index, cost)) = inner_plan.pop() {
+                plan.push(index, cost);
+              }
+              continue 'goal_loop;
+            }
           }
-
-          continue 'goal_loop;
         }
 
-        if !closed_set.contains(&current_node.blackboard) {
+        if !closed_set.contains(&parents[current_index].blackboard) {
           /// NOTE: I think we can move this to the end of the for loop
           /// and avoid the clone that way
-          closed_set.insert(current_node.blackboard.clone());
+          closed_set.insert(parents[current_index].blackboard.clone());
 
           for (index, action) in self.actions.iter_mut().enumerate() {
-            if action.check_readyness(entity, scene, local, &current_node.blackboard) {
-              let mut next_blackboard = current_node.blackboard.clone();
-              let next_cost = cost + action.cost(&next_blackboard);
+            if action.check_readyness(entity, scene, local, &parents[current_index].blackboard) {
+              let mut next_blackboard = parents[current_index].blackboard.clone();
+              let next_cost = cost - action.cost(&next_blackboard);
               action.apply_effect(local, &mut next_blackboard);
 
+              //log::debug!("{:}: blackboard: {:?}", &action.name(), &next_blackboard);
+
               if !closed_set.contains(&next_blackboard) {
-                parents.insert(index, (current_node.action, next_cost));
-                open_set.push(PlanningNode {
+                let node = PlanningNode {
                   name: action.name(),
                   blackboard: next_blackboard,
+                  cost: next_cost,
                   action: Some(index),
-                  parent: current_node.action,
-                }, next_cost);
+                  parent: Some(current_index),
+                };
+                let tree_index = put(&mut parents, node);
+                open_set.push(tree_index, next_cost);
               }
             }
           }
@@ -274,17 +327,21 @@ impl Planner {
       }
     }
 
-    let mut names = vec![];
+    #[cfg(feature = "debug-goap")]
+    {
+      let mut names = vec![];
 
-    for ((index, priority)) in &plan {
-      let mut action = &mut self.actions[*index];
-      names.push((priority, action.name()));
+      for ((index, priority)) in &plan {
+        let mut action = &mut self.actions[*index];
+        names.push((priority, action.name()));
+      }
+
+      log::debug!("plan: {:?}", &names);
     }
-    log::info!("plan {:?}", &names);
 
-    if let Some((action_index, _)) = plan.pop_min() {
+    if let Some((action_index, _)) = plan.pop() {
       let mut action = &mut self.actions[action_index];
-      log::info!("executing {:}", &action.name());
+      //log::info!("executing {:}", &action.name());
       action.execute(entity, scene, backpack, local);
     }
   }

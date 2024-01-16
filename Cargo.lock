@@ -29,7 +29,7 @@ version = "0.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fcb51a0695d8f838b1ee009b3fbf66bda078cd64590202a864a8f3e8c4315c47"
 dependencies = [
- "getrandom",
+ "getrandom 0.2.10",
  "once_cell",
  "version_check",
 ]
@@ -654,8 +654,6 @@ checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
 [[package]]
 name = "engine"
 version = "0.4.29"
-source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
-checksum = "ba27ad4adf0ba47fbac37c0c29c12eeaf4a9a6274b4bf7a144edb00899a60177"
 dependencies = [
  "async-channel",
  "async-recursion",
@@ -684,16 +682,18 @@ dependencies = [
  "log",
  "nalgebra 0.32.3",
  "networking",
+ "noise",
  "num",
  "parking_lot 0.12.1",
  "parry3d 0.9.0",
- "rand",
+ "rand 0.8.5",
  "rapier3d",
  "rsl",
  "serde 1.0.188",
  "serde-wasm-bindgen",
  "serde_json",
  "tagged",
+ "thousands",
  "tokio",
  "tsify",
  "url",
@@ -707,8 +707,6 @@ dependencies = [
 [[package]]
 name = "engine_derive"
 version = "0.1.2"
-source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
-checksum = "100f0df14c272dcfca27d38ac4789907d5a4af46c073ee39358e7f8d730e5c4a"
 dependencies = [
  "proc-macro2",
  "quote 1.0.33",
@@ -931,6 +929,17 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
+version = "0.1.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8fc3cb4d91f53b50155bdcfd23f6a4c39ae1969c2ae85982b135750cccaf5fce"
+dependencies = [
+ "cfg-if 1.0.0",
+ "libc",
+ "wasi 0.9.0+wasi-snapshot-preview1",
+]
+
+[[package]]
+name = "getrandom"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "be4136b2a15dd319360be1c07d9933517ccf0be8f16bf62a3bee4f0d618df427"
@@ -938,7 +947,7 @@ dependencies = [
  "cfg-if 1.0.0",
  "js-sys",
  "libc",
- "wasi",
+ "wasi 0.11.0+wasi-snapshot-preview1",
  "wasm-bindgen",
 ]
 
@@ -1469,10 +1478,11 @@ dependencies = [
  "num_cpus",
  "parry3d 0.13.5",
  "priority-queue",
- "rand",
+ "rand 0.8.5",
  "rapier3d",
  "rgoap",
  "serde 1.0.188",
+ "slab_tree",
  "tagged",
  "tokio",
  "uuid",
@@ -1603,7 +1613,7 @@ checksum = "927a765cd3fc26206e66b296465fa9d3e5ab003e651c1b3c060e7956d96b19d2"
 dependencies = [
  "libc",
  "log",
- "wasi",
+ "wasi 0.11.0+wasi-snapshot-preview1",
  "windows-sys",
 ]
 
@@ -1725,8 +1735,6 @@ checksum = "e1bcdd74c20ad5d95aacd60ef9ba40fdf77f767051040541df557b7a9b2a2121"
 [[package]]
 name = "networking"
 version = "0.6.3"
-source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
-checksum = "6c0d07243319354ecd1ab8b223fe5c38dc192af600fee7eeaf3567682ce5879e"
 dependencies = [
  "bincode",
  "bytes",
@@ -1776,6 +1784,17 @@ dependencies = [
  "cfg-if 1.0.0",
  "libc",
  "memoffset 0.6.5",
+]
+
+[[package]]
+name = "noise"
+version = "0.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9ba869e17168793186c10ca82c7079a4ffdeac4f1a7d9e755b9491c028180e40"
+dependencies = [
+ "num-traits 0.2.16",
+ "rand 0.7.3",
+ "rand_xorshift",
 ]
 
 [[package]]
@@ -2315,13 +2334,36 @@ dependencies = [
 
 [[package]]
 name = "rand"
+version = "0.7.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a6b1679d49b24bbfe0c803429aa1874472f50d9b363131f0e89fc356b544d03"
+dependencies = [
+ "getrandom 0.1.16",
+ "libc",
+ "rand_chacha 0.2.2",
+ "rand_core 0.5.1",
+ "rand_hc",
+]
+
+[[package]]
+name = "rand"
 version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
 dependencies = [
  "libc",
- "rand_chacha",
- "rand_core",
+ "rand_chacha 0.3.1",
+ "rand_core 0.6.4",
+]
+
+[[package]]
+name = "rand_chacha"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f4c8ed856279c9737206bf725bf36935d8666ead7aa69b52be55af369d193402"
+dependencies = [
+ "ppv-lite86",
+ "rand_core 0.5.1",
 ]
 
 [[package]]
@@ -2331,7 +2373,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e6c10a63a0fa32252be49d21e7709d4d4baf8d231c2dbce1eaa8141b9b127d88"
 dependencies = [
  "ppv-lite86",
- "rand_core",
+ "rand_core 0.6.4",
+]
+
+[[package]]
+name = "rand_core"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "90bde5296fc891b0cef12a6d03ddccc162ce7b2aff54160af9338f8d40df6d19"
+dependencies = [
+ "getrandom 0.1.16",
 ]
 
 [[package]]
@@ -2340,7 +2391,25 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
- "getrandom",
+ "getrandom 0.2.10",
+]
+
+[[package]]
+name = "rand_hc"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ca3129af7b92a17112d59ad498c6f81eaf463253766b90396d39ea7a39d6613c"
+dependencies = [
+ "rand_core 0.5.1",
+]
+
+[[package]]
+name = "rand_xorshift"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "77d416b86801d23dde1aa643023b775c3a462efc0ed96443add11546cdf1dca8"
+dependencies = [
+ "rand_core 0.5.1",
 ]
 
 [[package]]
@@ -2462,9 +2531,7 @@ checksum = "e5864e7ef1a6b7bcf1d6ca3f655e65e724ed3b52546a0d0a663c991522f552ea"
 
 [[package]]
 name = "rsl"
-version = "0.2.4"
-source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
-checksum = "f7a9d13f7e7d05744e17fa3a0d02a91bbfa53f1dc7a9bc5588e187e9cd6847bb"
+version = "0.2.5"
 dependencies = [
  "convert_case 0.5.0",
  "gltf 0.15.2",
@@ -2665,6 +2732,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "slab_tree"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f9e8b45abe77b7cab703054a11973cffe164c82c5ff5e211ae5a73af5e42e39f"
+dependencies = [
+ "snowflake",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2688,6 +2764,12 @@ dependencies = [
  "wayland-cursor",
  "wayland-protocols",
 ]
+
+[[package]]
+name = "snowflake"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "27207bb65232eda1f588cf46db2fee75c0808d557f6b3cf19a75f5d6d7c94df1"
 
 [[package]]
 name = "socket2"
@@ -2858,6 +2940,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "thousands"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3bf63baf9f5039dadc247375c29eb13706706cfde997d0330d05aa63a77d8820"
+
+[[package]]
 name = "tinyvec"
 version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3009,7 +3097,7 @@ dependencies = [
  "indexmap 1.9.3",
  "pin-project",
  "pin-project-lite",
- "rand",
+ "rand 0.8.5",
  "slab",
  "tokio",
  "tokio-util",
@@ -3189,7 +3277,7 @@ version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "79daa5ed5740825c40b389c5e50312b9c86df53fccd33f281df655642b43869d"
 dependencies = [
- "getrandom",
+ "getrandom 0.2.10",
  "serde 1.0.188",
  "wasm-bindgen",
 ]
@@ -3224,6 +3312,12 @@ checksum = "bfa7760aed19e106de2c7c0b581b509f2f25d3dacaf737cb82ac61bc6d760b0e"
 dependencies = [
  "try-lock",
 ]
+
+[[package]]
+name = "wasi"
+version = "0.9.0+wasi-snapshot-preview1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cccddf32554fecc6acb585f82a32a72e28b48f8c4c1883ddfeeeaa96f7d8e519"
 
 [[package]]
 name = "wasi"
