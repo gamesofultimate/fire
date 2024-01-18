@@ -18,7 +18,7 @@ use engine::{
 use crate::shared::{follow::MayhemBehaviors, input::PlayerInput};
 
 use crate::shared::systems::{
-  collisions::CollisionSystem, item_drop::ItemDropSystem, combat::CombatSystem, goal::GoalSystem, death::DeathSystem, lifetime::LifetimeSystem,
+  collisions::CollisionSystem, item_drop::ItemDropSystem, combat::CombatSystem, goal::GoalRegistry, death::DeathSystem, lifetime::LifetimeSystem,
   player_movement::PlayerMovementSystem, spawn::SpawnSystem,
 };
 
@@ -64,11 +64,12 @@ pub async fn main(
   );
 
   runner.attach_plugin(hdr);
+  runner.attach_registry::<GoalRegistry>();
   // runner.attach_middleware::<AttackTransitions>();
   // runner.attach_middleware::<MayhemBehaviors>();
   runner.attach_system::<world::WorldSystem>();
   runner.attach_system::<PlayerMovementSystem>();
-  runner.attach_system::<GoalSystem>();
+  //runner.attach_system::<GoalSystem>();
   runner.attach_system::<CollisionSystem>();
 
   runner.attach_system::<camera::CameraSystem>();

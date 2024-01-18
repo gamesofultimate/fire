@@ -279,11 +279,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 0.5
@@ -607,11 +602,6 @@
             "StateMachineComponent": {
               "id": "f6d34fe7-0f8b-4554-b71c-72704cd724cf",
               "machine_id": "140ee8aa-7507-4d87-8323-c53405cb3bc4"
-            }
-          },
-          {
-            "FireComponent": {
-              "id": "14d8da4d-b671-47be-ae1d-44d27b81acbe"
             }
           }
         ]
@@ -5074,11 +5064,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -5155,11 +5140,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -5244,11 +5224,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -5325,11 +5300,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -5414,11 +5384,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -5495,11 +5460,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -5584,11 +5544,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -5665,11 +5620,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -5754,11 +5704,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -5835,11 +5780,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -5924,11 +5864,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6005,11 +5940,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6094,11 +6024,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6147,6 +6072,12 @@
                 ]
               }
             }
+          },
+          {
+            "GoalComponent": {
+              "id": "612659fa-e087-4f43-a81d-2a2bfc0bc6c9",
+              "planner_id": "e25f8fd8-5c0c-4525-b17f-78052a8dd690"
+            }
           }
         ]
       },
@@ -6175,11 +6106,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6264,11 +6190,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6345,11 +6266,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6434,11 +6350,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6515,11 +6426,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6604,11 +6510,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6685,11 +6586,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6774,11 +6670,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -6855,11 +6746,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -6944,11 +6830,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -7025,11 +6906,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -7114,11 +6990,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -7195,11 +7066,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -7284,11 +7150,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -7365,11 +7226,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -7454,11 +7310,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -7535,11 +7386,6 @@
         "components": [
           {
             "ModelComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
-            "GoalComponent": {
               "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
             }
           },
@@ -7624,11 +7470,6 @@
             }
           },
           {
-            "GoalComponent": {
-              "id": "23c9eaa6-eee6-4eb5-a6f3-9da9fe4135ac"
-            }
-          },
-          {
             "MovementComponent": {
               "rotation_speed": {
                 "rps": 10
@@ -7676,6 +7517,12 @@
                   0
                 ]
               }
+            }
+          },
+          {
+            "GoalComponent": {
+              "id": "10f2debe-17a7-4853-a69d-537fd57e7f31",
+              "planner_id": "e25f8fd8-5c0c-4525-b17f-78052a8dd690"
             }
           }
         ]
@@ -8029,6 +7876,135 @@
       }
     },
     "heightfields": {},
-    "behavior_tree": {}
+    "behavior_tree": {},
+    "planners": {
+      "cc53d351-2f93-4fc8-8317-8243c6c2d09a": {
+        "id": "cc53d351-2f93-4fc8-8317-8243c6c2d09a",
+        "name": "Test",
+        "goals": [
+          {
+            "AggroCharacter": {}
+          }
+        ],
+        "actions": [
+          {
+            "Chill": {
+              "max_distance": {
+                "meters": 5
+              }
+            }
+          }
+        ],
+        "sensors": [
+          {
+            "SensePlayer": {
+              "max_distance": {
+                "meters": 5
+              }
+            }
+          }
+        ]
+      },
+      "e25f8fd8-5c0c-4525-b17f-78052a8dd690": {
+        "id": "e25f8fd8-5c0c-4525-b17f-78052a8dd690",
+        "name": "Fire Monster",
+        "goals": [
+          {
+            "AggroCharacter": {}
+          },
+          {
+            "StayWarm": {}
+          }
+        ],
+        "actions": [
+          {
+            "Patrol": {}
+          },
+          {
+            "Attack": {
+              "max_distance": {
+                "meters": 5
+              }
+            }
+          },
+          {
+            "SearchForFire": {}
+          },
+          {
+            "Chill": {
+              "max_distance": {
+                "meters": 3
+              }
+            }
+          }
+        ],
+        "sensors": [
+          {
+            "SenseFire": {
+              "max_distance": {
+                "meters": 100
+              }
+            }
+          },
+          {
+            "SensePlayer": {
+              "max_distance": {
+                "meters": 50
+              }
+            }
+          }
+        ]
+      },
+      "756e44d4-33ea-4fe1-a10c-1e654151d769": {
+        "id": "756e44d4-33ea-4fe1-a10c-1e654151d769",
+        "name": "Unknown",
+        "goals": [
+          {
+            "AggroCharacter": {}
+          },
+          {
+            "StayWarm": {}
+          }
+        ],
+        "actions": [
+          {
+            "Attack": {
+              "max_distance": {
+                "meters": 5
+              }
+            }
+          },
+          {
+            "Chill": {
+              "max_distance": {
+                "meters": 5
+              }
+            }
+          },
+          {
+            "Patrol": {}
+          },
+          {
+            "SearchForFire": {}
+          }
+        ],
+        "sensors": [
+          {
+            "SensePlayer": {
+              "max_distance": {
+                "meters": 50
+              }
+            }
+          },
+          {
+            "SenseFire": {
+              "max_distance": {
+                "meters": 100
+              }
+            }
+          }
+        ]
+      }
+    }
   }
 }

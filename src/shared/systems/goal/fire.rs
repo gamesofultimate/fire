@@ -2,9 +2,11 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use std::collections::{HashMap, hash_map::Entry};
 
-use crate::utils::goap::{Sensor, Action, Goal, Planner, Blackboard};
 use engine::{
-  application::scene::{component_registry::Access, Scene, TransformComponent, UnpackEntity},
+  application::{
+    scene::{Scene, TransformComponent, UnpackEntity},
+    goap::{Sensor, Action, Goal, Planner, Blackboard},
+  },
   systems::{Backpack, Initializable, Inventory, System},
   utils::units::{Radians, Time, Meters},
   Entity,
@@ -21,8 +23,8 @@ use super::components::FireComponent;
 #[derive(Debug)]
 struct FireLocation(pub Vector3<f32>, Meters);
 
-#[derive(Debug)]
-struct SenseFire {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct SenseFire {
   max_distance: Meters,
 }
 
@@ -81,8 +83,8 @@ impl Sensor for SenseFire {
   }
 }
 
-#[derive(Debug)]
-struct StayWarm {}
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct StayWarm {}
 impl Goal for StayWarm {
   fn name() -> &'static str {
     "StayWarm"
@@ -107,8 +109,8 @@ impl StayWarm {
 }
 
 
-#[derive(Debug)]
-struct SearchForFire {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct SearchForFire {
 }
 
 impl SearchForFire {
@@ -125,6 +127,7 @@ impl Action for SearchForFire {
 
   fn cost(
     &self,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> i32 {
     3
@@ -132,7 +135,7 @@ impl Action for SearchForFire {
 
   fn apply_effect(
     &mut self,
-    backpack: &mut Backpack,
+    local: &mut Backpack,
     blackboard: &mut Blackboard,
   ) {
     blackboard.insert_bool("LocatedFire", true);
@@ -140,12 +143,10 @@ impl Action for SearchForFire {
 
   fn check_readyness(
     &mut self,
-    entity: Entity,
-    scene: &mut Scene,
-    backpack: &Backpack,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {
-    match backpack.get::<FireLocation>() {
+    match local.get::<FireLocation>() {
       Some(location) => true,
       None => false,
     }
@@ -188,8 +189,8 @@ impl Action for SearchForFire {
   }
 }
 
-#[derive(Debug)]
-struct Chill {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct Chill {
   max_distance: Meters,
 }
 
@@ -208,6 +209,7 @@ impl Action for Chill {
 
   fn cost(
     &self,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> i32 {
     3
@@ -215,12 +217,10 @@ impl Action for Chill {
 
   fn check_readyness(
     &mut self,
-    entity: Entity,
-    scene: &mut Scene,
-    backpack: &Backpack,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {
-    match (backpack.get::<FireLocation>(), blackboard.get_bool("LocatedFire")) {
+    match (local.get::<FireLocation>(), blackboard.get_bool("LocatedFire")) {
       (Some(FireLocation(_, distance)), _) if *distance < self.max_distance => true,
       (_, Some(true)) => true,
       _ => false,

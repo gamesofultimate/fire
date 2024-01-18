@@ -2,9 +2,11 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use std::collections::{HashMap, hash_map::Entry};
 
-use crate::utils::goap::{Sensor, Action, Goal, Planner, Blackboard};
 use engine::{
-  application::scene::{component_registry::Access, Scene, TransformComponent, UnpackEntity},
+  application::{
+    scene::{Scene, TransformComponent, UnpackEntity},
+    goap::{Sensor, Action, Goal, Planner, Blackboard},
+  },
   systems::{Backpack, Initializable, Inventory, System},
   utils::units::{Radians, Time, Meters},
   Entity,
@@ -19,8 +21,8 @@ use tagged::{Registerable, Schema};
 #[derive(Debug)]
 struct PlayerLocation(pub Vector3<f32>, Meters);
 
-#[derive(Debug)]
-struct SensePlayer {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct SensePlayer {
   max_distance: Meters,
 }
 
@@ -82,8 +84,8 @@ impl Sensor for SensePlayer {
   }
 }
 
-#[derive(Debug)]
-struct AggroCharacter {}
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct AggroCharacter {}
 impl Goal for AggroCharacter {
   fn name() -> &'static str {
     "AggroCharacter"
@@ -107,8 +109,8 @@ impl AggroCharacter {
   }
 }
 
-#[derive(Debug)]
-struct Patrol {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct Patrol {
 }
 
 impl Patrol {
@@ -125,6 +127,7 @@ impl Action for Patrol {
 
   fn cost(
     &self,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> i32 {
     1
@@ -132,8 +135,6 @@ impl Action for Patrol {
 
   fn check_readyness(
     &mut self,
-    entity: Entity,
-    scene: &mut Scene,
     local: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {
@@ -190,8 +191,8 @@ impl Action for Patrol {
   }
 }
 
-#[derive(Debug)]
-struct Attack {
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+pub struct Attack {
   max_distance: Meters,
 }
 
@@ -210,6 +211,7 @@ impl Action for Attack {
 
   fn cost(
     &self,
+    local: &Backpack,
     blackboard: &Blackboard,
   ) -> i32 {
     1
@@ -217,8 +219,6 @@ impl Action for Attack {
 
   fn check_readyness(
     &mut self,
-    entity: Entity,
-    scene: &mut Scene,
     local: &Backpack,
     blackboard: &Blackboard,
   ) -> bool {

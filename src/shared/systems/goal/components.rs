@@ -2,9 +2,8 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use std::collections::{HashMap, hash_map::Entry};
 
-use crate::utils::goap::{Sensor, Action, Goal, Planner, Blackboard};
 use engine::{
-  application::scene::{component_registry::Access, Scene, TransformComponent, UnpackEntity},
+  application::scene::{Scene, TransformComponent, UnpackEntity},
   systems::{Backpack, Initializable, Inventory, System},
   utils::units::{Radians, Time, Meters},
   Entity,
@@ -16,11 +15,6 @@ use engine::systems::physics::PhysicsController;
 use nalgebra::{Point3, Vector3, UnitQuaternion, Unit};
 use tagged::{Registerable, Schema};
 
-
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
-pub struct GoalComponent {
-  id: Uuid,
-}
 
 #[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
 pub struct FireComponent {
