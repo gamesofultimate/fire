@@ -235,7 +235,7 @@
               "Point": {
                 "are_shadows_soft": false,
                 "falloff": 1,
-                "intensity": 10,
+                "intensity": 20,
                 "light_size": 2,
                 "min_radius": 3,
                 "radiance": [

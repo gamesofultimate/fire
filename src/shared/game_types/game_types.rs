@@ -73,7 +73,7 @@ impl Default for EnemyState {
   }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Duplicate)]
 pub enum TargetType {
   Terrain,
   Enemy,

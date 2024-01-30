@@ -13,21 +13,20 @@ use engine::application::components::{PhysicsComponent, SelfComponent};
 use engine::systems::physics::PhysicsController;
 
 use nalgebra::{Point3, Vector3, UnitQuaternion, Unit};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct FireComponent {
   id: Uuid,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct TreeComponent {
   id: Uuid,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct FirewoodComponent {
   id: Uuid,
 }
-

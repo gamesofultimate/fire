@@ -120,14 +120,21 @@ impl PlayerMovementSystem {
       let intersection = match plane.cast_ray(&isometry, &ray, std::f32::MAX, false) {
         Some(toi) => {
           let point_in_plane = start + direction * toi;
-          Some(point_in_plane)
+          Some(MovementComponent::point3_to_vector3(point_in_plane))
         }
         None => None,
       };
 
       // In this function, we want to make the character move towards point_in_plane
       if input.left_click {
-        movement.target_point = intersection;
+        match intersection {
+          Some(point_in_plane) => {
+            movement.target_point = Some(point_in_plane);
+          }
+          None => {
+            movement.target_point = None;
+          }
+        }
       }
 
       /*
@@ -143,7 +150,7 @@ impl PlayerMovementSystem {
 
       if let Some(point_in_plane) = movement.target_point {
         let direction = point_in_plane - transform.translation;
-        let distance_to_target = direction.coords.magnitude();
+        let distance_to_target = direction.magnitude();
 
         // Define a threshold for how close the character needs to be to the target
         let close_enough_threshold = 0.1;

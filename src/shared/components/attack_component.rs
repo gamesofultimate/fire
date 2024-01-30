@@ -45,7 +45,7 @@ impl Default for AttackTypeDamage {
 }
 
 /// Manages attack values for combat system
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct AttackComponent {
   #[schema(default = "0.0")]
   pub cooldown: f32,
