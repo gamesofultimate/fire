@@ -39,7 +39,7 @@
     "debug": {
       "empty_shapes": false,
       "shadow": false,
-      "physics": true,
+      "physics": false,
       "lighting": false
     },
     "camera": {
@@ -47,7 +47,7 @@
         "radians": 0.7853982
       },
       "znear": 0.1,
-      "zfar": 2000
+      "zfar": 2003
     },
     "fxaa": {
       "enabled": true,
@@ -92,7 +92,7 @@
                   "value": 1,
                   "radians": 0
                 },
-                "intensity": 0.1,
+                "intensity": 0,
                 "radiance": [
                   1,
                   1,
@@ -107,7 +107,7 @@
               "Dynamic": {
                 "id": "33ef9457-4476-48e4-adba-c2ba616fe2e2",
                 "turbidity": 2,
-                "intensity": 0.1
+                "intensity": 0
               }
             }
           }
@@ -234,8 +234,8 @@
             "LightComponent": {
               "Point": {
                 "are_shadows_soft": false,
-                "falloff": 0,
-                "intensity": 5,
+                "falloff": 1,
+                "intensity": 10,
                 "light_size": 2,
                 "min_radius": 3,
                 "radiance": [
@@ -754,7 +754,7 @@
       "4618325f-bbf8-42e1-b760-1ceaed994083": {
         "id": "4618325f-bbf8-42e1-b760-1ceaed994083",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 2"
         },
         "transform": {
           "translation": [
@@ -840,7 +840,7 @@
       "c843eee8-1517-4dcd-8640-30fa2ebc115b": {
         "id": "c843eee8-1517-4dcd-8640-30fa2ebc115b",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 3"
         },
         "transform": {
           "translation": [
@@ -926,7 +926,7 @@
       "b8b0a5ec-9ae6-4997-9fff-1debea0ecefb": {
         "id": "b8b0a5ec-9ae6-4997-9fff-1debea0ecefb",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 4"
         },
         "transform": {
           "translation": [
@@ -1012,7 +1012,7 @@
       "18ff70b6-0e76-4705-9f87-b3b87368067a": {
         "id": "18ff70b6-0e76-4705-9f87-b3b87368067a",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 5"
         },
         "transform": {
           "translation": [
@@ -1098,7 +1098,7 @@
       "b335c388-3482-439a-926f-83f878ad2d16": {
         "id": "b335c388-3482-439a-926f-83f878ad2d16",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 6"
         },
         "transform": {
           "translation": [
@@ -1184,7 +1184,7 @@
       "c61034e6-ce8f-4128-b820-3a983a9c3983": {
         "id": "c61034e6-ce8f-4128-b820-3a983a9c3983",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 7"
         },
         "transform": {
           "translation": [
@@ -1270,7 +1270,7 @@
       "3b259725-5df3-475d-8175-b62da9bd46c2": {
         "id": "3b259725-5df3-475d-8175-b62da9bd46c2",
         "tag": {
-          "name": "Tree Group 1"
+          "name": "Tree Group 8"
         },
         "transform": {
           "translation": [
