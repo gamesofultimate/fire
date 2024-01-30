@@ -88,13 +88,13 @@ impl System for CollisionSystem {
         }
 
         CollisionEvent::Stopped(collider1, collider2, _) => {
-          let (entity1, entity2, entity1_tag, entity2_tag) =
-            self.get_entity_and_tag(scene, collider1, collider2);
-          if entity1_tag.name == "plane" && entity2_tag.name == "Wizard" {
-            self.handle_foxy_terrain_collision_stop(scene, entity2);
-          } else if entity2_tag.name == "plane" && entity1_tag.name == "Wizard" {
-            self.handle_foxy_terrain_collision_stop(scene, entity1);
-          }
+          // let (entity1, entity2, entity1_tag, entity2_tag) =
+          //   self.get_entity_and_tag(scene, collider1, collider2);
+          // if entity1_tag.name == "plane" && entity2_tag.name == "Wizard" {
+          //   self.handle_foxy_terrain_collision_stop(scene, entity2);
+          // } else if entity2_tag.name == "plane" && entity1_tag.name == "Wizard" {
+          //   self.handle_foxy_terrain_collision_stop(scene, entity1);
+          // }
         }
       }
     }
@@ -110,6 +110,7 @@ impl CollisionSystem {
     collider1: ColliderHandle,
     collider2: ColliderHandle,
   ) -> (Entity, Entity, TagComponent, TagComponent) {
+    log::info!("Getting entity and tag: {:?} {:?}", collider1, collider2);
     let entity1 = self
       .physics
       .get_entity_from_collider_handle(collider1)
@@ -132,6 +133,7 @@ impl CollisionSystem {
 
     (entity1, entity2, entity1_tag, entity2_tag)
   }
+
   fn handle_foxy_terrain_collision_start(&mut self, scene: &mut Scene, wizard_entity: Entity) {
     let mut movement: &mut MovementComponent = scene
       .query_one_mut::<&mut MovementComponent>(wizard_entity)
