@@ -1,11 +1,11 @@
 use engine::utils::units::{Mps, Rps, Seconds};
 use nalgebra::Point3;
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate, factory::Duplicate as Dup};
 use crate::shared::game_types::game_types::TargetType;
 
 /// Specifies that an entity can move with the given speeds.
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct MovementComponent {
   #[schema(default = "{ mps: 10.0}")]
   pub run_speed: Mps,

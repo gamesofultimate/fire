@@ -1,9 +1,9 @@
 use engine::utils::units::Seconds;
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
 // Manages resource values
-#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema)]
+#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema, Duplicate)]
 pub struct ResourceComponent {
   #[schema(default = "10")]
   pub available: u32,

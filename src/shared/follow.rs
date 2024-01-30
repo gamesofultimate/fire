@@ -14,9 +14,9 @@ use engine::{
 };
 use nalgebra::Vector3;
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
-#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema)]
+#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema, Duplicate)]
 pub struct Follow {
   pub children: Vec<BehaviorNode>,
   pub speed: Mps,

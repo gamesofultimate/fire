@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
 /// Manages shield values and timers
-#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema)]
+#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema, Duplicate)]
 pub struct ShieldComponent {
   pub shield: f32,
   pub max_shield: f32,

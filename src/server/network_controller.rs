@@ -171,6 +171,9 @@ impl ChannelEvents for NetworkController {
     for (id, asset) in gamefile.scene.behavior_tree {
       self.store.insert_asset(asset.id, asset);
     }
+    for (id, asset) in gamefile.scene.planners {
+      self.store.insert_asset(asset.id, asset);
+    }
 
     for (id, prefab) in gamefile.scene.prefabs {
       match prefab.tag.name.as_str() {
