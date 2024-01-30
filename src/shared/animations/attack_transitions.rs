@@ -12,6 +12,7 @@ use engine::{
 };
 
 use serde::{Deserialize, Serialize};
+use tagged::Duplicate;
 use tagged::{Registerable, Schema};
 
 pub struct AttackTransitions;
@@ -28,7 +29,7 @@ impl Middleware for AttackTransitions {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema)]
+#[derive(Debug, Clone, Serialize, Deserialize, Registerable, Schema, Duplicate)]
 pub struct AttackTypeTransition {
   pub attack_type: AttackType,
 }

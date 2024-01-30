@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, PartialEq, Eq)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, PartialEq, Eq, Duplicate)]
 pub enum AttackType {
   None,
   Light,
@@ -9,7 +9,7 @@ pub enum AttackType {
   Air,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, PartialEq, Duplicate)]
 pub struct AttackTypeDamage {
   pub attack_type: AttackType,
   pub damage_multiplier: f32,

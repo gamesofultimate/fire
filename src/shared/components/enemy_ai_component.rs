@@ -5,9 +5,9 @@ use engine::{
 };
 use nalgebra::Vector3;
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct EnemyAiComponent {
   #[serde(skip)]
   pub state: EnemyState,

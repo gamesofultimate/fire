@@ -16,14 +16,14 @@ use engine::application::components::{PhysicsComponent, SelfComponent};
 use engine::systems::physics::PhysicsController;
 
 use nalgebra::{Point3, Vector3, UnitQuaternion, Unit};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
 use super::components::FireComponent;
 
 #[derive(Debug)]
 struct FireLocation(pub Vector3<f32>, Meters);
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct SenseFire {
   max_distance: Meters,
 }
@@ -66,7 +66,7 @@ impl Sensor for SenseFire {
       );
 
       match fire_distance {
-        Some((_, current_distance)) if distance < current_distance => fire_distance = Some((transform.translation, distance)), 
+        Some((_, current_distance)) if distance < current_distance => fire_distance = Some((transform.translation, distance)),
         None => fire_distance = Some((transform.translation, distance)),
         _ => {}
       }
@@ -83,7 +83,7 @@ impl Sensor for SenseFire {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct StayWarm {}
 impl Goal for StayWarm {
   fn name() -> &'static str {
@@ -109,7 +109,7 @@ impl StayWarm {
 }
 
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct SearchForFire {
 }
 
@@ -189,7 +189,7 @@ impl Action for SearchForFire {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct Chill {
   max_distance: Meters,
 }

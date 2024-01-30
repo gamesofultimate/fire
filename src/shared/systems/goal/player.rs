@@ -16,12 +16,12 @@ use engine::application::components::{PhysicsComponent, SelfComponent};
 use engine::systems::physics::PhysicsController;
 
 use nalgebra::{Point3, Vector3, UnitQuaternion, Unit};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 
 #[derive(Debug)]
 struct PlayerLocation(pub Vector3<f32>, Meters);
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct SensePlayer {
   max_distance: Meters,
 }
@@ -65,7 +65,7 @@ impl Sensor for SensePlayer {
       );
 
       match player_distance {
-        Some((_, current_distance)) if distance < current_distance => player_distance = Some((transform.translation, distance)), 
+        Some((_, current_distance)) if distance < current_distance => player_distance = Some((transform.translation, distance)),
         None => player_distance = Some((transform.translation, distance)),
         _ => {}
       }
@@ -84,8 +84,9 @@ impl Sensor for SensePlayer {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct AggroCharacter {}
+
 impl Goal for AggroCharacter {
   fn name() -> &'static str {
     "AggroCharacter"
@@ -109,7 +110,7 @@ impl AggroCharacter {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct Patrol {
 }
 
@@ -191,7 +192,7 @@ impl Action for Patrol {
   }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct Attack {
   max_distance: Meters,
 }
@@ -251,4 +252,3 @@ impl Action for Attack {
     }
   }
 }
-

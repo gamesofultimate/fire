@@ -1,9 +1,9 @@
 use serde::{Deserialize, Serialize};
-use tagged::{Registerable, Schema};
+use tagged::{Registerable, Schema, Duplicate};
 // might need an is_active bool.
 // todo: switch radius to Meters type
 
-#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable)]
+#[derive(Debug, Clone, Serialize, Deserialize, Schema, Registerable, Duplicate)]
 pub struct SpawnComponent {
   #[schema(default = "10.0")]
   pub radius: f32,

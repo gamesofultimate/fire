@@ -1,3 +1,5 @@
+use tagged::Duplicate;
+
 /// This file contains miscellaneous helper types to keep things from getting too messy.
 
 #[derive(Debug, Eq, PartialEq, Hash)]
@@ -48,7 +50,7 @@ impl From<&str> for PrefabType {
   }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Duplicate)]
 pub enum EnemyState {
   Chasing,
   Patrolling,
